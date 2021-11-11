@@ -1,22 +1,25 @@
 {% extends "start/base.html"%}
 {%load static%}
 
-
-
 {% block hauptinhalt %}
-  <form>
-    <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
-      <label for="email" class="form-label">Email Adresse</label>
-      <input type="email" class="form-control" id="loginEmail">
-    </div>
+  <center>
+    <div class="loginWindow">
+      <form>
+        <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+          <label for="email" class="form-label">Email Adresse</label>
+          <input type="email" class="form-control" id="loginEmail">
+        </div>
   
-    <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
-      <label for="password" class="form-label">Passwort</label>
-      <input type="password" class="form-control" id="loginPasswort">
-    </div class="col-3">
+      <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+        <label for="password" class="form-label">Passwort</label>
+        <input type="password" class="form-control" id="loginPasswort">
+      </div class="col-3">
   
-    <button type="submit" class="btn btn-primary" >Anmelden</button>
-  </form>
-
+      <button type="submit" class="btn btn-primary" >Anmelden</button>
+      <p></p>
+      <button type="text" class="btn btn-primary" >Noch kein Konto? Hier registieren</button>
+    </form>
+    </div> 
+  </center> 
 
 {% endblock hauptinhalt %}
