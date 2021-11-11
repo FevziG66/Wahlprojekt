@@ -6,18 +6,18 @@
     <div class="loginWindow">
       <form>
         <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
-          <label for="email" class="form-label">Email Adresse</label>
-          <input type="email" class="form-control" id="loginEmail">
+          <label class="form-label">Email Adresse</label>
+          <input type="email" class="form-control" placeholder="test@unternehmen.de">
         </div>
   
       <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
-        <label for="password" class="form-label">Passwort</label>
-        <input type="password" class="form-control" id="loginPasswort">
+        <label class="form-label">Passwort</label>
+        <input type="password" class="form-control" placeholder="********">
       </div class="col-3">
   
-      <button type="submit" class="btn btn-primary" >Anmelden</button>
+      <button type="submit" class="btn btn-dark" >Anmelden</button>
       <p></p>
-      <button type="text" class="btn btn-primary" >Noch kein Konto? Hier registieren</button>
+      <a type="text" class="btn btn-dark" href="{% url 'start:register'%}">Noch kein Konto? Hier registieren</a>
     </form>
     </div> 
   </center> 
