@@ -7,9 +7,8 @@ urlpatterns = [
     #danach wird die "index View" geladen, die in der Datei Views.py steht
     #Die Index View gibt unsere main.html Datei zurück
     #Name ist das, was im Browser angezeigt wird unter Pfad
-    path('', views.index, name='index'),
+    path('', views.aboutUs, name='aboutUs'), 
     path('register/', views.register, name='register'),
     path('login/', views.login, name='login'),
-    path('aboutUs/', views.aboutUs, name='aboutUs'), 
     path('impressum/', views.impressum, name='impressum'), 
 ]

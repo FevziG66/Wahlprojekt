@@ -1,11 +1,10 @@
 {%load static%}
 <body style="background-image:url('{% static 'img/main.jpeg'%}'); padding: 100px 0 0 0;">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="{% url 'start:index'%}">Meine Webseite</a>
-                    <a class="nav-link" href="{% url 'start:login'%}">Login</a>
-                    <a class="nav-link" href="{% url 'start:register'%}">Registrieren</a>
-                    <a class="nav-link" href="{% url 'start:aboutUs'%}">Über uns</a>
-                    <a class="nav-link" href="{% url 'start:impressum'%}">Impressum</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="container">
+                    <a class="customizeLink" href="{% url 'start:login'%}">Login</a>
+                    <a class="customizeLink" href="{% url 'start:register'%}">Registrieren</a>
+                    <a class="customizeLink" href="{% url 'start:aboutUs'%}">Über uns</a>
+                    <a class="customizeLink" href="{% url 'start:impressum'%}">Impressum</a>
             </div>
           </nav>

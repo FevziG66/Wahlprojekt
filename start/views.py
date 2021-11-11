@@ -1,10 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 # Create your views here.
-def index(request):
-    context = {"title": "Index"}
-    return render(request, 'start/main.html', context)
-
 
 def register(request):
     context = {"title": "Account anlegen"}

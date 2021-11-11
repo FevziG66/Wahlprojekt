@@ -1,14 +1,22 @@
 {% extends "start/base.html"%}
 {%load static%}
 
-{% block hauptinhalt %}
 
-<div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
-  <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
+
+{% block hauptinhalt %}
+  <form>
+    <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+      <label for="email" class="form-label">Email Adresse</label>
+      <input type="email" class="form-control" id="loginEmail">
+    </div>
+  
+    <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+      <label for="password" class="form-label">Passwort</label>
+      <input type="password" class="form-control" id="loginPasswort">
+    </div class="col-3">
+  
+    <button type="submit" class="btn btn-primary" >Anmelden</button>
+  </form>
+
+
 {% endblock hauptinhalt %}
