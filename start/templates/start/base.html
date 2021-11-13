@@ -12,16 +12,17 @@
         
         <style>
             .navbar {
-            overflow: hidden;
+            /*overflow: hidden;*/
             position: fixed; /*Navbar fixed*/
             top: 0; /* Navbar at top */
             width: 100%; /* Full width */
             }
 
-            .customizeLink {
-              color: white;
-              text-decoration: none;
+            /*Links in Navbar werden rechts angezeigt*/
+            .navbar-nav {
+                margin-left: auto;
             }
+        
 
             .center {
 	            display: block;
@@ -46,11 +47,20 @@
             #nb {
                 float:left;
             }
+
+            #bild {
+                background-image: url("{% static "img/main.jpg" %}");
+                padding: 100px 0 0 0 ;
+                background-repeat: no-repeat;
+                background-size: auto;
+            }
         </style>
         
 
     </head>
-        <body>
+        <body id="bild">
+        <!--background-image:url('{% static 'img/main.jpeg'%}'); padding: 100px 0 0 0;-->
+            
         {%include "start/navbar.html"%}
 
         {% block hauptinhalt %}
