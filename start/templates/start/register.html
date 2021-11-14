@@ -2,26 +2,36 @@
 {%load static%}
 
 {% block hauptinhalt %}
-<center>
-  <div>
-    <form>
-      <label class="form-label">Vorname</label>
-      <input id="registerFirstName" type="text" class="form-control" placeholder="Max">
+  <center>
+    <div class="registerWindow">
+      <form>
+        <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+          <label class="form-label">Vorname</label>
+          <input id="registerFirstName" type="text" class="form-control" placeholder="Max">
+        </div>
 
-      <label class="form-label">Nachname</label>
-      <input id="registerSecondName" type="text" class="form-control" placeholder="Mustermann">
+        <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+          <label class="form-label">Nachname</label>
+          <input id="registerSecondName" type="text" class="form-control" placeholder="Mustermann">
+        </div>
 
-      <label class="form-label">Email Adresse</label>
-      <input id="registerEmail" type="email" class="form-control" placeholder="test@unternehmen.de">
+        <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+          <label class="form-label">Email Adresse</label>
+          <input id="registerEmail" type="email" class="form-control" placeholder="test@unternehmen.de">
+        </div>
 
-      <label class="form-label">Passwort</label>
-      <input id="registerPassword" type="password" class="form-control" placeholder="********">
+        <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+          <label class="form-label">Passwort</label>
+          <input id="registerPassword" type="password" class="form-control" placeholder="********">
+        </div>
 
-      <label class="form-label">Unternehmen</label>
-      <input id="registerCompanyName" type="text" class="form-control" placeholder="Test GmbH">
-      <button type="registerSubmit" class="btn btn-dark">Konto erstellen</button>
-      
-  </form>
-</div>
-</center>
+        <div class="col-2 shadow-none p-1 mb-2 bg-light rounded">
+          <label class="form-label">Unternehmen</label>
+          <input id="registerCompanyName" type="text" class="form-control" placeholder="Test GmbH">
+        </div>
+        
+        <button type="registerSubmit" class="btn btn-dark">Konto erstellen</button>
+      </form>
+    </div>
+  </center>
 {% endblock hauptinhalt %}
