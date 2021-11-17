@@ -53,18 +53,17 @@
             }
 
             #bild{
-                background-image: url("{% static "img/main.jpeg" %}");
-                margin:auto;
-                padding: 100px 0 0 0;
-                background-repeat:no-repeat;
+                background: url("{% static "img/main.jpeg" %}") no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
             }
 
         </style>
         
     </head>
         <body id="bild">
-        <!--background-image:url('{% static 'img/main.jpeg'%}'); padding: 100px 0 0 0;-->
-            
             {%include "start/navbar.html"%}
 
             {% block hauptinhalt %}
