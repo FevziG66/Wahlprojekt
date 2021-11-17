@@ -19,11 +19,14 @@
             position: fixed; /*Navbar fixed*/
             top: 0; /* Navbar at top */
             width: 100%; /* Full width */
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
             /*Links in Navbar werden rechts angezeigt*/
             .navbar-nav {
                 margin-left: auto;
+                padding: 10px;
             }
         
             /*Wenn etwas mittig dargestellt werden soll*/
@@ -34,19 +37,29 @@
             }
 
             .loginWindow {
-                margin-top: 150px;
+                margin-top: 300px;
 	            margin-left: auto;
 	            margin-right: auto;
 	            margin-bottom: 100px;
+                border: 5px solid black;	
+                background-color: #ddd;
+                padding: 30px;
+                width: 550px;
+                height: 350px;
             }
 
             .registerWindow{
-                margin-top: 150px;	
+                margin-top: 300px;
 	            margin-left: auto;
 	            margin-right: auto;
 	            margin-bottom: 100px;
+                border: 5px solid black;	
+                background-color: #ddd;
+                padding: 20px;
+                width: 500px;
+                height: 350px;
             }
-            
+
             #registerFirstName, #registerSecondName, #registerEmail, #registerPassword, #registerCompanyName{
 	            height: 35px;
 	            margin: 0 auto 20px auto;
@@ -61,24 +74,24 @@
             }
 
             .social-link {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  border-radius: 50%;
-  transition: all 0.3s;
-  font-size: 0.9rem;
-}
+                width: 30px;
+                height: 30px;
+                border: 1px solid #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #666;
+                border-radius: 50%;
+                transition: all 0.3s;
+                font-size: 0.9rem;
+                }
 
-.social-link:hover,
-.social-link:focus {
-  background: #ddd;
-  text-decoration: none;
-  color: #555;
-}
+                .social-link:hover,
+                .social-link:focus {
+                background: #ddd;
+                text-decoration: none;
+                color: #555;
+                }
         </style>
         
     </head>
