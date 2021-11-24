@@ -3,43 +3,65 @@
 
 {% block hauptinhalt %}
   
-
+<div class="container-fluid">
 <div class="sidebar">
-<!--Sidebar Erstellung-->
-<div class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark" style="width: 250px;">
-  
-<!--Überchrift mit Link, Abstand, Höhe, Farben etc.-->
-<a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg class="bi me-2" width="40" height="32"> </svg> <span class="fs-4">Navigation</span> </a>
-  
-<hr> <!--Trennlinie zwischen Überschrift und Elemente-->
-
-<!--unsortierte Liste mit Elementen für Navigation-->
-  <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item"> <a href="#" class="nav-link active" aria-current="page"> <i class="fa fa-dashboard"></i><span class="ms-2">Dashboard</span> </a> </li>
-      <li> <a href="#" class="nav-link text-white"> <i class="fa fa-arrow-down"></i><span class="ms-2">Konten</span> </a> </li>
-      <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Belege</span> </a> </li>
-      <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bars"></i><span class="ms-2">Rechnungen</span> </a> </li>
-      <li> <a href="{% url 'home:settings'%}" class="nav-link text-white"> <i class="fa fa-cog"></i><span class="ms-2">Einstellungen</span> </a> </li>
-</ul>
+    <div class="sidebar-menu">
+        <a href="#" class="nav-link active" aria-current="page"> <i class="fa fa-dashboard"></i><span class="ms-2">Dashboard</span> </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="#" class="nav-link text-white"> <i class="fa fa-arrow-down"></i><span class="ms-2">Konten</span> </a>
+    </div>
+    <div class="sidebar-menu">
+        <a href="#" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Belege</span> </a> 
+    </div>
+    <div class="sidebar-menu">
+        <a href="#" class="nav-link text-white"> <i class="fa fa-bars"></i><span class="ms-2">Rechnungen</span> </a> 
+    </div>
+    <div class="sidebar-menu">
+        <a href="{% url 'home:settings'%}" class="nav-link text-white"> <i class="fa fa-cog"></i><span class="ms-2">Einstellungen</span> </a>
+    </div>
 </div>
+</div>
+    
+<!--Sidebar Erstellung-->
+<div class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark">
+  
+    <!--Überchrift mit Link, Abstand, Höhe, Farben etc.-->
+    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"><span class="fs-4">Navigation</span> </a>
+      
+    <hr> <!--Trennlinie zwischen Überschrift und Elemente-->
+    
+    <!--unsortierte Liste mit Elementen für Navigation-->
+      <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item"> <a href="#" class="nav-link active" aria-current="page"> <i class="fa fa-dashboard"></i><span class="ms-2">Dashboard</span> </a> </li>
+          <li> <a href="#" class="nav-link text-white"> <i class="fa fa-arrow-down"></i><span class="ms-2">Konten</span> </a> </li>
+          <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Belege</span> </a> </li>
+          <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bars"></i><span class="ms-2">Rechnungen</span> </a> </li>
+          <li> <a href="{% url 'home:settings'%}" class="nav-link text-white"> <i class="fa fa-cog"></i><span class="ms-2">Einstellungen</span> </a> </li>
+    </ul>
+    </div>
+
 <main>
     <div class="dashboard-container">
-        <div class="card total1">
+        <div class="card total2">
             <div class="info">
-                test1
+                <div class="info-detal">
+                    <hr3>Einnahmen</hr3>
+                    <p>Jahr 2021</p>
+                    <h2>1500€</h2>
+                </div>
             </div>
         </div>
-        <div class="card total2">
+        <div class="card total3">
+            <div class="info">
+                test2
+            </div>
         </div>
-        
-        <div class="card total3">        </div>
-        <div class="card total4">       </div>
-
-        <div class="card detail"></div>
-        <div class="card customer"></div>
     </div>
+
 </main>
-</div>
+
+
 
     
   
