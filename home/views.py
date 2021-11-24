@@ -5,3 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 def dashboard(request):
     context = {"title": "Dashboard"}
     return render(request, 'home/dashboard.html',context)
+
+def settings(request):
+    context = {"title": "Einstellungen"}
+    return render(request, 'home/settings.html',context)
