@@ -18,6 +18,13 @@
         <!--Eigene Css Anweisungen-->
         <style>
 
+          /*Items werden rechts in der Navbar angezeigt*/
+            .navbar-nav {
+                margin-left: auto;
+            }
+
+
+
           /*Sidebar Begin*/
           .nav-link:hover { /*Hintergrundfarbe, wenn man mit der Maus auf einem Element ist*/
             background-color: #5e5b5b !important
@@ -30,6 +37,40 @@
           .nav-link:hover .fa {
             transform: rotate(360deg)
           }
+
+
+          sidebar {
+            padding: 80px 0 20px 0;
+          }
+
+
+          main {
+           min-height: 100%;
+           padding: 6rem 1rem 2rem 14rem;
+           color: #201f2b; 
+          }
+          .dashboard-container {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr 0.5fr 0. 5fr;
+              grid-template-rows: auto;
+              gap: 1rem;
+              grid-template-areas:
+                "total1 total2 total3 total4 total4"
+                "detail detail detail customer customer"
+                "detail detail detail customer customer";
+            }
+
+            .card {
+              background-color: #fff;
+              padding: 1rem;
+              border-radius: 10px;
+            }
+
+            .total1 { 
+              grid-area: total1;
+              background-color: #2d972e;
+              color: #fff;
+            }
 
           
           /*Sidebar End*/
