@@ -13,3 +13,11 @@ def settings(request):
 def profile(request):
     context = {"title": "Profil"}
     return render(request, 'home/profile.html',context)
+
+def accounts(request):
+    context = {"title": "Konten"}
+    return render(request, 'home/accounts.html',context)
+    
+def receipts(request):
+    context = {"title": "Belege"}
+    return render(request, 'home/receipts.html',context)
