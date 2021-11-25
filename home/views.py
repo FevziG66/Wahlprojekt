@@ -9,3 +9,7 @@ def dashboard(request):
 def settings(request):
     context = {"title": "Einstellungen"}
     return render(request, 'home/settings.html',context)
+
+def profile(request):
+    context = {"title": "Profil"}
+    return render(request, 'home/profile.html',context)

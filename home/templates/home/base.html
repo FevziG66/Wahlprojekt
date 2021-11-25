@@ -19,15 +19,15 @@
         <style>
 
           /*Items werden rechts in der Navbar angezeigt*/
-            .navbar-nav {
-                margin-left: auto;
-            }
-
-          /*Sidebar Begin*/
-          .nav-link:hover { /*Hintergrundfarbe, wenn man mit der Maus auf einem Element ist*/
-            background-color: #5e5b5b !important
+          .navbar-nav {
+              margin-left: auto;
           }
 
+          .navbar {
+            padding: 15px;
+          }
+          
+          /*Icon Effekte*/
           .nav-link .fa {
             transition: all 1s
           }
@@ -35,12 +35,13 @@
           .nav-link:hover .fa {
             transform: rotate(360deg)
           }
+          /*Icon Effekte*/
 
-          .navbar {
-            padding: 15px;
+          /*Sidebar Begin*/
+          .nav-link:hover { /*Hintergrundfarbe, wenn man mit der Maus auf einem Element ist*/
+            background-color: #5e5b5b !important
           }
-
-          
+        
           .sidebar {
             padding: 10px 0 20px 0;
             position: fixed;
@@ -64,48 +65,7 @@
            color: #201f2b; 
           }
 
-          .dashboard-container {
-              display: grid;
-              grid-template-columns: 1fr 1fr 1fr 0.5fr 0.5fr;
-              grid-template-rows: auto;
-              gap: 1rem;
-              grid-template-areas:
-                "total1 total2 total3 total4 total4"
-                "detail detail detail customer customer"
-                "detail detail detail customer customer";
-          }
 
-            .card {
-              background-color: #fff;
-              padding: 1rem;
-              border-radius: 10px;
-              min-width: 100% !important;
-            }
-
-            .total2 { 
-              grid-area: total2;
-              background-color: #2d972e;
-              color: #fff;
-            }
-
-            .total3 {
-              grid-area: total3;
-              background-color: darkred;
-              color: #fff;
-            }
-
-            .info {
-              display: grid;
-              grid-auto-flow: column;
-              justify-content: space-between;
-              align-items: center;
-            }
-
-
-
-
-
-          
           /*Sidebar End*/
           
         </style>

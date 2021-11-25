@@ -9,6 +9,8 @@ urlpatterns = [
     #Name ist das, was im Browser angezeigt wird unter Pfad
     path('dashboard/', views.dashboard, name='dashboard'),
     path('setttings/', views.settings, name='settings'),
+    path('profile/', views.profile, name='profile'),
+
 
 
 

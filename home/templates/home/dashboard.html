@@ -2,7 +2,8 @@
 {%load static%}
 
 {% block hauptinhalt %}
-  
+
+<!--Sidebar Beginn-->
 <div class="container-fluid">
 <div class="sidebar">
     <div class="sidebar-menu">
@@ -12,57 +13,47 @@
         <a href="#" class="nav-link text-white"> <i class="fa fa-arrow-down"></i><span class="ms-2">Konten</span> </a>
     </div>
     <div class="sidebar-menu">
-        <a href="#" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Belege</span> </a> 
+        <a href="#" class="nav-link text-white"> <i class="fa fa-receipt"></i><span class="ms-2">Belege</span> </a> 
     </div>
     <div class="sidebar-menu">
-        <a href="#" class="nav-link text-white"> <i class="fa fa-bars"></i><span class="ms-2">Rechnungen</span> </a> 
+        <a href="#" class="nav-link text-white"> <i class="fa fa-file-invoice-dollar"></i><span class="ms-2">Rechnungen</span> </a> 
     </div>
     <div class="sidebar-menu">
-        <a href="{% url 'home:settings'%}" class="nav-link text-white"> <i class="fa fa-cog"></i><span class="ms-2">Einstellungen</span> </a>
+        <a href="{% url 'home:settings'%}" class="nav-link text-white"> <i class="fa fa-chart-line"></i><span class="ms-2">Analyse</span> </a>
     </div>
 </div>
 </div>
-    
-<!--Sidebar Erstellung-->
-<div class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark">
-  
-    <!--Überchrift mit Link, Abstand, Höhe, Farben etc.-->
-    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"><span class="fs-4">Navigation</span> </a>
-      
-    <hr> <!--Trennlinie zwischen Überschrift und Elemente-->
-    
-    <!--unsortierte Liste mit Elementen für Navigation-->
-      <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item"> <a href="#" class="nav-link active" aria-current="page"> <i class="fa fa-dashboard"></i><span class="ms-2">Dashboard</span> </a> </li>
-          <li> <a href="#" class="nav-link text-white"> <i class="fa fa-arrow-down"></i><span class="ms-2">Konten</span> </a> </li>
-          <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2">Belege</span> </a> </li>
-          <li> <a href="#" class="nav-link text-white"> <i class="fa fa-bars"></i><span class="ms-2">Rechnungen</span> </a> </li>
-          <li> <a href="{% url 'home:settings'%}" class="nav-link text-white"> <i class="fa fa-cog"></i><span class="ms-2">Einstellungen</span> </a> </li>
-    </ul>
-    </div>
-
+<!--Sidebar Ende-->
 <main>
-    <div class="dashboard-container">
-        <div class="card total2">
-            <div class="info">
-                <div class="info-detal">
-                    <hr3>Einnahmen</hr3>
-                    <p>Jahr 2021</p>
-                    <h2>1500€</h2>
-                </div>
+    <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Einnahmen</h5>
+              <p class="card-text">32500 €</p>
+              <a href="#" class="btn btn-primary">Übersicht</a>
             </div>
+          </div>
         </div>
-        <div class="card total3">
-            <div class="info">
-                test2
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Ausgaben</h5>
+              <p class="card-text">17351 €</p>
+              <a href="#" class="btn btn-primary">Übersicht</a>
             </div>
+          </div>
         </div>
-    </div>
-
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Umsatz</h5>
+              <p class="card-text">15239 €</p>
+            </div>
+          </div>
+        </div>
+      </div>
 </main>
 
 
-
-    
-  
-     {% endblock hauptinhalt %}
+{% endblock hauptinhalt %}
