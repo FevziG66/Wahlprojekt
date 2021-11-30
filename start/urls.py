@@ -12,5 +12,7 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('impressum/', views.impressum, name='impressum'),
     path('forgotPassword/', views.forgotPassword, name='forgotPassword'),
+    path('emailSend/', views.emailSend, name='emailSend'),
     path('resetPassword/', views.resetPassword, name='resetPassword'),
+    path('resetPasswordDone/', views.resetPasswordDone, name='resetPasswordDone'),
 ]
