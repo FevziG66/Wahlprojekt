@@ -2,56 +2,65 @@
 {%load static%}
 
 {% block hauptinhalt %}
-  
-<div class="card-deck">
-    <div class="row">
-      <div class="card" style="width:400px">
-        <div class="card-body">
-          <h5 class="card-title">Währung auswählen</h5>  
-          <input type="checkbox" id="subscribeNews" name="subscribe">
-          <label>Euro</label>
+<div class="col py-5">
+  <div class="row">
+  <div class="col">
+  </div>
+  <div class="col-6">
+  <h1>Einstellungen</h1>
+  <p></p>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        
+        <div class="col-sm-4">
+          <h5 class="card-title"> <i class="bi bi-currency-exchange"></i> Währung auswählen</h5> 
+        </div>
+        <div class="col-sm-4">
+          <i class="bi bi-currency-euro"></i>
+          <input type="checkbox" id="subscribeNews" name="subscribe" value="Euro">
+          <i class="bi bi-currency-dollar"></i>
           <input type="checkbox" id="subscribeNews" name="subscribe" value="Dollar">
-          <label>Dollar</label>
+          <i class="bi bi-currency-pound"></i>
           <input type="checkbox" id="subscribeNews" name="subscribe" value="Pound">
-          <label>Pound</label>
-          <p></p>
-          <p><a href="#" class="btn btn-primary"> Speichern</a></p>
         </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="card" style="width:400px">
-        <div class="card-body"">
-          <h5 class="card-title">Kontakte</h5>
-          <a href="#" class="btn btn-primary">Bearbeiten</a>
+        <div class="col-sm-4">
+          <a href="#" class="btn btn-dark"> Speichern</a>
         </div>
-      </div>
-    </div>
-
-    <div class="row">        
-      <div class="card" style="width:400px">
-        <div class="card-body">
-          <h5 class="card-title">Bankdaten</h5>
-          <a href="#" class="btn btn-primary">Bearbeiten</a>
-        </div>
-      </div>
-    </div>
-        
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Passwort</h5>
-        <a href="#" class="btn btn-primary">Ändern</a>
-      </div>
-    </div>
-        
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Account löschen</h5>
-        <a href="#" class="btn btn-primary">Löschen</a>
       </div>
     </div>
   </div>
+  <p></p>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title" > <i class="bi bi-people-fill"></i> Kontakte</h5>
+      <a href="#" class="btn btn-dark">Bearbeiten</a>
+    </div>
+  </div>
+  <p></p>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"> <i class="bi bi-bank"></i> Bankdaten</h5>
+      <a href="#" class="btn btn-dark">Bearbeiten</a>
+    </div>
+  </div>
+  <p></p>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"> <i class="bi bi-lock-fill"></i> Passwort</h5>
+      <a href="#" class="btn btn-dark">Ändern</a>
+    </div>
+  </div>
+  <p></p>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"> <i class="bi bi-person-x"></i> Account löschen</h5>
+      <a href="#" class="btn btn-dark">Löschen</a>
+    </div>
+  </div>
 </div>
-
+<div class="col">
+</div>
+</div>
+</div>
 {% endblock hauptinhalt %}
