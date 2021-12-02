@@ -1,0 +1,50 @@
+{% extends "home/base.html"%}
+{%load static%}
+
+{% block hauptinhalt %}
+<div class="col py-3">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Konto löschen</h1>
+            <p></p>
+            <h4>Du möchtest dein Konto unwiederruflich löschen? Gib zur Sicherheit bitte dein Passwort ein.</h4>
+        </div>
+    </div>
+
+    
+    <div class="container px-5 py-5" >
+        <form class="form-inline">
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="inputEmail4">Passwort</label>
+                <p></p>
+                <input type="password" class="form-control" id="#" placeholder="********">
+            </div>
+        </div>
+        
+        <p></p>
+            
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="inputEmail4">Passwort wiederholen</label>
+                <p></p>
+                <input type="password" class="form-control" id="#" placeholder="********">
+            </div>
+        </div>
+        <p></p>
+        </form>
+        <br />
+      
+
+<div class="col py-3">
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-danger" style="margin-right: 55px ;">Löschen</button>
+            <a href="{% url 'edit:settings'%}" class="btn btn-primary">Zurück</a>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+{% endblock hauptinhalt %}

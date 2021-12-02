@@ -9,19 +9,22 @@
           <label class="form-label">Email Adresse</label>
           <input type="email" class="form-control" placeholder="test@unternehmen.de">
         </div>
-      <div class="col-9 shadow-none p-1 mb-2  rounded">
-        <label class="form-label">Passwort</label>
-        <input type="password" class="form-control" placeholder="********">
-      </div class="col-3">
-      <p></p>
-      <!--<button retype="submit" class="btn btn-dark" >Anmelden</button>-->
-      <a type="text" class="btn btn-dark" href="{% url 'home:dashboard'%}">Anmelden</a>
-
-      <a href="{% url 'start:forgotPassword'%}">Passwort vergessen?</a>
-      <p></p>
       
-      <a type="text" class="btn btn-dark" href="{% url 'start:register'%}">Noch kein Konto? Hier registieren</a>
-    </form>
+        <div class="col-9 shadow-none p-1 mb-2  rounded">
+          <label class="form-label">Passwort</label>
+          <input type="password" class="form-control" placeholder="********">
+        </div class="col-3">
+      
+        <p></p>
+        
+        <!--<button retype="submit" class="btn btn-dark" >Anmelden</button>-->
+        <a type="text" class="btn btn-dark" href="{% url 'home:dashboard'%}">Anmelden</a>
+
+        <a href="{% url 'start:forgotPassword'%}">Passwort vergessen?</a>
+        <p></p>
+      
+        <a type="text" class="btn btn-dark" href="{% url 'start:register'%}">Noch kein Konto? Hier registieren</a>
+      </form>
     </div> 
   </center> 
 {% endblock hauptinhalt %}

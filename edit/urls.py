@@ -8,4 +8,8 @@ urlpatterns = [
     #Die Index View gibt unsere main.html Datei zurück
     #Name ist das, was im Browser angezeigt wird unter Pfad
     path('setttings/', views.settings, name='settings'),
+    path('editBankData/', views.editBankData, name='editBankData'),
+    path('deleteAccount/', views.deleteAccount, name='deleteAccount'),
+    path('editReceipts/', views.editReceipts, name='editReceipts'),
+    path('editContacts/', views.editContacts, name='editContacts'),
 ]

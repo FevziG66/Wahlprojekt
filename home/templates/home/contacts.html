@@ -2,30 +2,30 @@
 {%load static%}
 
 {% block hauptinhalt %}
-    <div class="col py-3">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
+<div class="col py-3">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
-                    <th>Belegnummer</th>
-                    <th>Belegdatum</th>
-                    <th>Zahlart</th>
-                    <th>Fälligkeit</th>
-                    <th>Betrag</th>
-                    <th>Beschreibung</th>
+                    <th>Nr.</th>
+                    <th>Firma</th>
+                    <th>Ansprechpartner</th>
+                    <th>Adresse</th>
+                    <th>Telefonnummer</th>
+                    <th>Email</th>
                 </tr>
             </thead>
         
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>Musterfirma 1</td>
+                    <td>Max Mustermann</td>
+                    <td>Musterstraße 1, Musterort</td>
+                    <td>01573463242</td>
+                    <td>muster@gmail.com</td>
                 </tr>
-                
+            
                 <tr>
                     <td>2</td>
                     <td></td>
@@ -44,9 +44,9 @@
                     <td></td>
                 </tr>
             </tbody>
-            </table>
-        </div>
-        
-        <a href="{% url 'edit:editReceipts'%}" class="btn btn-primary">Beleg hinzufügen</a>
+        </table>
     </div>
+
+    <a href="{% url 'edit:editContacts'%}" class="btn btn-primary">Kontakt hinzufügen</a>
+</div>
 {% endblock hauptinhalt %}

@@ -17,3 +17,7 @@ def accounts(request):
 def receipts(request):
     context = {"title": "Belege"}
     return render(request, 'home/receipts.html',context)
+
+def contacts(request):
+    context = {"title": "Kontake"}
+    return render(request, 'home/contacts.html',context)

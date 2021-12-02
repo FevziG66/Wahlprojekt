@@ -25,7 +25,7 @@
           <input type="checkbox" id="subscribeNews" name="subscribe" value="Pound">
         </div>
         <div class="col-sm-4">
-          <a href="#" class="btn btn-dark"> Speichern</a>
+          <a href="#" class="btn btn-primary"> Speichern</a>
         </div>
       </div>
     </div>
@@ -34,28 +34,28 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title" > <i class="bi bi-people-fill"></i> Kontakte</h5>
-      <a href="#" class="btn btn-dark">Bearbeiten</a>
+      <a href="{% url 'home:contacts'%}" class="btn btn-primary">Bearbeiten</a>
     </div>
   </div>
   <p></p>
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"> <i class="bi bi-bank"></i> Bankdaten</h5>
-      <a href="#" class="btn btn-dark">Bearbeiten</a>
+      <a href="{% url 'edit:editBankData'%}" class="btn btn-primary">Bearbeiten</a>
     </div>
   </div>
   <p></p>
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"> <i class="bi bi-lock-fill"></i> Passwort</h5>
-      <a href="#" class="btn btn-dark">Ändern</a>
+      <a href="#" class="btn btn-primary">Ändern</a>
     </div>
   </div>
   <p></p>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title"> <i class="bi bi-person-x"></i> Account löschen</h5>
-      <a href="#" class="btn btn-dark">Löschen</a>
+      <h5 class="card-title"> <i class="bi bi-person-x"></i> Konto löschen</h5>
+      <a href="{% url 'edit:deleteAccount'%}" class="btn btn-primary">zum Löschen</a>
     </div>
   </div>
 </div>

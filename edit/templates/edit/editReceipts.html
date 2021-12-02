@@ -1,0 +1,69 @@
+{% extends "home/base.html"%}
+{%load static%}
+
+{% block hauptinhalt %}
+<div class="col py-3">
+    <div class="row">
+        <center><div class="col-sm-12">
+            <h1>Belege Hochladen</h1>
+            <p><img src="https://www.iconninja.com/files/154/371/776/upload-icon.png" alt="Upload" width="120px"> </p>
+            <p><form enctype="multipart/form-data"> <input name="Datei" type="file" accept="text/*" /> </form></p>
+        </div></center>
+    </div>
+
+    
+    <div class="container px-5 py-5" >
+        <form class="form-inline">
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="inputEmail4">Belegnummer</label>
+                <p></p>
+                <input type="number" class="form-control" id="inputEmail4" placeholder="Belegnummer">
+            </div>
+            
+            <div class="col-sm-6">
+                <label for="inputPassword4">Belegdatum</label>
+                <p></p>
+                <input type="date" class="form-control" id="inputPassword4" placeholder="Belegdatum">
+            </div>
+        </div>
+        <p></p>
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="inputAddress">Zahlart</label>
+                <p></p>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Zahlart">
+            </div>
+            <div class="col-sm-6">
+                <label for="inputAddress2">Fälligkeit</label>
+                <p></p>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Fälligkeit">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="inputCity">Betrag</label>
+                <p></p>
+                <input type="number" class="form-control" id="inputCity" placeholder="Betrag">
+            </div>
+            <div class="col-sm-8">
+                <label for="inputCity">Beschreibung</label>
+                <p></p>
+                <input type="text" class="form-control" id="inputCity" placeholder="Fälligkeit">
+            </div>
+        </div>
+        </form>
+        <br />
+      
+    <div class="col py-3">
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="{% url 'home:receipts'%}" class="btn btn-primary">Speichern</a>
+                <a href="{% url 'home:dashboard'%}" class="btn btn-primary">Zurück zum Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock hauptinhalt %}
