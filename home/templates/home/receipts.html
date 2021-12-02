@@ -3,6 +3,63 @@
 
 {% block hauptinhalt %}
     <div class="col py-3">
+        <h1>Belege</h1>
+        <p></p>
+        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Bearbeiten</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" method="POST">
+                    <div class="modal-body">
+                        <input type="hidden" name="update_id" id="update_id">
+                        <br />
+                        <div class="form-group">
+                            <label> Belegnummer </label>
+                            <p></p>
+                            <input type="text" name="belegnr" id="belegnr" class="form-control" placeholder="Eingabe">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label> Belegdatum </label>
+                            <p></p>
+                            <input type="text" name="belegdatum" id="belegdatum" class="form-control" placeholder="Eingabe">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label> Zahlart </label>
+                            <p></p>
+                            <input type="text" name="zahlart" id="zahlart" class="form-control" placeholder="Eingabe">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label> Fälligkeit </label>
+                            <p></p>
+                            <input type="text" name="faellig" id="faellig" class="form-control" placeholder="Eingabe">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label> Betrag </label>
+                            <p></p>
+                            <input type="text" name="betrag" id="betrag" class="form-control" placeholder="Eingabe">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label> Beschreibung </label>
+                            <p></p>
+                            <input type="text" name="beschreibung" id="beschreibung" class="form-control" placeholder="Eingabe">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" name="updatedata" class="btn btn-primary">Speichern</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped">
             <thead>
@@ -13,6 +70,7 @@
                     <th>Fälligkeit</th>
                     <th>Betrag</th>
                     <th>Beschreibung</th>
+                    <th>Bearbeiten</th>	
                 </tr>
             </thead>
         
@@ -24,6 +82,8 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <form method="POST">
+                    <td><button type="button" class="btn btn-success editbtn">Bearbeiten</button></td>
                 </tr>
                 
                 <tr>
@@ -33,10 +93,12 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
             
                 <tr>
                     <td>3</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

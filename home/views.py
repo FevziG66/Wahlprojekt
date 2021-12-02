@@ -19,5 +19,13 @@ def receipts(request):
     return render(request, 'home/receipts.html',context)
 
 def contacts(request):
-    context = {"title": "Kontake"}
+    context = {"title": "Kontakte"}
     return render(request, 'home/contacts.html',context)
+
+def bills(request):
+    context = {"title": "Rechnungen"}
+    return render(request, 'home/bills.html',context)
+
+def todo(request):
+    context = {"title": "To-Do-Liste"}
+    return render(request, 'home/todo.html',context)

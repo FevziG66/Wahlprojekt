@@ -3,154 +3,325 @@
 
 {% block hauptinhalt %}     
 <div class="col py-3">
-  <div class="row">
-      <div class="col-sm-4">
-          <div class="card">
-              <div class="card-body" style="color: forestgreen;">
-              <h5 class="card-title">Einnahmen</h5>
-              <p class="card-text">32500 €</p>
-              <a href="#" class="btn btn-primary">Übersicht</a>
-          </div>
-      </div>
-  </div>
-
-  <div class="col-sm-4">
-      <div class="card">
-          <div class="card-body" style="color: darkred;">
-              <h5 class="card-title">Ausgaben</h5>
-              <p class="card-text">17351 €</p>
-              <a href="#" class="btn btn-primary">Übersicht</a>
-          </div>
-      </div>
-  </div>
-        
-  <div class="col-sm-4">
-      <div class="card">
-          <div class="card-body">
-              <h5 class="card-title">Umsatz</h5>
-              <p class="card-text">15239 €</p>
-          </div>
-      </div>
-  </div>
-      
-  </div>
+   <div class="row">
+      <h1>Dashboard</h1>
       <p></p>
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover table-success table-striped">	
-            <thead>
-                <tr>
-                    <th scope="col">Einnahmen</th>
-                    <th scope="col">Januar</th>
-                    <th scope="col">Februar</th>
-                    <th scope="col">März</th>
-                    <th scope="col">April</th>
-                    <th scope="col">Mai</th>
-                    <th scope="col">Juni</th>
-                    <th scope="col">Juli</th>
-                    <th scope="col">August</th>
-                    <th scope="col">September</th>
-                    <th scope="col">Oktober</th>
-                    <th scope="col">November</th>
-                    <th scope="col">Dezember</th>
-                    <th scope="col">Jahresbilanz</th>
-                </tr>
-            </thead>
-       
-            <tbody>
-                <tr>
-                    <th scope="col">Verkäufe</th>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td> 
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="col">Sonstige Erträge 1</th>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="col">Sonstige Erträge 2</th>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="col">Sonstige Erträge 3</th>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <p></p>
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover table-danger table-striped">		
-            <thead>
-                <tr>
-                    <th scope="col">Ausgaben</th>
-                    <th scope="col">Januar</th>
-                    <th scope="col">Februar</th>
-                    <th scope="col">März</th>
-                    <th scope="col">April</th>
-                    <th scope="col">Mai</th>
-                    <th scope="col">Juni</th>
-                    <th scope="col">Juli</th>
-                    <th scope="col">August</th>
-                    <th scope="col">September</th>
-                    <th scope="col">Oktober</th>
-                    <th scope="col">November</th>
-                    <th scope="col">Dezember</th>
-                    <th scope="col">Jahresbilanz</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="col">Löhne & Gehälter</th>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="col">Miete</th>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="col">Abschreibung</th>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="col">Büromaterial</th>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td> <td></td> <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+      <div class="col-sm-4">
+         <div class="card">
+            <div class="card-body" style="color: forestgreen;">
+               <h5 class="card-title">Einnahmen</h5>
+               <p class="card-text">32500 €</p>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-4">
+         <div class="card">
+            <div class="card-body" style="color: darkred;">
+               <h5 class="card-title">Ausgaben</h5>
+               <p class="card-text">17351 €</p>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-4">
+         <div class="card">
+            <div class="card-body">
+               <h5 class="card-title">Umsatz</h5>
+               <p class="card-text">15239 €</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <p></p>
+   <div class="table-responsive">
+      <table class="table table-bordered table-hover table-success table-striped">
+         <thead>
+            <tr>
+               <th scope="col">Einnahmen</th>
+               <th scope="col">Januar</th>
+               <th scope="col">Februar</th>
+               <th scope="col">März</th>
+               <th scope="col">April</th>
+               <th scope="col">Mai</th>
+               <th scope="col">Juni</th>
+               <th scope="col">Juli</th>
+               <th scope="col">August</th>
+               <th scope="col">September</th>
+               <th scope="col">Oktober</th>
+               <th scope="col">November</th>
+               <th scope="col">Dezember</th>
+               <th scope="col">Jahresbilanz</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th scope="col">Verkäufe</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">Sonstige Erträge 1</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">Sonstige Erträge 2</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">Sonstige Erträge 3</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <p></p>
+   <div class="table-responsive">
+      <table class="table table-bordered table-hover table-danger table-striped">
+         <thead>
+            <tr>
+               <th scope="col">Ausgaben</th>
+               <th scope="col">Januar</th>
+               <th scope="col">Februar</th>
+               <th scope="col">März</th>
+               <th scope="col">April</th>
+               <th scope="col">Mai</th>
+               <th scope="col">Juni</th>
+               <th scope="col">Juli</th>
+               <th scope="col">August</th>
+               <th scope="col">September</th>
+               <th scope="col">Oktober</th>
+               <th scope="col">November</th>
+               <th scope="col">Dezember</th>
+               <th scope="col">Jahresbilanz</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th scope="col">Löhne & Gehälter</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">Miete</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">Abschreibung</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">Büromaterial</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <p>
+   </p>
+   <div class="row">
+      <div class="col-sm-4">
+         <div class="card h-100">
+            <div class="card-body">
+               <h5 class="card-title">Kontostand</h5>
+               <p class="card-text">132500 €</p>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-4">
+         <div class="card h-100">
+            <div class="card-body">
+               <h5 class="card-title">Kleinunternehmergrenze</h5>
+               <p class="card-text">150000€</p>
+            </div>
+         </div>
+      </div>
+      <div class="col-sm-4" id="todo">
+         <div class="card-hover-shadow-2x mb-3 card h-100">
+            <div class="card-header-tab card-header">
+               <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i class="fa fa-tasks"></i>&nbsp;To-Do-Liste</div>
+            </div>
+            <div class="scroll-area-sm">
+               <perfect-scrollbar class="ps-show-limits">
+                  <div style="position: static;" class="ps ps--active-y">
+                     <div class="ps-content">
+                        <ul class=" list-group list-group-flush">
+                           <li class="list-group-item">
+                              <div class="todo-indicator bg-warning"></div>
+                              <div class="widget-content p-0">
+                                 <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                       <div class="widget-heading">Herr X anrufen</div>
+                                       <div class="widget-subheading"><i></i></div>
+                                    </div>
+                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="list-group-item">
+                              <div class="todo-indicator bg-focus"></div>
+                              <div class="widget-content p-0">
+                                 <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                       <div class="widget-heading">Rechnung Nummer 2 bezahlen.</div>
+                                       <div class="widget-subheading">
+                                       </div>
+                                    </div>
+                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="list-group-item">
+                              <div class="todo-indicator bg-primary"></div>
+                              <div class="widget-content p-0">
+                                 <div class="widget-content-wrapper">
+                                    <div class="widget-content-left flex2">
+                                       <div class="widget-heading">Geld an Kunde Y überweisen.</div>
+                                       <div class="widget-subheading"></div>
+                                    </div>
+                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="list-group-item">
+                              <div class="todo-indicator bg-info"></div>
+                              <div class="widget-content p-0">
+                                 <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                       <div class="widget-heading">Bei der Bank anrufen.</div>
+                                       <div class="widget-subheading"></div>
+                                    </div>
+                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="list-group-item">
+                              <div class="todo-indicator bg-success"></div>
+                              <div class="widget-content p-0">
+                                 <div class="widget-content-wrapper">
+                                    <div class="widget-content-left flex2">
+                                       <div class="widget-heading">Rechnung Nummer 4 begleichen.</div>
+                                       <div class="widget-subheading"></div>
+                                    </div>
+                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
+                                 </div>
+                              </div>
+                           </li>
+                           <li class="list-group-item">
+                            <div class="todo-indicator bg-success"></div>
+                            <div class="widget-content p-0">
+                               <div class="widget-content-wrapper">
+                                  <div class="widget-content-left flex2">
+                                     <div class="widget-heading">Rechnung Nummer 4 begleichen.</div>
+                                     <div class="widget-subheading"></div>
+                                  </div>
+                                  <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
+                               </div>
+                            </div>
+                         </li>
+                        </ul>
+                     </div>
+                  </div>
+               </perfect-scrollbar>
+            </div>
+            <center><button class="btn btn-primary" style="width: 150px;">Hinzufügen</button></center>
+         </div>
+         
+      </div>
+   </div>
 </div>
-
 <script>
 
 </script>
