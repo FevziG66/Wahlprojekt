@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'start',
-    'home'
+    'home',
+    'edit'
     #eigene Apps müssen zum Anzeigen im Browser hier hinterlegt werden
 ]
 

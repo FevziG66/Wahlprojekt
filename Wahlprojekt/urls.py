@@ -25,5 +25,6 @@ urlpatterns = [
     #Alle urls aus unserer App start werden eingebunden
     path('', include('start.urls')),
     path('', include('home.urls')),
+    path('', include('edit.urls')),
 
 ]
