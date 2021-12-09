@@ -21,3 +21,7 @@ def editReceipts(request):
 def editContacts(request):
     context = {"title": "Kontakte bearbeiten"}
     return render(request, 'edit/editContacts.html',context)
+
+def editPassword(request):
+    context = {"title": "Kontakte bearbeiten"}
+    return render(request, 'edit/editPassword.html',context)

@@ -25,7 +25,3 @@ def contacts(request):
 def bills(request):
     context = {"title": "Rechnungen"}
     return render(request, 'home/bills.html',context)
-
-def todo(request):
-    context = {"title": "To-Do-Liste"}
-    return render(request, 'home/todo.html',context)
