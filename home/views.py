@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from edit.models import receipt
+from home.forms import ReceiptForm
 # Create your views here.
 
 def dashboard(request):
@@ -15,7 +17,17 @@ def accounts(request):
     return render(request, 'home/accounts.html',context)
     
 def receipts(request):
-    context = {"title": "Belege"}
+    if request.method == "POST":
+        print('ja')
+    else: 
+        all_receipts = receipt.objects.all()
+        all_receipts_dict = {
+            'receipt': all_receipts
+        }
+        # context = {
+        #     'all_receipts_dict':all_receipts
+        # }
+    context = {"title": "Belege","all_receipts_dict": all_receipts_dict}
     return render(request, 'home/receipts.html',context)
 
 def contacts(request):

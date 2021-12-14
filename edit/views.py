@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from edit.forms import ReceiptForm
 # Create your views here.
 
 def settings(request):
@@ -15,7 +16,15 @@ def deleteAccount(request):
     return render(request, 'edit/deleteAccount.html',context)
 
 def editReceipts(request):
-    context = {"title": "Beleg bearbeiten"}
+    if request.method == 'POST':
+        form = ReceiptForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ReceiptForm()
+
+    
+    context = {"title": "Beleg hinzufügen","form": form}
     return render(request, 'edit/editReceipts.html',context)
 
 def editContacts(request):
