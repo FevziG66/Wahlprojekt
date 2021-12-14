@@ -1,0 +1,63 @@
+{% extends "home/base.html"%}
+{%load static%}
+
+{% block hauptinhalt %}
+<div class="col py-5">
+   <div class="row">
+      <div class="col">
+      </div>
+      <div class="col-6">
+         <h1>Einstellungen</h1>
+         <p></p>
+         <div class="card">
+            <div class="card-body">
+               <div class="row">
+                  <div class="col-sm-4">
+                     <h5 class="card-title"> <i class="bi bi-currency-exchange"></i> Währung auswählen</h5>
+                  </div>
+                  <div class="col-sm-4">
+                     <i class="bi bi-currency-euro"></i>
+                     <input type="checkbox" id="subscribeNews" name="subscribe" value="Euro">
+                     <i class="bi bi-currency-dollar"></i>
+                     <input type="checkbox" id="subscribeNews" name="subscribe" value="Dollar">
+                     <i class="bi bi-currency-pound"></i>
+                     <input type="checkbox" id="subscribeNews" name="subscribe" value="Pound">
+                  </div>
+                  <div class="col-sm-4">
+                     <a href="#" class="btn btn-primary" id = "a" > Speichern</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <p></p>
+         <div class="card">
+            <div class="card-body">
+               <h5 class="card-title" > <i class="bi bi-people-fill"></i> Kontakte <a href="{% url 'home:contacts'%}" class="btn btn-primary" id = "a">Bearbeiten</a></h5> 
+            </div>
+         </div>
+         <p></p>
+         <div class="card">
+            <div class="card-body">
+               <h5 class="card-title"> <i class="bi bi-bank"></i> Bankdaten <a href="{% url 'edit:editBankData'%}" class="btn btn-primary" id = "a" >Bearbeiten</a></h5>
+               
+            </div>
+         </div>
+         <p></p>
+         <div class="card">
+            <div class="card-body">
+               <h5 class="card-title"> <i class="bi bi-lock-fill"></i> Passwort <a href="{% url 'edit:editPassword'%}" class="btn btn-primary" id = "a" >Ändern</a></h5>
+               
+            </div>
+         </div>
+         <p></p>
+         <div class="card">
+            <div class="card-body">
+               <h5 class="card-title"> <i class="bi bi-person-x"></i> Konto löschen <a href="{% url 'edit:deleteAccount'%}" class="btn btn-primary" id = "a">Löschen</a></h5>
+               
+            </div>
+         </div>
+      </div>
+      <div class="col"></div>
+   </div>
+</div>
+{% endblock hauptinhalt %}

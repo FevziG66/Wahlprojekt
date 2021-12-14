@@ -17,3 +17,19 @@ def aboutUs(request):
 def impressum(request):
     context = {"title": "Impressum"}
     return render(request, 'start/impressum.html',context)
+
+def forgotPassword(request):
+    context = {"title": "Passwort vergessen"}
+    return render(request, 'start/forgotPassword.html',context)
+
+def emailSend(request):
+    context = {"title": "Passwort zurücksetzen"}
+    return render(request, 'start/emailSend.html',context)
+
+def resetPassword(request):
+    context = {"title": "Passwort zurücksetzen"}
+    return render(request, 'start/resetPassword.html',context)
+
+def resetPasswordDone(request):
+    context = {"title": "Passwort geändert"}
+    return render(request, 'start/resetPasswordDone.html',context)

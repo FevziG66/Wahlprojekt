@@ -19,11 +19,14 @@
             position: fixed; /*Navbar fixed*/
             top: 0; /* Navbar at top */
             width: 100%; /* Full width */
-            }
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
             /*Links in Navbar werden rechts angezeigt*/
             .navbar-nav {
                 margin-left: auto;
+                padding: 10px;
             }
         
             /*Wenn etwas mittig dargestellt werden soll*/
@@ -34,37 +37,58 @@
             }
 
             .loginWindow {
-	            border: 15px white;		
+                margin-top: 200px;
 	            margin-left: auto;
 	            margin-right: auto;
-	            margin-top: 100px;
 	            margin-bottom: 100px;
+                border: 5px solid black;	
+                background-color: #ddd;
+                padding: 30px;
+                width: 550px;
+                height: 350px;
             }
+
             .registerWindow{
-	            border: 15px white;		
+                margin-top: 200px;
 	            margin-left: auto;
 	            margin-right: auto;
 	            margin-bottom: 100px;
+                border: 5px solid black;	
+                background-color: #ddd;
+                padding: 20px;
+                width: 500px;
+                height: 350px;
             }
-            
+
+            .forgotPassword {
+                margin-top: 200px;
+	            margin-left: auto;
+	            margin-right: auto;
+	            margin-bottom: 100px;
+                border: 5px solid black;	
+                background-color: #ddd;
+                padding: 30px;
+                width: 400px;
+                height: 280px;
+            }
+
             #registerFirstName, #registerSecondName, #registerEmail, #registerPassword, #registerCompanyName{
 	            height: 35px;
 	            margin: 0 auto 20px auto;
             }
 
-            #bild{
-                background-image: url("{% static "img/main.jpeg" %}");
-                margin:auto;
-                padding: 100px 0 0 0;
-                background-repeat:no-repeat;
+            #bild {
+                background: url("{% static 'img/main.jpeg' %}") no-repeat center center fixed;
+                -webkit-background-size:cover;
+                -moz-background-size:cover;
+                -o-background-size:cover;
+                background-size:cover;
             }
 
         </style>
         
     </head>
         <body id="bild">
-        <!--background-image:url('{% static 'img/main.jpeg'%}'); padding: 100px 0 0 0;-->
-            
             {%include "start/navbar.html"%}
 
             {% block hauptinhalt %}

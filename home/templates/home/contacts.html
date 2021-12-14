@@ -1,0 +1,102 @@
+{% extends "home/base.html"%}
+{%load static%}
+
+{% block hauptinhalt %}
+<div class="col py-3">
+    <h1>Kontakte</h1>
+    <p></p>
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Bearbeiten</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form action="" method="POST">
+				<div class="modal-body">
+					<input type="hidden" name="update_id" id="update_id">
+					<br />
+					<div class="form-group">
+						<label> Firma </label>
+						<p></p>
+						<input type="text" name="firma" id="firma" class="form-control" placeholder="Eingabe">
+					</div>
+					<br />
+					<div class="form-group">
+						<label> Ansprechpartner </label>
+						<p></p>
+						<input type="text" name="ansprechpartner" id="ansprechpartner" class="form-control" placeholder="Eingabe">
+					</div>
+					<br />
+					<div class="form-group">
+						<label> Adresse </label>
+						<p></p>
+						<input type="text" name="adresse" id="adresse" class="form-control" placeholder="Eingabe">
+					</div>
+                    <br />
+                    <div class="form-group">
+						<label> Email </label>
+						<p></p>
+						<input type="text" name="email" id="email" class="form-control" placeholder="Eingabe">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+					<button type="submit" name="updatedata" class="btn btn-primary">Speichern</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Firma</th>
+                    <th>Ansprechpartner</th>
+                    <th>Adresse</th>
+                    <th>Telefonnummer</th>
+                    <th>Email</th>
+                    <th>Bearbeiten</th>		
+                </tr>
+            </thead>
+        
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Musterfirma 1</td>
+                    <td>Max Mustermann</td>
+                    <td>Musterstraße 1, Musterort</td>
+                    <td>01573463242</td>
+                    <td>muster@gmail.com</td>
+                    <form method="POST">
+                    <td><button type="button" class="btn btn-success editbtn">Bearbeiten</button></td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{% url 'edit:editContacts'%}" class="btn btn-primary">Kontakt hinzufügen</a>
+</div>
+{% endblock hauptinhalt %}

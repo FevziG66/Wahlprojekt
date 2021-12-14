@@ -1,0 +1,85 @@
+{% extends "home/base.html"%}
+{%load static%}
+
+{% block hauptinhalt %}
+<div class="col py-3">
+    <div class="row">
+        <center><div class="col-sm-12">
+            <h1>Kontakte bearbeiten</h1>
+        </div></center>
+    </div>
+
+    
+    <div class="container px-5 py-5" >
+        <form class="form-inline">
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Anrede</label>
+                <p></p>
+                <input type="text" class="form-control" id="contactGender" placeholder="Herr">
+            </div>
+            
+            <div class="col-sm-4">
+                <label>Vorname</label>
+                <p></p>
+                <input type="text" class="form-control" id="contactFirstName" placeholder="Max">
+            </div>
+
+            <div class="col-sm-4">
+                <label>Nachname</label>
+                <p></p>
+                <input type="text" class="form-control" id="contactSecondName" placeholder="Mustermann">
+            </div>
+        </div>
+        <p></p>
+        
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Kundennummer</label>
+                <p></p>
+                <input type="number" class="form-control" id="contactId" placeholder="1">
+            </div>
+
+            <div class="col-sm-4">
+                <label>Telefonnummer</label>
+                <p></p>
+                <input type="tel" class="form-control" id="contactPhoneNumber" placeholder="0157110110">
+            </div>
+
+            <div class="col-sm-4">
+                <label>E-Mail</label>
+                <p></p>
+                <input type="email" class="form-control" id="contactEmail" placeholder="max@gmail.com">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Straße</label>
+                <p></p>
+                <input type="text" class="form-control" id="contactStreet" placeholder="Musterstraße 1">
+            </div>
+            <div class="col-sm-4">
+                <label>PLZ</label>
+                <p></p>
+                <input type="number" class="form-control" id="contactPlz" placeholder="55543">
+            </div>
+            <div class="col-sm-4">
+                <label>Ort</label>
+                <p></p>
+                <input type="text" class="form-control" id="contactCity" placeholder="Wiesbaden">
+            </div>
+        </div>
+        </form>
+        <br />
+      
+    <div class="col py-3">
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="{% url 'home:receipts'%}" class="btn btn-primary">Speichern</a>
+                <a href="{% url 'edit:settings'%}" class="btn btn-primary">Zurück</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock hauptinhalt %}
