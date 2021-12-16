@@ -6,7 +6,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import RegisterForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout as logouts
+from django.contrib.auth.decorators import login_required
 
 #def register(request):
 #    context = {"title": "Account anlegen"}
@@ -24,21 +26,26 @@ def impressum(request):
     context = {"title": "Impressum"}
     return render(request, 'start/impressum.html',context)
 
+@login_required()
 def forgotPassword(request):
     context = {"title": "Passwort vergessen"}
     return render(request, 'start/forgotPassword.html',context)
 
+@login_required()
 def emailSend(request):
     context = {"title": "Passwort zurücksetzen"}
     return render(request, 'start/emailSend.html',context)
 
+@login_required()
 def resetPassword(request):
     context = {"title": "Passwort zurücksetzen"}
     return render(request, 'start/resetPassword.html',context)
 
+@login_required()
 def resetPasswordDone(request):
     context = {"title": "Passwort geändert"}
     return render(request, 'start/resetPasswordDone.html',context)
+
 def register(request):
     # if this is a POST request we need to process the form data
     template = 'start/register.html'
@@ -51,7 +58,7 @@ def register(request):
             if User.objects.filter(username=form.cleaned_data['username']).exists():
                 return render(request, template, {
                     'form': form,
-                    'error_message': 'Unternehmen existiert bereits.'
+                    'error_message': 'Benutzername existiert bereits.'
                 })
             elif User.objects.filter(email=form.cleaned_data['email']).exists():
                 return render(request, template, {
@@ -78,7 +85,7 @@ def register(request):
                 login(request, user)
                
                 # Redirect zur Login Seite
-                return HttpResponseRedirect('home/dashboard.html')
+                return render(request, 'start/login.html')
 
    # No post data availabe, let's just show the page.
     else:
@@ -100,12 +107,13 @@ def user_login(request):
             return render(request, 'home/dashboard.html')
         else:
             # Falsche Eingaben, Error anzeigen
-            return render(request, 'start/login.html', {'error_message': 'Incorrect username and / or password.'})
+            return render(request, 'start/login.html', {'error_message': 'Falscher Username oder Passwort.'})
     else:
         # No post data availabe, let's just show the page to the user.
         return render(request, 'start/login.html')
 
 
-def logout_view(request):
-        logout(request)
-        return redirect('start/login/')
+def logout(request):
+    if request.method == 'POST':
+        logouts(request)
+        return render(request, 'start/login.html/')
