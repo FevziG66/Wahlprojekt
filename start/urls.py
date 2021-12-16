@@ -16,5 +16,6 @@ urlpatterns = [
     path('emailSend/', views.emailSend, name='emailSend'),
     path('resetPassword/', views.resetPassword, name='resetPassword'),
     path('resetPasswordDone/', views.resetPasswordDone, name='resetPasswordDone'),
+    path('logout/', views.logout_view, name='logout'),
     #url(r'^register/$', views.user_register, name='user_register')
 ]

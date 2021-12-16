@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.contrib import auth
+from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 # Create your views here.
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import RegisterForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 #def register(request):
 #    context = {"title": "Account anlegen"}
@@ -63,7 +64,7 @@ def register(request):
                     'error_message': 'Passwörter stimmen nicht überein.'
                 })
             else:
-                # Create the user:
+                # User erstellen
                 user = User.objects.create_user(
                     form.cleaned_data['username'],
                     form.cleaned_data['email'],
@@ -73,11 +74,11 @@ def register(request):
                 user.last_name = form.cleaned_data['last_name']
                 user.save()
                
-                # Login the user
+                # User einloggen
                 login(request, user)
                
-                # redirect to accounts page:
-                return HttpResponseRedirect('/home/templates/home/dashboard.html')
+                # Redirect zur Login Seite
+                return HttpResponseRedirect('home/dashboard.html')
 
    # No post data availabe, let's just show the page.
     else:
@@ -90,16 +91,21 @@ def user_login(request):
         # Process the request if posted data are available
         username = request.POST['username']
         password = request.POST['password']
-        # Check username and password combination if correct
+        # Überprüfen ob Username und Passwort korrekt
         user = authenticate(username=username, password=password)
         if user is not None:
-            # Save session as cookie to login the user
+            # Session Cookie speichern, damit man sich anmelden kann
             login(request, user)
-            # Success, now let's login the user.
+            # User anmmelden
             return render(request, 'home/dashboard.html')
         else:
-            # Incorrect credentials, let's throw an error to the screen.
+            # Falsche Eingaben, Error anzeigen
             return render(request, 'start/login.html', {'error_message': 'Incorrect username and / or password.'})
     else:
         # No post data availabe, let's just show the page to the user.
         return render(request, 'start/login.html')
+
+
+def logout_view(request):
+        logout(request)
+        return redirect('start/login/')
