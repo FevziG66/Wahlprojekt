@@ -112,7 +112,6 @@ def user_login(request):
         # No post data availabe, let's just show the page to the user.
         return render(request, 'start/login.html')
 
-
 def logout(request):
     if request.method == 'POST':
         logouts(request)
