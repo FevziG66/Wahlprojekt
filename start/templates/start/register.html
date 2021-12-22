@@ -2,39 +2,105 @@
 {%load static%}
 
 {% block hauptinhalt %}
-  <center>
-    <div class="registerWindow">
-      <form>
-        <div class="row">
-            <div class="col-6">
-              <label class="form-label">Vorname</label>
-              <input id="registerFirstName" type="text" class="form-control" placeholder="Max">
-            </div>
-            
-            <div class="col-6">
-              <label class="form-label">Nachname</label>
-              <input id="registerSecondName" type="text" class="form-control" placeholder="Mustermann">
-            </div>
+<center>
+  <div class="registerWindow">
+    <form action="{% url 'start:register' %}" method="post">
+      {% csrf_token %}
+      <div class="row">
+        {% if error_message %}
+        <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+        {% endif %}
+        <div class="col-6">
+          <div class="form-group clearfix">
+            <label for="{{ form.first_name.id_for_label }}" class="col-md-4 control-label text-right">Vorname:</label>
+            {{ form.first_name }}
+          </div>
         </div>
 
-        <div class="row">
-          <div class="col-6">
-            <label class="form-label">Email Adresse</label>
-            <input id="registerEmail" type="email" class="form-control" placeholder="test@unternehmen.de">
-          </div>
-          
-          <div class="col-6">
-            <label class="form-label">Passwort</label>
-            <input id="registerPassword" type="password" class="form-control" placeholder="********">
+        <div class="col-6">
+          <div class="form-group clearfix">
+            <label for="{{ form.last_name.id_for_label }}" class="col-md-4 control-label text-right">Name:</label>
+            {{ form.last_name }}
           </div>
         </div>
-              
-        <label class="form-label">Unternehmen</label>
-        <input id="registerCompanyName" type="text" class="form-control" placeholder="Test GmbH">
-          
-        <button type="registerSubmit" class="btn btn-dark">Konto erstellen</button>
-           
-      </form>
-    </div>
-  </center>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group clearfix">
+            <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">Email<span
+                class="text-red">*</span>:</label>
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="col-6">
+        <div class="form-group clearfix">
+          <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">Username<span class="text-red">*</span>:</label>
+              {{ form.username }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group clearfix">
+            <label for="{{ form.password.id_for_label }}" class="col-md-4 control-label text-right">Passwort<span
+                class="text-red">*</span>:</label>
+            {{ form.password }}
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group clearfix">
+            <label for="{{ form.password_repeat.id_for_label }}" class="col-md-4 control-label text-right">Passwort
+              wiederholen</label>
+            {{ form.password_repeat }}
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <input name="register" type="submit" value="Konto erstellen" class="btn btn-secondary" />
+        
+      </div>
+    </form>
+  </div>
+</center>
 {% endblock hauptinhalt %}
+
+<!--
+<center>
+  <div class="registerWindow">
+    <form>
+      <div class="row">
+          <div class="col-6">
+            <label class="form-label">Vorname</label>
+            <input id="registerFirstName" type="text" class="form-control" placeholder="Max">
+          </div>
+          
+          <div class="col-6">
+            <label class="form-label">Nachname</label>
+            <input id="registerSecondName" type="text" class="form-control" placeholder="Mustermann">
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label class="form-label">Email Adresse</label>
+          <input id="registerEmail" type="email" class="form-control" placeholder="test@unternehmen.de">
+        </div>
+        
+        <div class="col-6">
+          <label class="form-label">Passwort</label>
+          <input id="registerPassword" type="password" class="form-control" placeholder="********">
+        </div>
+      </div>
+            
+      <label class="form-label">Unternehmen</label>
+      <input id="registerCompanyName" type="text" class="form-control" placeholder="Test GmbH">
+        
+      <button type="registerSubmit" class="btn btn-dark">Konto erstellen</button>
+         
+    </form>
+  </div>
+</center>
+-->

@@ -2,29 +2,31 @@
 {%load static%}
 
 {% block hauptinhalt %}
-  <center>
-    <div class="loginWindow">
-      <form>
-        <div class="col-9 shadow-none p-1 mb-2t rounded">
-          <label class="form-label">Email Adresse</label>
-          <input type="email" class="form-control" placeholder="test@unternehmen.de">
-        </div>
-      
-        <div class="col-9 shadow-none p-1 mb-2  rounded">
-          <label class="form-label">Passwort</label>
-          <input type="password" class="form-control" placeholder="********">
-        </div class="col-3">
-      
-        <p></p>
-        
-        <!--<button retype="submit" class="btn btn-dark" >Anmelden</button>-->
-        <a type="text" class="btn btn-dark" href="{% url 'home:dashboard'%}">Anmelden</a>
+<center>
+  <div class="loginWindow">
+    <form action="{% url 'start:user_login' %}" method="post">
+      {% csrf_token %}
 
-        <a href="{% url 'start:forgotPassword'%}">Passwort vergessen?</a>
-        <p></p>
-      
-        <a type="text" class="btn btn-dark" href="{% url 'start:register'%}">Noch kein Konto? Hier registieren</a>
-      </form>
-    </div> 
-  </center> 
+      {% if error_message %}
+      <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+      {% endif %}
+      <div class="col-9 shadow-none p-1 mb-2t rounded">
+        <label class="form-label">Email Adresse</label>
+        <input name="username" type="text" class="form-control" placeholder="test@unternehmen.de">
+      </div>
+
+      <div class="col-9 shadow-none p-1 mb-2  rounded">
+        <label class="form-label">Passwort</label>
+        <input name="password" type="password" class="form-control" placeholder="********">
+      </div class="col-3">
+
+      <p></p>
+      <input name="login" type="submit" value="Login" class="btn btn-secondary" />
+      <a href="{% url 'start:forgotPassword'%}">Passwort vergessen?</a>
+      <p></p>
+
+      <a type="text" class="btn btn-dark" href="{% url 'start:register'%}">Noch kein Konto? Hier registieren</a>
+    </form>
+  </div>
+</center>
 {% endblock hauptinhalt %}

@@ -11,8 +11,10 @@
                 <li><a class="dropdown-item" href="{% url 'edit:settings'%}">Einstellungen</a></li>
                 <li><a class="dropdown-item" href="{% url 'home:profile'%}">Profil</a></li>
                 <li>
-                <hr class="dropdown-divider">
-                <li><a class="dropdown-item" href="#">Abmelden</a></li>
+                <form action="{% url 'start:logout' %}" method="post">
+                    {% csrf_token %}
+                    <li><button type="submit" value="Abmelden" class="dropdown-item">Abmelden</button></li>
+                </form>
             </ul>
         </div>
     </ul>

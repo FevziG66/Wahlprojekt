@@ -1,5 +1,6 @@
 from django.urls.conf import path
 from . import views
+from django.conf.urls import url
 
 app_name = 'start'
 urlpatterns = [
@@ -9,10 +10,12 @@ urlpatterns = [
     #Name ist das, was im Browser angezeigt wird unter Pfad
     path('', views.aboutUs, name='aboutUs'), 
     path('register/', views.register, name='register'),
-    path('login/', views.login, name='login'),
+    path('login/', views.user_login, name='user_login'),
     path('impressum/', views.impressum, name='impressum'),
     path('forgotPassword/', views.forgotPassword, name='forgotPassword'),
     path('emailSend/', views.emailSend, name='emailSend'),
     path('resetPassword/', views.resetPassword, name='resetPassword'),
     path('resetPasswordDone/', views.resetPasswordDone, name='resetPasswordDone'),
+    path('logout/', views.logout, name='logout'),
+    #url(r'^register/$', views.user_register, name='user_register')
 ]
