@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from edit.forms import ReceiptForm
+from edit.forms import EditContactForm
+from home.models import contact, receipt
+from django.contrib import messages
 # Create your views here.
 
 def settings(request):
@@ -19,6 +22,9 @@ def editReceipts(request):
     if request.method == 'POST':
         form = ReceiptForm(request.POST)
         if form.is_valid():
+            if receipt.objects.filter(belegnummer=form.cleaned_data['belegnummer']).exists():
+                messages.error(request,'Beleg unter dieser Nummer existiert bereits.')
+                return redirect('edit:editReceipts')
             form.save()
     else:
         form = ReceiptForm()
@@ -28,7 +34,17 @@ def editReceipts(request):
     return render(request, 'edit/editReceipts.html',context)
 
 def editContacts(request):
-    context = {"title": "Kontakte bearbeiten"}
+    if request.method == 'POST':
+        form = EditContactForm(request.POST)
+        if form.is_valid():
+            if contact.objects.filter(kontaktnummer=form.cleaned_data['kontaktnummer']).exists():
+                form = EditContactForm()
+                messages.error(request,'Kontakt unter dieser Nummer existiert bereits.')
+                return redirect('edit:editContacts')
+            form.save()
+    else: 
+        form = EditContactForm()
+    context = {"title": "Kontakte bearbeiten","form":form}
     return render(request, 'edit/editContacts.html',context)
 
 def editPassword(request):

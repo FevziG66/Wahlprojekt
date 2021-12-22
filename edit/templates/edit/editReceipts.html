@@ -11,6 +11,14 @@
         </div></center>
     </div>
 
+    {% for message in messages %}
+    
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+           {{ message }}
+    </div>
+
+    {% endfor %}
     
     <div class="container px-5 py-5" >
         <form action="" method="post">
@@ -18,10 +26,10 @@
         <form class="form-inline">
         <div class="row">
             <div class="col-sm-6">
-                <!--soll man Belegnummer überhaupt selber auswählen können, oder einfach increment?-->
                 <label for="inputEmail4">Belegnummer</label>
                 <p></p>
-                <input type="number" class="form-control" id="inputEmail4" placeholder="Belegnummer">
+                {{form.belegnummer}}
+                <!--<input type="number" class="form-control" id="inputEmail4" placeholder="Belegnummer">-->
             </div>
             
             <div class="col-sm-6">
