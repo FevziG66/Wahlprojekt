@@ -3,6 +3,7 @@
 
 {% block hauptinhalt %}
     <div class="col py-3">
+        
         <h1>Belege</h1>
         <p></p>
         <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -12,44 +13,42 @@
                         <h5 class="modal-title" id="exampleModalLabel">Bearbeiten</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="" method="POST">
+                    <form action="" name="editInWindow" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name="update_id" id="update_id">
                         <br />
                         <div class="form-group">
                             <label> Belegnummer </label>
                             <p></p>
-                            <input type="text" name="belegnr" id="belegnr" class="form-control" placeholder="Eingabe">
+                            {{form.belegnummer}}
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Belegdatum </label>
                             <p></p>
-                            <input type="text" name="belegdatum" id="belegdatum" class="form-control" placeholder="Eingabe">
+                            {{form.belegdatum}}
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Zahlart </label>
-                            <p></p>
-                            <input type="text" name="zahlart" id="zahlart" class="form-control" placeholder="Eingabe">
+                            {{form.zahlart}}
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Fälligkeit </label>
-                            <p></p>
-                            <input type="text" name="faellig" id="faellig" class="form-control" placeholder="Eingabe">
+                            {{form.faelligkeit}}
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Betrag </label>
                             <p></p>
-                            <input type="text" name="betrag" id="betrag" class="form-control" placeholder="Eingabe">
+                            {{form.betrag}}
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Beschreibung </label>
                             <p></p>
-                            <input type="text" name="beschreibung" id="beschreibung" class="form-control" placeholder="Eingabe">
+                            {{form.beschreibung}}
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -73,21 +72,28 @@
                     <th>Bearbeiten</th>	
                 </tr>
             </thead>
-        
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <form method="POST">
-                    <td><button type="button" class="btn btn-success editbtn">Bearbeiten</button></td>
-                </tr>
+            {% if all_receipts_dict  %}
+        
                 
+                {% for receipt in all_receipts_dict %}
                 <tr>
-                    <td>2</td>
+                    <td>{{receipt.belegnummer}}</td>
+                    <td>{{receipt.belegdatum }}</td>
+                    <td>{{receipt.zahlart}}</td>
+                    <td>{{receipt.faelligkeit}}</td>
+                    <td>{{receipt.betrag}}</td>
+                    <td>{{receipt.beschreibung}}</td>
+                    <form action="" method="get"></form>
+                    <td><button name="edit" value={{receipt.belegnummer}} type="submit" class="btn btn-success editbtn" data-toogle="editmodal" data-target="editmodal">Bearbeiten</button></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                
+            
+            {% else %} 
+                <tr>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -97,7 +103,7 @@
                 </tr>
             
                 <tr>
-                    <td>3</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -106,7 +112,8 @@
                     <td></td>
                 </tr>
             </tbody>
-            </table>
+            {% endif %}
+        </table>
         </div>
         
         <a href="{% url 'edit:editReceipts'%}" class="btn btn-primary">Beleg hinzufügen</a>

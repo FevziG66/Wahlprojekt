@@ -228,6 +228,7 @@
             </div>
          </div>
       </div>
+      
       <div class="col-sm-4" id="todo">
          <div class="card-hover-shadow-2x mb-3 card h-100">
             <div class="card-header-tab card-header">
@@ -237,81 +238,24 @@
                <perfect-scrollbar class="ps-show-limits">
                   <div style="position: static;" class="ps ps--active-y">
                      <div class="ps-content">
+                        {% if all_todos_dict  %}
                         <ul class=" list-group list-group-flush">
+                           {% for todo in all_todos_dict %}
                            <li class="list-group-item">
                               <div class="todo-indicator bg-warning"></div>
                               <div class="widget-content p-0">
                                  <div class="widget-content-wrapper">
                                     <div class="widget-content-left">
-                                       <div class="widget-heading">Herr X anrufen</div>
+                                       <div class="widget-heading">{{todo.aufgabe}}</div>
                                        <div class="widget-subheading"><i></i></div>
                                     </div>
                                     <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
                                  </div>
                               </div>
                            </li>
-                           <li class="list-group-item">
-                              <div class="todo-indicator bg-focus"></div>
-                              <div class="widget-content p-0">
-                                 <div class="widget-content-wrapper">
-                                    <div class="widget-content-left">
-                                       <div class="widget-heading">Rechnung Nummer 2 bezahlen.</div>
-                                       <div class="widget-subheading">
-                                       </div>
-                                    </div>
-                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
-                                 </div>
-                              </div>
-                           </li>
-                           <li class="list-group-item">
-                              <div class="todo-indicator bg-primary"></div>
-                              <div class="widget-content p-0">
-                                 <div class="widget-content-wrapper">
-                                    <div class="widget-content-left flex2">
-                                       <div class="widget-heading">Geld an Kunde Y überweisen.</div>
-                                       <div class="widget-subheading"></div>
-                                    </div>
-                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
-                                 </div>
-                              </div>
-                           </li>
-                           <li class="list-group-item">
-                              <div class="todo-indicator bg-info"></div>
-                              <div class="widget-content p-0">
-                                 <div class="widget-content-wrapper">
-                                    <div class="widget-content-left">
-                                       <div class="widget-heading">Bei der Bank anrufen.</div>
-                                       <div class="widget-subheading"></div>
-                                    </div>
-                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
-                                 </div>
-                              </div>
-                           </li>
-                           <li class="list-group-item">
-                              <div class="todo-indicator bg-success"></div>
-                              <div class="widget-content p-0">
-                                 <div class="widget-content-wrapper">
-                                    <div class="widget-content-left flex2">
-                                       <div class="widget-heading">Rechnung Nummer 4 begleichen.</div>
-                                       <div class="widget-subheading"></div>
-                                    </div>
-                                    <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
-                                 </div>
-                              </div>
-                           </li>
-                           <li class="list-group-item">
-                            <div class="todo-indicator bg-success"></div>
-                            <div class="widget-content p-0">
-                               <div class="widget-content-wrapper">
-                                  <div class="widget-content-left flex2">
-                                     <div class="widget-heading">Rechnung Nummer 4 begleichen.</div>
-                                     <div class="widget-subheading"></div>
-                                  </div>
-                                  <div class="widget-content-right"> <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button> <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button> </div>
-                               </div>
-                            </div>
-                         </li>
+                           {% endfor %}
                         </ul>
+                        {% endif %}
                      </div>
                   </div>
                </perfect-scrollbar>

@@ -11,20 +11,32 @@
         </div></center>
     </div>
 
+    {% for message in messages %}
+    
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+           {{ message }}
+    </div>
+
+    {% endfor %}
     
     <div class="container px-5 py-5" >
+        <form action="" method="post">
+            {% csrf_token %}
         <form class="form-inline">
         <div class="row">
             <div class="col-sm-6">
                 <label for="inputEmail4">Belegnummer</label>
                 <p></p>
-                <input type="number" class="form-control" id="inputEmail4" placeholder="Belegnummer">
+                {{form.belegnummer}}
+                <!--<input type="number" class="form-control" id="inputEmail4" placeholder="Belegnummer">-->
             </div>
             
             <div class="col-sm-6">
                 <label for="inputPassword4">Belegdatum</label>
                 <p></p>
-                <input type="date" class="form-control" id="inputPassword4" placeholder="Belegdatum">
+                {{form.belegdatum}}
+                <!-- <input type="date" class="form-control" id="inputPassword4" placeholder="Belegdatum"> -->
             </div>
         </div>
         <p></p>
@@ -33,12 +45,14 @@
             <div class="col-sm-6">
                 <label for="inputAddress">Zahlart</label>
                 <p></p>
-                <input type="text" class="form-control" id="inputAddress" placeholder="Zahlart">
+                {{form.zahlart}}
+                <!-- <input type="text" class="form-control" id="inputAddress" placeholder="Zahlart"> -->
             </div>
             <div class="col-sm-6">
                 <label for="inputAddress2">Fälligkeit</label>
                 <p></p>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Fälligkeit">
+                {{form.faelligkeit}}
+                <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="Fälligkeit"> -->
             </div>
         </div>
         <p></p>
@@ -46,21 +60,24 @@
             <div class="col-sm-4">
                 <label for="inputCity">Betrag</label>
                 <p></p>
-                <input type="number" class="form-control" id="inputCity" placeholder="Betrag">
+                {{form.betrag}}
+                <!-- <input type="number" class="form-control" id="inputCity" placeholder="Betrag"> -->
             </div>
             <div class="col-sm-8">
                 <label for="inputCity">Beschreibung</label>
                 <p></p>
-                <input type="text" class="form-control" id="inputCity" placeholder="Fälligkeit">
+                {{form.beschreibung}}
+                <!-- <input type="text" class="form-control" id="inputCity" placeholder="Fälligkeit"> -->
             </div>
         </div>
+        <button type="submit">Speichern</button> <!-- Submit-Button statt Link, um Speichern auszulösen-->
         </form>
         <br />
       
     <div class="col py-3">
         <div class="row">
             <div class="col-sm-12">
-                <a href="{% url 'home:receipts'%}" class="btn btn-primary">Speichern</a>
+                <!-- <a href="{% url 'home:receipts'%}" class="btn btn-primary">Speichern</a> -->
                 <a href="{% url 'home:dashboard'%}" class="btn btn-primary">Zurück zum Dashboard</a>
             </div>
         </div>

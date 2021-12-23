@@ -9,74 +9,67 @@
         </div></center>
     </div>
 
+    {% for message in messages %}
+    
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+           {{ message }}
+    </div>
+
+    {% endfor %}
     
     <div class="container px-5 py-5" >
+        <form action="" method="post">
+            {% csrf_token %}
         <form class="form-inline">
         <div class="row">
             <div class="col-sm-4">
-                <label>Anrede</label>
+                <label>Nummer</label>
                 <p></p>
-                <input type="text" class="form-control" id="contactGender" placeholder="Herr">
+                {{form.kontaktnummer}}
+            </div>
+            <div class="col-sm-4">
+                <label>Firma</label>
+                <p></p>
+                {{form.firma}}
             </div>
             
             <div class="col-sm-4">
-                <label>Vorname</label>
+                <label>Ansprechpartner</label>
                 <p></p>
-                <input type="text" class="form-control" id="contactFirstName" placeholder="Max">
+                {{form.ansprechpartner}}
             </div>
 
-            <div class="col-sm-4">
-                <label>Nachname</label>
-                <p></p>
-                <input type="text" class="form-control" id="contactSecondName" placeholder="Mustermann">
-            </div>
         </div>
         <p></p>
         
         <div class="row">
             <div class="col-sm-4">
-                <label>Kundennummer</label>
+                <label>Adresse</label>
                 <p></p>
-                <input type="number" class="form-control" id="contactId" placeholder="1">
+                {{form.adresse}}
             </div>
 
             <div class="col-sm-4">
                 <label>Telefonnummer</label>
                 <p></p>
-                <input type="tel" class="form-control" id="contactPhoneNumber" placeholder="0157110110">
+                {{form.telefonnummer}}
             </div>
-
+           
             <div class="col-sm-4">
                 <label>E-Mail</label>
                 <p></p>
-                <input type="email" class="form-control" id="contactEmail" placeholder="max@gmail.com">
+                {{form.email}}
             </div>
         </div>
-        <p></p>
-        <div class="row">
-            <div class="col-sm-4">
-                <label>Straße</label>
-                <p></p>
-                <input type="text" class="form-control" id="contactStreet" placeholder="Musterstraße 1">
-            </div>
-            <div class="col-sm-4">
-                <label>PLZ</label>
-                <p></p>
-                <input type="number" class="form-control" id="contactPlz" placeholder="55543">
-            </div>
-            <div class="col-sm-4">
-                <label>Ort</label>
-                <p></p>
-                <input type="text" class="form-control" id="contactCity" placeholder="Wiesbaden">
-            </div>
-        </div>
+        <button type="submit">Speichern</button>
         </form>
         <br />
       
     <div class="col py-3">
         <div class="row">
             <div class="col-sm-12">
-                <a href="{% url 'home:receipts'%}" class="btn btn-primary">Speichern</a>
+                <!--<a href="{% url 'home:receipts'%}" class="btn btn-primary">Speichern</a>-->
                 <a href="{% url 'edit:settings'%}" class="btn btn-primary">Zurück</a>
             </div>
         </div>

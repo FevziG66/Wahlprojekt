@@ -1,11 +1,24 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+<<<<<<< HEAD
+from home.models import contact, receipt, todo
+from home.forms import ReceiptForm
+from edit.forms import ReceiptForm as EditReceiptForm
+from edit.forms import EditContactForm
+from home.forms import ContactForm
+=======
 from django.contrib.auth.decorators import login_required
+>>>>>>> 8214ea85fd6e816907670ff89f1b483db0009b5e
 # Create your views here.
 
 @login_required()
 def dashboard(request):
-    context = {"title": "Dashboard"}
+    all_todos = todo.objects.all()
+    all_todos_dict = {
+        'todo': all_todos
+    }
+
+    context = {"title": "Dashboard","all_todos_dict": all_todos}
     return render(request, 'home/dashboard.html',context)
 
 @login_required()
@@ -20,12 +33,34 @@ def accounts(request):
 
 @login_required()
 def receipts(request):
-    context = {"title": "Belege"}
+    if 'edit' in request.GET:
+        bnummer = request.GET.get('edit')
+        print(bnummer)
+        receipt_to_edit = receipt.objects.get(belegnummer=bnummer)
+        form = EditReceiptForm(instance=receipt_to_edit)
+    else:
+        form = EditReceiptForm()
+    all_receipts = receipt.objects.all()
+    all_receipts_dict = {
+        'receipt': all_receipts
+    }
+
+    context = {"title": "Belege","all_receipts_dict": all_receipts,"form":form}
     return render(request, 'home/receipts.html',context)
 
 @login_required()
 def contacts(request):
-    context = {"title": "Kontakte"}
+    if 'edit' in request.GET:
+        knummer = request.GET.get('edit')
+        receipt_to_edit = receipt.objects.get(kontaktnummer=knummer)
+        form = EditContactForm(instance=receipt_to_edit)
+    else:
+        form = EditContactForm()
+    all_contacts = contact.objects.all()
+    all_contacts_dict = {
+        'contact': all_contacts
+    }
+    context = {"title": "Kontakte","all_contacts_dict": all_contacts,"form": form}
     return render(request, 'home/contacts.html',context)
 
 @login_required()
