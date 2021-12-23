@@ -1,14 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-<<<<<<< HEAD
 from home.models import contact, receipt, todo
 from home.forms import ReceiptForm
 from edit.forms import ReceiptForm as EditReceiptForm
 from edit.forms import EditContactForm
 from home.forms import ContactForm
-=======
 from django.contrib.auth.decorators import login_required
->>>>>>> 8214ea85fd6e816907670ff89f1b483db0009b5e
 # Create your views here.
 
 @login_required()
