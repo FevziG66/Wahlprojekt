@@ -19,13 +19,11 @@
                         <br />
                         <div class="form-group">
                             <label> Belegnummer </label>
-                            <p></p>
                             {{form.belegnummer}}
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Belegdatum </label>
-                            <p></p>
                             {{form.belegdatum}}
                         </div>
                         <br />
@@ -41,15 +39,14 @@
                         <br />
                         <div class="form-group">
                             <label> Betrag </label>
-                            <p></p>
                             {{form.betrag}}
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Beschreibung </label>
-                            <p></p>
                             {{form.beschreibung}}
                         </div>
+                        <br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
@@ -69,7 +66,9 @@
                     <th>Fälligkeit</th>
                     <th>Betrag</th>
                     <th>Beschreibung</th>
-                    <th>Bearbeiten</th>	
+                    <th>Konto</th>
+                    <th>Art</th>	
+                    <th>Bearbeiten</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,6 +83,8 @@
                     <td>{{receipt.faelligkeit}}</td>
                     <td>{{receipt.betrag}}</td>
                     <td>{{receipt.beschreibung}}</td>
+                    <td></td>
+                    <td></td>
                     <form action="" method="get"></form>
                     <td><button name="edit" value={{receipt.belegnummer}} type="submit" class="btn btn-success editbtn" data-toogle="editmodal" data-target="editmodal">Bearbeiten</button></td>
                 </tr>
@@ -100,9 +101,13 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             
                 <tr>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

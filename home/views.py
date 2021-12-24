@@ -6,7 +6,7 @@ from edit.forms import ReceiptForm as EditReceiptForm
 from edit.forms import EditContactForm
 from home.forms import ContactForm
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+
 
 @login_required()
 def dashboard(request):
