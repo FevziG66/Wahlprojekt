@@ -12,6 +12,7 @@ class receipt(models.Model):
     #datei = models.FileField()
     beschreibung = models.CharField(max_length=150)
     
+
 class contact(models.Model):
     kontaktnummer = models.IntegerField()
     firma = models.CharField(max_length=25)

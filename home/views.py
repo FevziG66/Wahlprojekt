@@ -6,7 +6,11 @@ from edit.forms import ReceiptForm as EditReceiptForm
 from edit.forms import EditContactForm
 from home.forms import ContactForm
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+
+
+
 
 @login_required()
 def dashboard(request):
@@ -64,3 +68,8 @@ def contacts(request):
 def bills(request):
     context = {"title": "Rechnungen"}
     return render(request, 'home/bills.html',context)
+
+@login_required()
+def todos(request):
+    context = {"title": "To-Do's"}
+    return render(request, 'home/todos.html',context)
