@@ -1,13 +1,13 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-<<<<<<< HEAD
+
 from edit.forms import ReceiptForm
 from edit.forms import EditContactForm
 from home.models import contact, receipt
 from django.contrib import messages
-=======
+
 from django.contrib.auth.decorators import login_required
->>>>>>> 8214ea85fd6e816907670ff89f1b483db0009b5e
+
 # Create your views here.
 
 # login_required ist dafür da, dass die Seite nur aufgerufen werden kann, wenn man angemeldet ist
