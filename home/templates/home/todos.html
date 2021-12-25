@@ -4,7 +4,7 @@
 {% block hauptinhalt %}
     <div class="col py-3">
         
-        <h1>Belege</h1>
+        <h1>To-Do's</h1>
         <p></p>
         <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -49,9 +49,8 @@
                         <br />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Zurück</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Beleg löschen</button>
-                        <button type="submit" name="updatedata" class="btn btn-success">Speichern</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+                        <button type="submit" name="updatedata" class="btn btn-primary">Speichern</button>
                     </div>
                     </form>
                 </div>
@@ -122,6 +121,6 @@
         </table>
         </div>
         
-        <a href="{% url 'edit:editReceipts'%}" class="btn btn-primary">Beleg hinzufügen</a>
+        <a href="{% url 'edit:editReceipts'%}" class="btn btn-primary">Aufgabe hinzufügen</a>
     </div>
 {% endblock hauptinhalt %}

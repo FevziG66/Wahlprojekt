@@ -64,3 +64,8 @@ def contacts(request):
 def bills(request):
     context = {"title": "Rechnungen"}
     return render(request, 'home/bills.html',context)
+
+@login_required()
+def todos(request):
+    context = {"title": "To-Do's"}
+    return render(request, 'home/todos.html',context)
