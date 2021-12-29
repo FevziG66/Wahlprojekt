@@ -13,4 +13,5 @@ urlpatterns = [
     path('editReceipts/', views.editReceipts, name='editReceipts'),
     path('editContacts/', views.editContacts, name='editContacts'),
     path('editPassword/', views.editPassword, name='editPassword'),
+    path('editBankAccount/', views.editBankAccount, name='editBankAccount'),
 ]

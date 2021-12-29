@@ -9,18 +9,18 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Bestandskonto</h5>
+          <h5 class="card-title">Einnahmen</h5>
           <p class="card-text">32500 €</p>
-          <p class="card-text"><small class="text-muted">Details</small></p>
+          <a href="{% url 'home:accountDetails'%}" class="btn btn-primary">Details</a>
         </div>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Erfolgskonto</h5>
+          <h5 class="card-title">Ausgaben</h5>
           <p class="card-text">17351 €</p>
-          <p class="card-text"><small class="text-muted">Details</small></p>
+          <a href="{% url 'home:accountDetails'%}" class="btn btn-primary">Details</a>
         </div>
       </div>
     </div>
@@ -29,19 +29,19 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Gewinn und Verlust Konto</h5>
+          <h5 class="card-title">Umsatz</h5>
           <p class="card-text">15239 €</p>
-          <p class="card-text"><small class="text-muted">Details</small></p>
+          <a href="{% url 'home:accountDetails'%}" class="btn btn-primary">Details</a>
         </div>
       </div>
     </div>
-
+  </div>
+  <div class="row">
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Privatkonto</h5>
-          <p class="card-text">15239 €</p>
-          <p class="card-text"><small class="text-muted">Details</small></p>
+          <h5 class="card-title">Konto erstellen</h5>
+          <a href="{% url 'edit:editBankAccount'%}" class="btn btn-primary">+</a>
         </div>
       </div>
     </div>

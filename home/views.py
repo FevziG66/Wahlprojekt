@@ -69,3 +69,8 @@ def bills(request):
 def todos(request):
     context = {"title": "To-Do's"}
     return render(request, 'home/todos.html',context)
+
+@login_required()
+def accountDetails(request):
+    context = {"title": "To-Do's"}
+    return render(request, 'home/accountDetails.html',context)
