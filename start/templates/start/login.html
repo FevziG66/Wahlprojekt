@@ -2,31 +2,36 @@
 {%load static%}
 
 {% block hauptinhalt %}
-<center>
-  <div class="loginWindow">
-    <form action="{% url 'start:user_login' %}" method="post">
-      {% csrf_token %}
-
-      {% if error_message %}
-      <p class="bg-danger p-d ml-b">{{ error_message }}</p>
-      {% endif %}
-      <div class="col-9 shadow-none p-1 mb-2t rounded">
-        <label class="form-label">Email Adresse</label>
-        <input name="username" type="text" class="form-control" placeholder="test@unternehmen.de">
+<div class="container-fluid py-5 mt-5">
+  <div class="row mt-lg-5 justify-content-center align-items-center">
+    <div class="col-12 col-md-8 col-sm-5 col-xl-4">
+      <div class="card-body text-center">
+        <center>
+        <form class="loginWindow" action="{% url 'start:user_login' %}" method="post">
+          {% csrf_token %}
+          <h1 class="mb-4">Login</h1>
+          {% if error_message %}
+          <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+          {% endif %}
+          <div class="form-outline mb-4">
+            <label class="form-label fw-bold mb-3">Email Adresse</label>
+            <input name="username" type="text" class="form-control form-control-lg w-75" placeholder="test@unternehmen.de">
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label fw-bold mb-3">Passwort</label>
+            <input name="password" type="password" class="form-control form-control-lg w-75" placeholder="********">
+          </div>
+          <p></p>
+          <input name="login" type="submit" value="Login" class="btn btn-secondary" />
+          <p></p>
+          <a href="{% url 'start:forgotPassword'%}">Passwort vergessen?</a>
+          <p></p>
+          Noch kein Konto? 
+          <a href="{% url 'start:register'%}">Hier registieren</a>
+        </form>
+      </center>
       </div>
-
-      <div class="col-9 shadow-none p-1 mb-2  rounded">
-        <label class="form-label">Passwort</label>
-        <input name="password" type="password" class="form-control" placeholder="********">
-      </div class="col-3">
-
-      <p></p>
-      <input name="login" type="submit" value="Login" class="btn btn-secondary" />
-      <a href="{% url 'start:forgotPassword'%}">Passwort vergessen?</a>
-      <p></p>
-
-      <a type="text" class="btn btn-dark" href="{% url 'start:register'%}">Noch kein Konto? Hier registieren</a>
-    </form>
+    </div>
   </div>
-</center>
+</div>
 {% endblock hauptinhalt %}

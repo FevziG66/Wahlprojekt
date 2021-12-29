@@ -2,59 +2,66 @@
 {%load static%}
 
 {% block hauptinhalt %}
-<div class="col py-3">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>Bankdaten bearbeiten</h1>
+<div class="col py-5 mt-5">
+    <div class="row mt-5">
+        <div class="col">
         </div>
-    </div>
+        <div class="col-6">
+            <div class="card p-5">
+                <h1 class="mb-4">Bankdaten bearbeiten</h1>
+                <form class="form-inline">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="inputEmail4">Kontoinhaber</label>
+                            <p></p>
+                            <input type="email" class="form-control" id="inputInhaber">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputEmail4">Bank</label>
+                            <p></p>
+                            <input type="email" class="form-control" id="inputEmail4">
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="inputPassword4">Kontonummer</label>
+                            <p></p>
+                            <input type="password" class="form-control" id="inputPassword4">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputAddress">IBAN</label>
+                            <p></p>
+                            <input type="text" class="form-control" id="inputAddress">
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="inputAddress2">BLZ</label>
+                            <p></p>
+                            <input type="text" class="form-control" id="inputAddress2">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputCity">BIC</label>
+                            <p></p>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                    </div>
+                </form>
+                <br />
 
-    
-    <div class="container px-5 py-5" >
-        <form class="form-inline">
-        <div class="row">
-            <div class="col-sm-6">
-                <label for="inputEmail4">Bank</label>
-                <p></p>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-sm-6">
-                <label for="inputPassword4">Kontonummer</label>
-                <p></p>
-                <input type="password" class="form-control" id="inputPassword4">
+                <div class="col py-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-primary me-2">Speichern</button>
+                            <a href="{% url 'edit:settings'%}" class="btn btn-secondary">Zurück</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <p></p>
-        <div class="row">
-            <div class="col-sm-6">
-                <label for="inputAddress">IBAN</label>
-                <p></p>
-                <input type="text" class="form-control" id="inputAddress">
-            </div>
-            <div class="col-sm-6">
-                <label for="inputAddress2">BLZ</label>
-                <p></p>
-                <input type="text" class="form-control" id="inputAddress2">
-            </div>
-        </div>
-        <p></p>
-        <div class="row">
-            <div class="col-sm-4">
-                <label for="inputCity">BIC</label>
-                <p></p>
-                <input type="text" class="form-control" id="inputCity">
-            </div>
-        </div>
-    </form>
-    <br />
-      
-    <div class="col py-3">
-        <div class="row">
-            <div class="col-sm-12">
-                <button type="button" class="btn btn-primary">Speichern</button>
-                <a href="{% url 'edit:settings'%}" class="btn btn-primary">Zurück</a>
-            </div>
-        </div>
+        <div class="col"></div>
     </div>
 </div>
 {% endblock hauptinhalt %}
