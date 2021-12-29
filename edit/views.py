@@ -66,3 +66,8 @@ def editPassword(request):
 def editBankAccount(request):
     context = {"title": "Konto erstellen"}
     return render(request, 'edit/editBankAccount.html',context)
+    
+@login_required()
+def editToDos(request):
+    context = {"title": "Aufgabe erstellen"}
+    return render(request, 'edit/editToDos.html',context)
