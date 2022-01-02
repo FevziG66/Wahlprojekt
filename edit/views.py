@@ -1,6 +1,5 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-
 from edit.forms import ReceiptForm
 from edit.forms import EditContactForm
 from home.models import contact, receipt

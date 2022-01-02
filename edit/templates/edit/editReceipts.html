@@ -1,80 +1,69 @@
 {% extends "edit/base.html"%}
 {%load static%}
-
+{% load crispy_forms_tags %}
 {% block hauptinhalt %}
-<div class="col py-3">
+<div class="col py-5 mt-5">
     <div class="row">
-        <center>
-            <div class="col-sm-12">
-                <h1>Belege Hochladen</h1>
-                <p><img src="https://www.iconninja.com/files/154/371/776/upload-icon.png" alt="Upload" width="120px">
-                </p>
-                <p>
-                <form enctype="multipart/form-data"> <input name="Datei" type="file" accept="text/*" /> </form>
-                </p>
+        <div class="col">
+        </div>
+        <div class="col-6">
+            <div class="card p-5">
+                <center>
+                    <h2>Belege Hochladen</h1>
+                        <p><img src="https://www.iconninja.com/files/154/371/776/upload-icon.png" alt="Upload"
+                                width="100px">
+                        </p>
+                        <p>
+                        <form enctype="multipart/form-data"> <input name="Datei" type="file" accept="text/*" /> </form>
+                        </p>
+                        {% for message in messages %}
+                        <div class="alert alert-success">
+                            <a class="close" href="#" data-dismiss="alert">×</a>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                </center>
+                <p></p>
+                <form class="form-inline" action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">               
+                            {{form.belegnummer|as_crispy_field}}
+                        </div>
+                        <div class="col-sm-6">
+                            {{form.belegdatum|as_crispy_field}}
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{form.zahlart|as_crispy_field}}
+                        </div>
+                        <div class="col-sm-6">
+                            {{form.faelligkeit|as_crispy_field}}
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{form.betrag|as_crispy_field}}
+                        </div>
+                        <div class="col-sm-6">
+                            {{form.beschreibung|as_crispy_field}}
+                        </div>
+                    </div>
+                    <p></p>
+                    <center>
+                    <button type="submit" class="btn btn-primary mt-2 me-2">Speichern</button>
+                    <!-- Submit-Button statt Link, um Speichern auszulösen-->
+                    <a href="{% url 'home:receipts'%}" class="btn btn-secondary mt-2">Zurück zur Übersicht</a>
+                </center>
+                </form>
+                <br />
             </div>
-        </center>
-    </div>
-
-    {% for message in messages %}
-    <div class="alert alert-success">
-        <a class="close" href="#" data-dismiss="alert">×</a>
-        {{ message }}
-    </div>
-    {% endfor %}
-
-    <div class="container px-5 py-5">
-        <form action="" method="post">
-            {% csrf_token %}
-            <form class="form-inline">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputEmail4">  Belegnummer {{form.belegnummer}} </label>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputPassword4">Belegdatum {{form.belegdatum}}</label>
-                        <!-- <input type="date" class="form-control" id="inputPassword4" placeholder="Belegdatum"> -->
-                    </div>
-                </div>
-                <p></p>
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputAddress">Zahlart {{form.zahlart}}</label>
-                        <!-- <input type="text" class="form-control" id="inputAddress" placeholder="Zahlart"> -->
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputAddress2">Fälligkeit {{form.faelligkeit}}</label>
-                        <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="Fälligkeit"> -->
-                    </div>
-                </div>
-                <p></p>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputCity">Betrag {{form.betrag}}</label>
-                        <!-- <input type="number" class="form-control" id="inputCity" placeholder="Betrag"> -->
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputCity">Beschreibung {{form.beschreibung}}</label>
-                        <!-- <input type="text" class="form-control" id="inputCity" placeholder="Fälligkeit"> -->
-                    </div>
-                </div>
-                <p></p>
-                <button type="submit" class="btn btn-success">Speichern</button> <!-- Submit-Button statt Link, um Speichern auszulösen-->
-                <a href="{% url 'home:receipts'%}" class="btn btn-primary">Zurück zur Übersicht</a>
-            </form>
-            <br />
-
-            <!--
-            <div class="col py-3">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <a href="{% url 'home:dashboard'%}" class="btn btn-primary">Zurück zum Dashboard</a>
-                    </div>
-                </div>
-            </div> 
-            -->
+        </div>
+        <div class="col">
+        </div>
     </div>
 </div>
 {% endblock hauptinhalt %}

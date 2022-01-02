@@ -1,6 +1,6 @@
 {% extends "start/base.html"%}
 {%load static%}
-
+{% load crispy_forms_tags %}
 {% block hauptinhalt %}
 <div class="container-fluid py-5 mt-5">
   <div class="row mt-lg-5 justify-content-center align-items-center">
@@ -9,38 +9,22 @@
         <center>
           <form class="registerWindow" action="{% url 'start:register' %}" method="post">
             {% csrf_token %}
-            <h1 class="mb-4">Regsitrieren</h1>
+            <h1 class="mb-4">Registrieren</h1>
 
             <div class="row mx-2">
               {% if error_message %}
               <p class="bg-danger p-d ml-b">{{ error_message }}</p>
               {% endif %}
-
+              
               <div class="col-6 mb-4">
                 <div class="form-group">
-                  <label for="{{ form.first_name.id_for_label }}">Vorname:</label>
-                  {{ form.first_name }}
+                  <!--Crips Field sorgt dafür, dass die Textfelder ordentlich und im Bootstrap Stil aussehen. -->
+                  {{ form.vorname|as_crispy_field }}
                 </div>
               </div>
               <div class="col-6 mb-4">
                 <div class="form-group">
-                  <label for="{{ form.last_name.id_for_label }}">Name:</label>
-                  {{ form.last_name }}
-                </div>
-              </div>
-            </div>
-
-            <div class="row mx-2">
-              <div class="col-6 mb-4">
-                <div class="form-group">
-                  <label for="{{ form.email.id_for_label }}">Email:</label>
-                  {{ form.email }}
-                </div>
-              </div>
-              <div class="col-6 mb-4">
-                <div class="form-group">
-                  <label for="{{ form.username.id_for_label }}">Username:</label>
-                  {{ form.username }}
+                  {{ form.nachname|as_crispy_field }}
                 </div>
               </div>
             </div>
@@ -48,19 +32,30 @@
             <div class="row mx-2">
               <div class="col-6 mb-4">
                 <div class="form-group">
-                  <label for="{{ form.password.id_for_label }}">Passwort:</label>
-                  {{ form.password }}
+                  {{ form.email|as_crispy_field }}
                 </div>
               </div>
               <div class="col-6 mb-4">
                 <div class="form-group">
-                  <label for="{{ form.password_repeat.id_for_label }}">Passwort wiederholen:</label>
-                  {{ form.password_repeat }}
+                  {{ form.benutzername|as_crispy_field }}
+                </div>
+              </div>
+            </div>
+
+            <div class="row mx-2">
+              <div class="col-6 mb-4">
+                <div class="form-group">
+                  {{ form.passwort|as_crispy_field }}
+                </div>
+              </div>
+              <div class="col-6 mb-4">
+                <div class="form-group">
+                  {{ form.passwort_wiederholen|as_crispy_field }}
                 </div>
               </div>
             </div>
             <div class="col-6">
-              <input name="register" type="submit" value="Konto erstellen" class="btn btn-secondary" />
+              <input name="register" type="submit" value="Konto erstellen" class="btn btn-dark" />
             </div>
           </form>
         </center>
