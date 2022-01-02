@@ -58,11 +58,6 @@ def editContacts(request):
     return render(request, 'edit/editContacts.html',context)
 
 @login_required()
-def editPassword(request):
-    context = {"title": "Kontakte bearbeiten"}
-    return render(request, 'edit/editPassword.html',context)
-
-@login_required()
 def editBankAccount(request):
     context = {"title": "Konto erstellen"}
     return render(request, 'edit/editBankAccount.html',context)
@@ -71,3 +66,9 @@ def editBankAccount(request):
 def editToDos(request):
     context = {"title": "Aufgabe erstellen"}
     return render(request, 'edit/editToDos.html',context)
+
+
+@login_required()
+def password_change_done(request):
+    context = {"title": "Aufgabe erstellen"}
+    return render(request, 'edit/change_password_done.html',context)

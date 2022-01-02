@@ -115,3 +115,11 @@ def logout(request):
     if request.method == 'POST':
         logouts(request)
         return render(request, 'start/login.html/')
+
+def reset_password(request):
+    context = {"title": "Passwort zurücksetzen"}
+    return render(request, 'start/password_reset.html',context)
+
+def password_reset_done(request):
+    context = {"title": "Passwort zurücksetzen"}
+    return render(request, 'start/password_reset_done.html',context)
