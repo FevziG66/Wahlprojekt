@@ -9,8 +9,11 @@ class receipt(models.Model):
     zahlart = models.CharField(max_length=10,choices=zahlart_choices,default="Karte")            
     faelligkeit = models.DateField()
     betrag = models.DecimalField(max_digits=10,decimal_places=2)
-    #datei = models.FileField()
     beschreibung = models.CharField(max_length=150)
+    # konto = models.ForeignKey(konto,on_delete=models.CASCADE)
+    art_choices = [('Einnahme','Einnahme'),
+                ('Ausgabe','Ausgabe'),]
+    art = models.CharField(max_length=10,choices=art_choices)
     
 
 class contact(models.Model):
@@ -25,3 +28,8 @@ class todo(models.Model):
     aufgabe = models.CharField(max_length=50)
     erledigt = models.IntegerField()
 
+class konto(models.Model):
+    name = models.CharField(max_length=30,primary_key=True)
+    iban = models.CharField(max_length=22)
+    bic = models.CharField(max_length=10)
+    kontostand = models.DecimalField(max_digits=10,decimal_places=2)

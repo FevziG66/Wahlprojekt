@@ -34,19 +34,33 @@ def accounts(request):
 
 @login_required()
 def receipts(request):
-    if 'edit' in request.GET:
-        bnummer = request.GET.get('edit')
-        print(bnummer)
-        receipt_to_edit = receipt.objects.get(belegnummer=bnummer)
-        form = EditReceiptForm(instance=receipt_to_edit)
-    else:
-        form = EditReceiptForm()
+    if request.method == "POST":
+        
+        if 'deleteReceipt' in request.POST:
+            receipt.objects.filter(belegnummer=request.POST['belegnummer']).delete()
+        elif 'updateReceipt' in request.POST: 
+            # form = ReceiptForm()
+            # form.belegnummer = request.POST['belegnummer']
+            # form.belegdatum = request.POST['belegdatum']
+            # form.zahlart = request.POST['zahlart']
+            # form.faelligkeit = request.POST['faelligkeit']
+            # form.betrag = request.POST['betrag']
+            # form.beschreibung = request.POST['beschreibung']
+            # if form.is_valid():
+                receipt.objects.filter(belegnummer=request.POST['belegnummer']).update(
+                    belegnummer = request.POST['belegnummer'],
+                    belegdatum = request.POST['belegdatum'],
+                    zahlart = request.POST['zahlart'],
+                    faelligkeit = request.POST['faelligkeit'],
+                    betrag = request.POST['betrag'],
+                    beschreibung = request.POST['beschreibung'])
+
+
     all_receipts = receipt.objects.all()
     all_receipts_dict = {
         'receipt': all_receipts
     }
-
-    context = {"title": "Belege","all_receipts_dict": all_receipts,"form":form}
+    context = {"title": "Belege","all_receipts_dict": all_receipts} 
     return render(request, 'home/receipts.html',context)
 
 @login_required()
