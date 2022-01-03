@@ -1,5 +1,6 @@
 from django.forms import ModelForm, widgets
 from home.models import contact, receipt
+from django import forms
 
 class ReceiptForm(ModelForm):
     class Meta: 
@@ -14,4 +15,4 @@ class EditContactForm(ModelForm):
     class Meta: 
         model = contact
         fields = '__all__'
-        
+

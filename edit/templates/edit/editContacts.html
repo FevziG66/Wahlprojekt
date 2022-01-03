@@ -1,78 +1,61 @@
 {% extends "edit/base.html"%}
 {%load static%}
-
+{% load crispy_forms_tags %}
 {% block hauptinhalt %}
-<div class="col py-3">
-    <div class="row">
-        <center><div class="col-sm-12">
-            <h1>Kontakte bearbeiten</h1>
-        </div></center>
-    </div>
-
-    {% for message in messages %}
-    
-    <div class="alert alert-success">
-        <a class="close" href="#" data-dismiss="alert">×</a>
-           {{ message }}
-    </div>
-
-    {% endfor %}
-    
-    <div class="container px-5 py-5" >
-        <form action="" method="post">
-            {% csrf_token %}
-        <form class="form-inline">
-        <div class="row">
-            <div class="col-sm-4">
-                <label>Nummer</label>
-                <p></p>
-                {{form.kontaktnummer}}
-            </div>
-            <div class="col-sm-4">
-                <label>Firma</label>
-                <p></p>
-                {{form.firma}}
-            </div>
-            
-            <div class="col-sm-4">
-                <label>Ansprechpartner</label>
-                <p></p>
-                {{form.ansprechpartner}}
-            </div>
-
+<div class="col py-5 mt-5">
+    <div class="row mt-5">
+        <div class="col">
         </div>
-        <p></p>
-        
-        <div class="row">
-            <div class="col-sm-4">
-                <label>Adresse</label>
-                <p></p>
-                {{form.adresse}}
-            </div>
-
-            <div class="col-sm-4">
-                <label>Telefonnummer</label>
-                <p></p>
-                {{form.telefonnummer}}
-            </div>
-           
-            <div class="col-sm-4">
-                <label>E-Mail</label>
-                <p></p>
-                {{form.email}}
+        <div class="col-6">
+            <div class="card p-5">
+                <h1 class="mb-4">Kontakte bearbeiten</h1>
+                {% for message in messages %}
+                <div class="alert alert-success">
+                    <a class="close" href="#" data-dismiss="alert">×</a>
+                    {{ message }}
+                </div>
+                {% endfor %}
+                <form class="form-inline" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{form.firma|as_crispy_field}}
+                        </div>
+                        <div class="col-sm-6">
+                            {{form.kontaktnummer|as_crispy_field}}
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{form.ansprechpartner|as_crispy_field}}
+                        </div>
+                        <div class="col-sm-6">
+                            {{form.email|as_crispy_field}}
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{form.adresse|as_crispy_field}}
+                        </div>
+                        <div class="col-sm-6">
+                            {{form.telefonnummer|as_crispy_field}}
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col py-3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-primary me-2">Speichern</button>
+                                <a href="{% url 'home:contacts'%}" class="btn btn-secondary">Zurück</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <button type="submit">Speichern</button>
-        </form>
-        <br />
-      
-    <div class="col py-3">
-        <div class="row">
-            <div class="col-sm-12">
-                <!--<a href="{% url 'home:receipts'%}" class="btn btn-primary">Speichern</a>-->
-                <a href="{% url 'home:contacts'%}" class="btn btn-primary">Zurück</a>
-            </div>
-        </div>
+        <div class="col"></div>
     </div>
 </div>
 {% endblock hauptinhalt %}

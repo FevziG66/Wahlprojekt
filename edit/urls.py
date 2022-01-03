@@ -16,8 +16,6 @@ urlpatterns = [
     path('editContacts/', views.editContacts, name='editContacts'),
     path('editBankAccount/', views.editBankAccount, name='editBankAccount'),
     path('editToDos/', views.editToDos, name='editToDos'),
-
-
-    path('change_password_form', auth_views.PasswordChangeView.as_view(template_name='edit/change_password_form.html', success_url=reverse_lazy('account:password_change_done')), name='change_password_form'),
-    #path('password_change_done', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
+    path('change_password_form', auth_views.PasswordChangeView.as_view(template_name='edit/change_password_form.html', success_url=reverse_lazy('edit:password_change_done')), name='change_password_form'),
+    path('password_change_done', auth_views.PasswordChangeDoneView.as_view(template_name='edit/change_password_done.html'), name='password_change_done'),
 ]
