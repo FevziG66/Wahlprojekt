@@ -6,18 +6,28 @@
   <div class="row">
     <h1>Konten</h1>
     <p></p>
+    {% if all_kontos_dict %}
+
+    {% for konto in all_kontos_dict %}
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Einnahmen</h5>
-          <p class="card-text">32500 €</p>
-          <a href="{% url 'home:accountDetails'%}" class="btn btn-primary">Details</a>
+          <h5 class="card-title">{{konto.name}}</h5>
+          <p class="card-text">Kontostand: {{konto.kontostand}} €</p>
+          
+          <a href="{% url 'home:accountDetails' %}" class="btn btn-primary">Details</a>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
+    {% endfor %}
+    {% endif %}
+  <!--  <div class="col-sm-4">
+=======
   </div>
   <div class="row">
     <div class="col-sm-4">
+>>>>>>> c4103381d4a2c998f742d5869d601ca9c45f520e
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Ausgaben</h5>
@@ -27,7 +37,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+   <div class="row">
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
@@ -37,6 +47,11 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
+  </div> -->
+  <div class="row">
+=======
+>>>>>>> c4103381d4a2c998f742d5869d601ca9c45f520e
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">

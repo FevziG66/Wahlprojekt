@@ -4,13 +4,13 @@
 {% block hauptinhalt %}
 <div class="col py-3">
    <div class="row">
-      <h1>Details</h1>
+      <h1>Details für Konto {{konto}}</h1>
       <p></p>
       <div class="col-sm-4">
          <div class="card">
             <div class="card-body">
-               <h5 class="card-title">Büromaterial</h5>
-               <p class="card-text">Einnahmenkonto Kontostand: 122</p>
+               <h5 class="card-title">Einnahmen</h5>
+               <p class="card-text">Summe der Einnahmen: {{summe_einnahmen}} €</p>
             </div>
          </div>
       </div>
@@ -18,9 +18,45 @@
    <p></p>
    <div class="table-responsive">
       <table class="table table-bordered table-hover table-striped">
+<<<<<<< HEAD
          <thead>
             <tr>
                <th scope="col">Nr.</th>
+=======
+         <thead>
+             <tr>
+                 <th>Belegnummer</th>
+                 <th>Belegdatum</th>
+                 <th>Zahlart</th>
+                 <th>Fälligkeit</th>
+                 <th>Betrag</th>
+                 <th>Beschreibung</th>
+             </tr>
+         </thead>
+         {% if all_einnahmen_dict %}
+         <tbody>
+            
+
+
+             {% for einnahme in all_einnahmen_dict %}
+             <tr>
+                 <td>{{einnahme.belegnummer}}</td>
+                 <td>{{einnahme.belegdatum}}</td>
+                 <td>{{einnahme.zahlart}}</td>
+                 <td>{{einnahme.faelligkeit}}</td>
+                 <td>{{einnahme.betrag}} €</td>
+                 <td>{{einnahme.beschreibung}}</td>
+             </tr>
+             {% endfor %}
+             
+         </tbody>
+         {% endif %}
+      </table>
+      <!-- <table class="table table-bordered table-hover table-danger table-striped">
+         <thead>
+            <tr>
+               <th scope="col">Beleg</th>
+>>>>>>> 720f1aca158650657d78dc14e6f2b36eecf7541a
                <th scope="col">Beschreibung</th>
                <th scope="col">Datum</th>
                <th scope="col">Betrag</th>
@@ -57,9 +93,99 @@
                <td></td>
             </tr>
          </tbody>
-      </table>
+      </table> -->
    </div>
    <p></p>
+<<<<<<< HEAD
+=======
+   <div class="col-sm-4">
+      <div class="card">
+         <div class="card-body">
+            <h5 class="card-title">Ausgaben</h5>
+            <p class="card-text">Summe der Ausgaben: {{summe_ausgaben}} €</p>
+         </div>
+      </div>
+   </div>
+
+   <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+         <thead>
+             <tr>
+                 <th>Belegnummer</th>
+                 <th>Belegdatum</th>
+                 <th>Zahlart</th>
+                 <th>Fälligkeit</th>
+                 <th>Betrag</th>
+                 <th>Beschreibung</th>
+             </tr>
+         </thead>
+         {% if all_ausgaben_dict %}
+         <tbody>
+             
+
+
+             {% for ausgabe in all_ausgaben_dict %}
+             <tr>
+                 <td>{{ausgabe.belegnummer}}</td>
+                 <td>{{ausgabe.belegdatum}}</td>
+                 <td>{{ausgabe.zahlart}}</td>
+                 <td>{{ausgabe.faelligkeit}}</td>
+                 <td>{{ausgabe.betrag}} €</td>
+                 <td>{{ausgabe.beschreibung}}</td>
+             </tr>
+             {% endfor %}
+             
+         </tbody>
+         {% endif %}
+      <!-- <table class="table table-bordered table-hover table-danger table-striped">
+         <thead>
+            <tr>
+               <th scope="col">Ausgaben</th>
+               <th scope="col">Januar</th>
+               <th scope="col">Februar</th>
+               <th scope="col">März</th>
+               <th scope="col">April</th>
+               <th scope="col">Mai</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th scope="col"> 1 </th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">2</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">3</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+            <tr>
+               <th scope="col">4</th>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+         </tbody>
+      </table> -->
+      </table>
+   </div>
+>>>>>>> 720f1aca158650657d78dc14e6f2b36eecf7541a
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

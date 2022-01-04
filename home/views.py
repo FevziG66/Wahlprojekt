@@ -1,11 +1,16 @@
 from django.shortcuts import render
+from django.db.models import Sum
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from home.models import contact, receipt, todo
+from home.models import contact, receipt, todo, konto
 from home.forms import ReceiptForm
 from edit.forms import ReceiptForm as EditReceiptForm
 from edit.forms import EditContactForm
-from home.forms import ContactForm
+from home.forms import ContactForm,AccountDetailForm
 from django.contrib.auth.decorators import login_required
+
+# Create your views here.
+
+
 
 
 @login_required()
@@ -25,24 +30,38 @@ def profile(request):
 
 @login_required()
 def accounts(request):
-    context = {"title": "Konten"}
+    all_kontos = konto.objects.all()
+    all_kontos_dict = {
+        'konto': all_kontos
+    }
+    context = {"title": "Konten","all_kontos_dict":all_kontos}
     return render(request, 'home/accounts.html',context)
 
 @login_required()
 def receipts(request):
-    if 'edit' in request.GET:
-        bnummer = request.GET.get('edit')
-        print(bnummer)
-        receipt_to_edit = receipt.objects.get(belegnummer=bnummer)
-        form = EditReceiptForm(instance=receipt_to_edit)
-    else:
-        form = EditReceiptForm()
+    if request.method == "POST":
+        if 'deleteReceipt' in request.POST:
+            receipt.objects.filter(belegnummer=request.POST['belegnummer']).delete()
+        elif 'updateReceipt' in request.POST: 
+                receipt.objects.filter(belegnummer=request.POST['belegnummer']).update(
+                    belegnummer = request.POST['belegnummer'],
+                    belegdatum = request.POST['belegdatum'],
+                    zahlart = request.POST['zahlart'],
+                    faelligkeit = request.POST['faelligkeit'],
+                    betrag = request.POST['betrag'],
+                    beschreibung = request.POST['beschreibung'],
+                    art = request.POST['art'],
+                    konto_name = request.POST.get('konto', False))
+
+    all_kontos = konto.objects.all()
+    all_kontos_dict = {
+        'konto': all_kontos
+    }
     all_receipts = receipt.objects.all()
     all_receipts_dict = {
         'receipt': all_receipts
     }
-
-    context = {"title": "Belege","all_receipts_dict": all_receipts,"form":form}
+    context = {"title": "Belege","all_receipts_dict": all_receipts,"all_kontos_dict":all_kontos} 
     return render(request, 'home/receipts.html',context)
 
 @login_required()
@@ -72,5 +91,26 @@ def todos(request):
 
 @login_required()
 def accountDetails(request):
+<<<<<<< HEAD
     context = {"title": "Konten"}
+=======
+    
+    all_einnahmen = receipt.objects.filter(konto_name='Personalausgaben',art='Einnahme')
+    all_einnahmen_dict = {
+        'einnahme': all_einnahmen
+    }
+    summe_e = receipt.objects.filter(konto_name='Personalausgaben',art='Einnahme').aggregate(sum=Sum('betrag'))['sum']
+    print(summe_e)
+    
+    all_ausgaben = receipt.objects.filter(konto_name = 'Personalausgaben',art='Ausgabe')
+    all_ausgaben_dict = {
+        'receipt': all_ausgaben
+    }
+    summe_a = receipt.objects.filter(konto_name='Personalausgaben',art='Ausgabe').aggregate(sum=Sum('betrag'))['sum']
+    name = 'Personalausgaben'
+
+    
+    context = {"title": "Details","all_ausgaben_dict": all_ausgaben,"all_einnahmen_dict":all_einnahmen,"konto":name,
+        "summe_einnahmen":summe_e,"summe_ausgaben":summe_a}
+>>>>>>> 720f1aca158650657d78dc14e6f2b36eecf7541a
     return render(request, 'home/accountDetails.html',context)

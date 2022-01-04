@@ -2,19 +2,19 @@
 {%load static%}
 
 {% block hauptinhalt %}
-<div class="col py-3">
-
-    <h1>Belege</h1>
-    <p></p>
-    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Bearbeiten</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="" name="editInWindow" method="POST">
+    <div class="col py-3">
+        
+        <h1>Belege</h1>
+        <p></p>
+        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Bearbeiten</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" name="editInWindow" method="POST">
+                    {% csrf_token %}
                     <div class="modal-body">
                         <input type="hidden" name="update_id" id="update_id">
                         <br />
@@ -25,22 +25,48 @@
                         <br />
                         <div class="form-group">
                             <label> Belegdatum </label>
-                            <input type="text" name="belegdatum" id="belegdatum" class="form-control">
+                            <input type="date" name="belegdatum" id="belegdatum" class="form-control">
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Zahlart </label>
-                            <input type="text" name="zahlart" id="zahlart" class="form-control">
+                            <select name="zahlart" id="zahlart" class="form-control">
+                                <option value="Bar">Bar</option>
+                                <option value="Karte">Karte</option>
+                            </select>
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Fälligkeit </label>
-                            <input type="text" name="faelligkeit" id="faelligkeit" class="form-control">
+                            <input type="date" name="faelligkeit" id="faelligkeit" class="form-control">
                         </div>
                         <br />
                         <div class="form-group">
-                            <label> Betrag </label>
-                            <input type="text" name="betrag" id="betrag" class="form-control">
+                            <label> Einnahme / Ausgabe </label>
+                            <select name="art" id="art" class="form-control">
+                                <option value="Einnahme">Einnahme</option>
+                                <option value="Ausgabe">Ausgabe</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label> Konto </label>
+                            {% if all_kontos_dict %}
+                            <select name="konto" id="konto" class="form-control">
+                                
+
+                                {% for konto in all_kontos_dict %}
+                                
+                                <option value={{konto.name}}>{{konto.name}}</option>
+                                
+                                {% endfor %}
+
+                                
+                            </select>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label> Betrag € </label>
+                            <input type="number" name="betrag" id="betrag" class="form-control">
                         </div>
                         <br />
                         <div class="form-group">
@@ -51,8 +77,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Zurück</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Beleg löschen</button>
-                        <button type="submit" name="updatedata" class="btn btn-success">Speichern</button>
+                        <button type="submit" name="deleteReceipt" class="btn btn-danger" data-bs-dismiss="modal">Beleg löschen</button>
+                        <button type="submit" name="updateReceipt" class="btn btn-success">Speichern</button>
                     </div>
                 </form>
             </div>
@@ -66,7 +92,7 @@
                     <th>Belegdatum</th>
                     <th>Zahlart</th>
                     <th>Fälligkeit</th>
-                    <th>Betrag</th>
+                    <th>Betrag €</th>
                     <th>Beschreibung</th>
                     <th>Konto</th>
                     <th>Art</th>
@@ -80,16 +106,14 @@
                 {% for receipt in all_receipts_dict %}
                 <tr>
                     <td>{{receipt.belegnummer}}</td>
-                    <td>{{receipt.belegdatum }}</td>
+                    <td>{{receipt.belegdatum}}</td>
                     <td>{{receipt.zahlart}}</td>
                     <td>{{receipt.faelligkeit}}</td>
                     <td>{{receipt.betrag}}</td>
                     <td>{{receipt.beschreibung}}</td>
-                    <td></td>
-                    <td></td>
-                    <form action="" method="get"></form>
-                    <td><button name="edit" value={{receipt.belegnummer}} type="submit" class="btn btn-success editbtn"
-                            data-toogle="editmodal" data-target="editmodal">Bearbeiten</button></td>
+                    <td>{{receipt.konto_name.name}}</td>
+                    <td>{{receipt.art}}</td>
+                    <td><button name="edit" type="submit" class="btn btn-success editbtn" data-toogle="editmodal" data-target="editmodal">Bearbeiten</button></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -123,43 +147,97 @@
             {% endif %}
         </table>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+            <script>
+              $('.editbtn').on('click', function() {
+                $('#editmodal').modal('show');
+                $tr = $(this).closest('tr');
+                  
+                var data = $tr.children("td").map(function () {
+                  return $(this).text();	
+                }).get();
+
+                function convertStringToEnglishDate(stringToConvert){
+                    var arrayOfStrings = stringToConvert.split(' ');
+                    var tag = arrayOfStrings[0].replace('.','');
+                    if(tag.length<2){
+                        tag = '0'.concat(tag);
+                    }
+                    var monat; 
+                    var jahr;
+                    
+                    switch (arrayOfStrings[1]){
+                        case "Januar":
+                            monat = '-01-'; 
+                            break;
+                        
+                        case "Februar":
+                            monat = '-02-';
+                            break;
+                        
+                        case "März":
+                            monat = '-03-'; 
+                            break;
+                        
+                        case "April":
+                            monat = '-04-'; 
+                            break;
+                        
+                        case "Mai":
+                            monat = '-05-'; 
+                            break;
+                        
+                        case "Juni":
+                            monat = '06-';
+                            break;
+                        
+                        case "Juli":
+                            monat = '-07-'; 
+                            break;
+                        
+                        case "August":
+                            monat = '-08-'; 
+                            break;
+                        
+                        case "September":
+                            monat = '-09-';
+                            break;
+                        
+                        case "Oktober":
+                            monat = '-10-';
+                            break;
+
+                        case "November":
+                            monat = '-11-';
+                            break;
+                        
+                        case "Dezember":
+                            monat = '-12-';
+                            break; 
+                    }
+                    return arrayOfStrings[2].concat(monat,tag);
+                }
+                
+                var belegdatum = convertStringToEnglishDate(data[1]);
+                var faelligkeit = convertStringToEnglishDate(data[3]);
+                
+                $('#belegnummer').val(data[0]);
+                $('#belegdatum').val(belegdatum);
+                $('#zahlart').val(data[2]);
+                $('#faelligkeit').val(faelligkeit);
+                $('#betrag').val(data[4]);
+                $('#beschreibung').val(data[5]);
+                $('#konto').val(data[6]);
+                $('#art').val(data[7]);
+              });
+            </script>
 
     <a href="{% url 'edit:editReceipts'%}" class="btn btn-primary">Beleg hinzufügen</a>
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-    crossorigin="anonymous"></script>
-<script>
-    $('.editbtn').on('click', function () {
-        $('#editmodal').modal('show');
-        $tr = $(this).closest('tr');
 
-        var data = $tr.children("td").map(function () {
-            return $(this).text();
-        }).get();
-
-        console.log(data);
-        $('#belegnummer').val(data[0]);
-        $('#belegdatum').val(data[1]);
-        $('#zahlart').val(data[2]);
-        $('#faelligkeit').val(data[3]);
-        $('#betrag').val(data[4]);
-        $('#beschreibung').val(data[5]);
-    });
-</script>
 {% endblock hauptinhalt %}
