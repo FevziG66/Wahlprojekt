@@ -72,5 +72,5 @@ def todos(request):
 
 @login_required()
 def accountDetails(request):
-    context = {"title": "To-Do's"}
+    context = {"title": "Konten"}
     return render(request, 'home/accountDetails.html',context)

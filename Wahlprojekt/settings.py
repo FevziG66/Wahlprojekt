@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "crispy_forms",
-    "crispy_bootstrap5",
+    'crispy_forms',
+    'crispy_bootstrap5',
     'start',
     'home',
     'edit'
@@ -136,7 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Zum Zurücksetzen des Passworts
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
-#EMAIL_HOST_USER =
-#EMAIL_HOST_PASSWORD =
+EMAIL_HOST_USER = 'fevzigencer1998@gmail.com'
+EMAIL_HOST_PASSWORD = 'Besiktask'
 EMAIL_POST = 587
 ACCOUNT_EMAIL_VERIFICATION = 'None'
