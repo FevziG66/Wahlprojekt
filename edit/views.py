@@ -1,6 +1,5 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-
 from edit.forms import ReceiptForm
 from edit.forms import EditContactForm, EditAccountForm
 from home.models import contact, konto, receipt
@@ -56,11 +55,6 @@ def editContacts(request):
     return render(request, 'edit/editContacts.html',context)
 
 @login_required()
-def editPassword(request):
-    context = {"title": "Kontakte bearbeiten"}
-    return render(request, 'edit/editPassword.html',context)
-
-@login_required()
 def editBankAccount(request):
     if request.method == 'POST':
         form = EditAccountForm(request.POST)
@@ -79,3 +73,9 @@ def editBankAccount(request):
 def editToDos(request):
     context = {"title": "Aufgabe erstellen"}
     return render(request, 'edit/editToDos.html',context)
+
+
+@login_required()
+def password_change_done(request):
+    context = {"title": "Aufgabe erstellen"}
+    return render(request, 'edit/change_password_done.html',context)

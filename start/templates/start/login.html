@@ -10,9 +10,6 @@
         <form class="loginWindow" action="{% url 'start:user_login' %}" method="post">
           {% csrf_token %}
           <h1 class="mb-4">Login</h1>
-          {% if error_message %}
-          <p class="bg-danger p-d ml-b">{{ error_message }}</p>
-          {% endif %}
           <div class="form-outline mb-4">
             <label class="form-label fw-bold mb-3">Email Adresse</label>
             <input name="username" type="text" class="form-control form-control-lg w-75" placeholder="test@unternehmen.de">
@@ -21,10 +18,13 @@
             <label class="form-label fw-bold mb-3">Passwort</label>
             <input name="password" type="password" class="form-control form-control-lg w-75" placeholder="********">
           </div>
+          {% if error_message %}
+          <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+          {% endif %}
           <p></p>
-          <input name="login" type="submit" value="Login" class="btn btn-secondary" />
+          <input name="login" type="submit" value="Login" class="btn btn-dark" />
           <p></p>
-          <a href="{% url 'start:forgotPassword'%}">Passwort vergessen?</a>
+          <a href="{% url 'start:reset_password'%}">Passwort vergessen?</a>
           <p></p>
           Noch kein Konto? 
           <a href="{% url 'start:register'%}">Hier registieren</a>

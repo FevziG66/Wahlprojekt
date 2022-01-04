@@ -37,12 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "crispy_forms",
+    "crispy_bootstrap5",
     'start',
     'home',
     'edit'
     #eigene Apps müssen zum Anzeigen im Browser hier hinterlegt werden
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -127,3 +131,12 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Zum Zurücksetzen des Passworts
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+#EMAIL_HOST_USER =
+#EMAIL_HOST_PASSWORD =
+EMAIL_POST = 587
+ACCOUNT_EMAIL_VERIFICATION = 'None'

@@ -64,7 +64,7 @@ def register(request):
                     'form': form,
                     'error_message': 'Email-Adresse existiert bereits.'
                 })
-            elif form.cleaned_data['password'] != form.cleaned_data['password_repeat']:
+            elif form.cleaned_data['passwort'] != form.cleaned_data['passwort_wiederholen']:
                 return render(request, template, {
                     'form': form,
                     'error_message': 'Passwörter stimmen nicht überein.'
@@ -74,10 +74,10 @@ def register(request):
                 user = User.objects.create_user(
                     form.cleaned_data['username'],
                     form.cleaned_data['email'],
-                    form.cleaned_data['password']
+                    form.cleaned_data['passwort']
                 )
-                user.first_name = form.cleaned_data['first_name']
-                user.last_name = form.cleaned_data['last_name']
+                user.first_name = form.cleaned_data['vorname']
+                user.last_name = form.cleaned_data['nachname']
                 user.save()
                
                 # User einloggen
@@ -115,3 +115,11 @@ def logout(request):
     if request.method == 'POST':
         logouts(request)
         return render(request, 'start/login.html/')
+
+def reset_password(request):
+    context = {"title": "Passwort zurücksetzen"}
+    return render(request, 'start/password_reset.html',context)
+
+def password_reset_done(request):
+    context = {"title": "Passwort zurücksetzen"}
+    return render(request, 'start/password_reset_done.html',context)
