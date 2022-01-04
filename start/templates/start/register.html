@@ -2,69 +2,72 @@
 {%load static%}
 
 {% block hauptinhalt %}
-<center>
-  <div class="registerWindow">
-    <form action="{% url 'start:register' %}" method="post">
-      {% csrf_token %}
-      <div class="row">
-        {% if error_message %}
-        <p class="bg-danger p-d ml-b">{{ error_message }}</p>
-        {% endif %}
-        <div class="col-6">
-          <div class="form-group clearfix">
-            <label for="{{ form.first_name.id_for_label }}" class="col-md-4 control-label text-right">Vorname:</label>
-            {{ form.first_name }}
-          </div>
-        </div>
+<div class="container-fluid py-5 mt-5">
+  <div class="row mt-lg-5 justify-content-center align-items-center">
+    <div class="col-12 col-md-8 col-sm-5 col-xl-4">
+      <div class="card-body text-center">
+        <center>
+          <form class="registerWindow" action="{% url 'start:register' %}" method="post">
+            {% csrf_token %}
+            <h1 class="mb-4">Regsitrieren</h1>
 
-        <div class="col-6">
-          <div class="form-group clearfix">
-            <label for="{{ form.last_name.id_for_label }}" class="col-md-4 control-label text-right">Name:</label>
-            {{ form.last_name }}
-          </div>
-        </div>
-      </div>
+            <div class="row mx-2">
+              {% if error_message %}
+              <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+              {% endif %}
 
-      <div class="row">
-        <div class="col-6">
-          <div class="form-group clearfix">
-            <label for="{{ form.email.id_for_label }}" class="col-md-4 control-label text-right">Email<span
-                class="text-red">*</span>:</label>
-            {{ form.email }}
-          </div>
-        </div>
-        <div class="col-6">
-        <div class="form-group clearfix">
-          <label for="{{ form.username.id_for_label }}" class="col-md-4 control-label text-right">Username<span class="text-red">*</span>:</label>
-              {{ form.username }}
-          </div>
-        </div>
-      </div>
+              <div class="col-6 mb-4">
+                <div class="form-group">
+                  <label for="{{ form.first_name.id_for_label }}">Vorname:</label>
+                  {{ form.first_name }}
+                </div>
+              </div>
+              <div class="col-6 mb-4">
+                <div class="form-group">
+                  <label for="{{ form.last_name.id_for_label }}">Name:</label>
+                  {{ form.last_name }}
+                </div>
+              </div>
+            </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class="form-group clearfix">
-            <label for="{{ form.password.id_for_label }}" class="col-md-4 control-label text-right">Passwort<span
-                class="text-red">*</span>:</label>
-            {{ form.password }}
-          </div>
-        </div>
+            <div class="row mx-2">
+              <div class="col-6 mb-4">
+                <div class="form-group">
+                  <label for="{{ form.email.id_for_label }}">Email:</label>
+                  {{ form.email }}
+                </div>
+              </div>
+              <div class="col-6 mb-4">
+                <div class="form-group">
+                  <label for="{{ form.username.id_for_label }}">Username:</label>
+                  {{ form.username }}
+                </div>
+              </div>
+            </div>
 
-        <div class="col-6">
-          <div class="form-group clearfix">
-            <label for="{{ form.password_repeat.id_for_label }}" class="col-md-4 control-label text-right">Passwort
-              wiederholen</label>
-            {{ form.password_repeat }}
-          </div>
-        </div>
+            <div class="row mx-2">
+              <div class="col-6 mb-4">
+                <div class="form-group">
+                  <label for="{{ form.password.id_for_label }}">Passwort:</label>
+                  {{ form.password }}
+                </div>
+              </div>
+              <div class="col-6 mb-4">
+                <div class="form-group">
+                  <label for="{{ form.password_repeat.id_for_label }}">Passwort wiederholen:</label>
+                  {{ form.password_repeat }}
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <input name="register" type="submit" value="Konto erstellen" class="btn btn-secondary" />
+            </div>
+          </form>
+        </center>
       </div>
-      <div class="col-6">
-        <input name="register" type="submit" value="Konto erstellen" class="btn btn-secondary" />
-        
-      </div>
-    </form>
+    </div>
   </div>
-</center>
+</div>
 {% endblock hauptinhalt %}
 
 <!--

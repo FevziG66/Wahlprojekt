@@ -26,7 +26,6 @@ def impressum(request):
     context = {"title": "Impressum"}
     return render(request, 'start/impressum.html',context)
 
-@login_required()
 def forgotPassword(request):
     context = {"title": "Passwort vergessen"}
     return render(request, 'start/forgotPassword.html',context)

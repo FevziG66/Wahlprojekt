@@ -10,10 +10,11 @@ class receipt(models.Model):
     faelligkeit = models.DateField()
     betrag = models.DecimalField(max_digits=10,decimal_places=2)
     beschreibung = models.CharField(max_length=150)
-    # konto = models.ForeignKey(konto,on_delete=models.CASCADE)
+    konto_name = models.ForeignKey('konto',on_delete=models.CASCADE,to_field='name')
     art_choices = [('Einnahme','Einnahme'),
                 ('Ausgabe','Ausgabe'),]
-    art = models.CharField(max_length=10,choices=art_choices)
+    art = models.CharField(max_length=10,choices=art_choices,default="Einnahme")
+
     
 
 class contact(models.Model):
@@ -30,6 +31,7 @@ class todo(models.Model):
 
 class konto(models.Model):
     name = models.CharField(max_length=30,primary_key=True)
+    bank = models.CharField(max_length=40)
     iban = models.CharField(max_length=22)
     bic = models.CharField(max_length=10)
     kontostand = models.DecimalField(max_digits=10,decimal_places=2)

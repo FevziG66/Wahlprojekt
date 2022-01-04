@@ -2,8 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 from edit.forms import ReceiptForm
-from edit.forms import EditContactForm
-from home.models import contact, receipt
+from edit.forms import EditContactForm, EditAccountForm
+from home.models import contact, konto, receipt
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
@@ -37,8 +37,6 @@ def editReceipts(request):
             form.save()
     else:
         form = ReceiptForm()
-
-    
     context = {"title": "Beleg hinzufügen","form": form}
     return render(request, 'edit/editReceipts.html',context)
 
@@ -61,3 +59,23 @@ def editContacts(request):
 def editPassword(request):
     context = {"title": "Kontakte bearbeiten"}
     return render(request, 'edit/editPassword.html',context)
+
+@login_required()
+def editBankAccount(request):
+    if request.method == 'POST':
+        form = EditAccountForm(request.POST)
+        if form.is_valid():
+            if konto.objects.filter(name=form.cleaned_data['name']).exists():
+                form = EditAccountForm()
+                messages.error(request,'Konto mit diesem Namen existiert bereits.')
+                return redirect('edit:editBankAccount')
+            form.save()
+    else: 
+        form = EditAccountForm()
+    context = {"title": "Konto erstellen","form":form}
+    return render(request, 'edit/editBankAccount.html',context)
+    
+@login_required()
+def editToDos(request):
+    context = {"title": "Aufgabe erstellen"}
+    return render(request, 'edit/editToDos.html',context)

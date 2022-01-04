@@ -1,5 +1,6 @@
 from django.forms import ModelForm, widgets
-from home.models import contact, receipt
+from django.forms.models import ModelChoiceField
+from home.models import contact, receipt, konto
 
 class ReceiptForm(ModelForm):
     class Meta: 
@@ -15,3 +16,8 @@ class EditContactForm(ModelForm):
         model = contact
         fields = '__all__'
         
+class EditAccountForm(ModelForm):
+    class Meta:
+        model = konto
+        fields = '__all__'
+    
