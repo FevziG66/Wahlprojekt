@@ -91,9 +91,7 @@ def todos(request):
 
 @login_required()
 def accountDetails(request):
-<<<<<<< HEAD
     context = {"title": "Konten"}
-=======
     
     all_einnahmen = receipt.objects.filter(konto_name='Personalausgaben',art='Einnahme')
     all_einnahmen_dict = {
@@ -112,5 +110,4 @@ def accountDetails(request):
     
     context = {"title": "Details","all_ausgaben_dict": all_ausgaben,"all_einnahmen_dict":all_einnahmen,"konto":name,
         "summe_einnahmen":summe_e,"summe_ausgaben":summe_a}
->>>>>>> 720f1aca158650657d78dc14e6f2b36eecf7541a
     return render(request, 'home/accountDetails.html',context)
