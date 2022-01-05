@@ -19,6 +19,7 @@
    <div class="table-responsive">
       <table class="table table-bordered table-hover table-striped">
          <thead>
+<<<<<<< HEAD
              <tr>
                  <th>Belegnummer</th>
                  <th>Belegdatum</th>
@@ -27,23 +28,30 @@
                  <th>Betrag</th>
                  <th>Beschreibung</th>
              </tr>
+=======
+            <tr>
+               <th>Belegnummer</th>
+               <th>Belegdatum</th>
+               <th>Zahlart</th>
+               <th>Fälligkeit</th>
+               <th>Betrag</th>
+               <th>Beschreibung</th>
+            </tr>
+>>>>>>> cdb618d1a682f937b9b8f1373c43c1ccc4260d91
          </thead>
          {% if all_einnahmen_dict %}
          <tbody>
-            
+            {% for einnahme in all_einnahmen_dict %}
+            <tr>
+               <td>{{einnahme.belegnummer}}</td>
+               <td>{{einnahme.belegdatum}}</td>
+               <td>{{einnahme.zahlart}}</td>
+               <td>{{einnahme.faelligkeit}}</td>
+               <td>{{einnahme.betrag}} €</td>
+               <td>{{einnahme.beschreibung}}</td>
+            </tr>
+            {% endfor %}
 
-
-             {% for einnahme in all_einnahmen_dict %}
-             <tr>
-                 <td>{{einnahme.belegnummer}}</td>
-                 <td>{{einnahme.belegdatum}}</td>
-                 <td>{{einnahme.zahlart}}</td>
-                 <td>{{einnahme.faelligkeit}}</td>
-                 <td>{{einnahme.betrag}} €</td>
-                 <td>{{einnahme.beschreibung}}</td>
-             </tr>
-             {% endfor %}
-             
          </tbody>
          {% endif %}
       </table>
@@ -102,34 +110,30 @@
    <div class="table-responsive">
       <table class="table table-bordered table-hover table-striped">
          <thead>
-             <tr>
-                 <th>Belegnummer</th>
-                 <th>Belegdatum</th>
-                 <th>Zahlart</th>
-                 <th>Fälligkeit</th>
-                 <th>Betrag</th>
-                 <th>Beschreibung</th>
-             </tr>
+            <tr>
+               <th>Belegnummer</th>
+               <th>Belegdatum</th>
+               <th>Zahlart</th>
+               <th>Fälligkeit</th>
+               <th>Betrag</th>
+               <th>Beschreibung</th>
+            </tr>
          </thead>
          {% if all_ausgaben_dict %}
          <tbody>
-             
-
-
-             {% for ausgabe in all_ausgaben_dict %}
-             <tr>
-                 <td>{{ausgabe.belegnummer}}</td>
-                 <td>{{ausgabe.belegdatum}}</td>
-                 <td>{{ausgabe.zahlart}}</td>
-                 <td>{{ausgabe.faelligkeit}}</td>
-                 <td>{{ausgabe.betrag}} €</td>
-                 <td>{{ausgabe.beschreibung}}</td>
-             </tr>
-             {% endfor %}
-             
+            {% for ausgabe in all_ausgaben_dict %}
+            <tr>
+               <td>{{ausgabe.belegnummer}}</td>
+               <td>{{ausgabe.belegdatum}}</td>
+               <td>{{ausgabe.zahlart}}</td>
+               <td>{{ausgabe.faelligkeit}}</td>
+               <td>{{ausgabe.betrag}} €</td>
+               <td>{{ausgabe.beschreibung}}</td>
+            </tr>
+            {% endfor %}
          </tbody>
          {% endif %}
-      <!-- <table class="table table-bordered table-hover table-danger table-striped">
+         <!-- <table class="table table-bordered table-hover table-danger table-striped">
          <thead>
             <tr>
                <th scope="col">Ausgaben</th>
