@@ -80,11 +80,6 @@ def contacts(request):
     return render(request, 'home/contacts.html',context)
 
 @login_required()
-def bills(request):
-    context = {"title": "Rechnungen"}
-    return render(request, 'home/bills.html',context)
-
-@login_required()
 def todos(request):
     context = {"title": "To-Do's"}
     return render(request, 'home/todos.html',context)
