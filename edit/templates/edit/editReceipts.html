@@ -4,77 +4,6 @@
 {% block hauptinhalt %}
 <div class="col py-5 mt-5">
     <div class="row">
-<<<<<<< HEAD
-        <center>
-            <div class="col-sm-12">
-                <h1>Belege Hochladen</h1>
-                <p><img src="https://www.iconninja.com/files/154/371/776/upload-icon.png" alt="Upload" width="120px">
-                </p>
-                <p>
-                <form enctype="multipart/form-data"> <input name="Datei" type="file" accept="text/*" /> </form>
-                </p>
-            </div>
-        </center>
-    </div>
-
-    {% for message in messages %}
-    <div class="alert alert-success">
-        <a class="close" href="#" data-dismiss="alert">×</a>
-        {{ message }}
-    </div>
-    {% endfor %}
-
-    <div class="container px-5 py-5">
-        <form action="" method="post">
-            {% csrf_token %}
-            <form class="form-inline">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputEmail4">  Beleg {{form.belegnummer}} </label>
-                        
-                    </div>
-
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputPassword4">Belegdatum {{form.belegdatum}}</label>
-                        
-            
-                    </div>
-                </div>
-                <p></p>
-
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputAddress">Zahlart {{form.zahlart}} </label>
-                        
-                    
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputAddress2">Fälligkeit {{form.faelligkeit}}</label>
-                        
-                        
-                    </div>
-                </div>
-                <p></p>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputCity">Betrag {{form.betrag}}</label>
-                        
-                    
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputCity">Beschreibung {{form.beschreibung}}</label>
-                        
-                       
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputCity">Einnahme / Ausgabe {{form.art}}</label>
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="form-control" for="inputCity">Konto {{form.konto_name}} </label>
-                    
-=======
         <div class="col">
         </div>
         <div class="col-6">
@@ -122,7 +51,6 @@
                         <div class="col-sm-6">
                             {{form.beschreibung|as_crispy_field}}
                         </div>
->>>>>>> c4103381d4a2c998f742d5869d601ca9c45f520e
                     </div>
                     <p></p>
                     <center>

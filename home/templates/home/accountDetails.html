@@ -18,37 +18,29 @@
    <p></p>
    <div class="table-responsive">
       <table class="table table-bordered table-hover table-striped">
-<<<<<<< HEAD
          <thead>
             <tr>
-               <th scope="col">Nr.</th>
-=======
-         <thead>
-             <tr>
-                 <th>Belegnummer</th>
-                 <th>Belegdatum</th>
-                 <th>Zahlart</th>
-                 <th>Fälligkeit</th>
-                 <th>Betrag</th>
-                 <th>Beschreibung</th>
-             </tr>
+               <th>Belegnummer</th>
+               <th>Belegdatum</th>
+               <th>Zahlart</th>
+               <th>Fälligkeit</th>
+               <th>Betrag</th>
+               <th>Beschreibung</th>
+            </tr>
          </thead>
          {% if all_einnahmen_dict %}
          <tbody>
-            
+            {% for einnahme in all_einnahmen_dict %}
+            <tr>
+               <td>{{einnahme.belegnummer}}</td>
+               <td>{{einnahme.belegdatum}}</td>
+               <td>{{einnahme.zahlart}}</td>
+               <td>{{einnahme.faelligkeit}}</td>
+               <td>{{einnahme.betrag}} €</td>
+               <td>{{einnahme.beschreibung}}</td>
+            </tr>
+            {% endfor %}
 
-
-             {% for einnahme in all_einnahmen_dict %}
-             <tr>
-                 <td>{{einnahme.belegnummer}}</td>
-                 <td>{{einnahme.belegdatum}}</td>
-                 <td>{{einnahme.zahlart}}</td>
-                 <td>{{einnahme.faelligkeit}}</td>
-                 <td>{{einnahme.betrag}} €</td>
-                 <td>{{einnahme.beschreibung}}</td>
-             </tr>
-             {% endfor %}
-             
          </tbody>
          {% endif %}
       </table>
@@ -56,7 +48,6 @@
          <thead>
             <tr>
                <th scope="col">Beleg</th>
->>>>>>> 720f1aca158650657d78dc14e6f2b36eecf7541a
                <th scope="col">Beschreibung</th>
                <th scope="col">Datum</th>
                <th scope="col">Betrag</th>
@@ -96,8 +87,6 @@
       </table> -->
    </div>
    <p></p>
-<<<<<<< HEAD
-=======
    <div class="col-sm-4">
       <div class="card">
          <div class="card-body">
@@ -110,34 +99,30 @@
    <div class="table-responsive">
       <table class="table table-bordered table-hover table-striped">
          <thead>
-             <tr>
-                 <th>Belegnummer</th>
-                 <th>Belegdatum</th>
-                 <th>Zahlart</th>
-                 <th>Fälligkeit</th>
-                 <th>Betrag</th>
-                 <th>Beschreibung</th>
-             </tr>
+            <tr>
+               <th>Belegnummer</th>
+               <th>Belegdatum</th>
+               <th>Zahlart</th>
+               <th>Fälligkeit</th>
+               <th>Betrag</th>
+               <th>Beschreibung</th>
+            </tr>
          </thead>
          {% if all_ausgaben_dict %}
          <tbody>
-             
-
-
-             {% for ausgabe in all_ausgaben_dict %}
-             <tr>
-                 <td>{{ausgabe.belegnummer}}</td>
-                 <td>{{ausgabe.belegdatum}}</td>
-                 <td>{{ausgabe.zahlart}}</td>
-                 <td>{{ausgabe.faelligkeit}}</td>
-                 <td>{{ausgabe.betrag}} €</td>
-                 <td>{{ausgabe.beschreibung}}</td>
-             </tr>
-             {% endfor %}
-             
+            {% for ausgabe in all_ausgaben_dict %}
+            <tr>
+               <td>{{ausgabe.belegnummer}}</td>
+               <td>{{ausgabe.belegdatum}}</td>
+               <td>{{ausgabe.zahlart}}</td>
+               <td>{{ausgabe.faelligkeit}}</td>
+               <td>{{ausgabe.betrag}} €</td>
+               <td>{{ausgabe.beschreibung}}</td>
+            </tr>
+            {% endfor %}
          </tbody>
          {% endif %}
-      <!-- <table class="table table-bordered table-hover table-danger table-striped">
+         <!-- <table class="table table-bordered table-hover table-danger table-striped">
          <thead>
             <tr>
                <th scope="col">Ausgaben</th>
@@ -185,7 +170,6 @@
       </table> -->
       </table>
    </div>
->>>>>>> 720f1aca158650657d78dc14e6f2b36eecf7541a
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
