@@ -27,25 +27,51 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-      </div>
-    </div>
-  <!--  {% endfor %}
-    {% endif %} -->
-  <!--  <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Ausgaben</h5>
-          <p class="card-text">17351 €</p>
-          <a href="{% url 'home:accountDetails'%}" class="btn btn-primary">Details</a>
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <div class="card text-white bg-secondary">
+              <div class="card-body">
+                <h5 class="card-title">Portokasse</h5>
+                <p class="card-text">2425 €</p>
+                <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card text-white bg-secondary ">
+              <div class="card-body">
+                <h5 class="card-title">Personal</h5>
+                <p class="card-text">125850 €</p>
+                <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
+              </div>
+            </div>
+          </div>
         </div>
-=======
->>>>>>> 3fca3f5f88cd170463c815b1572865b279ad6e3f
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <div class="card text-white bg-secondary">
+              <div class="card-body">
+                <h5 class="card-title">Büromaterial</h5>
+                <p class="card-text">3351 €</p>
+                <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card text-white bg-secondary ">
+              <div class="card-body">
+                <h5 class="card-title">Fuhrpark</h5>
+                <p class="card-text">11351 €</p>
+                <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           {% if all_kontos_dict %}
           {% for konto in all_kontos_dict %}
-          <div class="col-sm-4 mb-3">
-            <div class="card text-white bg-primary">
+          <div class="col-sm-6 mb-3">
+            <div class="card text-white bg-secondary">
               <div class="card-body">
                 <h5 class="card-title">{{konto.name}}</h5>
                 <p class="card-text">Kontostand: {{konto.kontostand}} €</p>
@@ -55,11 +81,10 @@
           </div>
           {%endfor%}
           {%endif%}
-          <div class="col-sm-4">
+          <div class="col-sm-2">
             <div class="card text-white bg-dark">
               <div class="card-body">
                 <h5 class="card-title">Neues Konto erstellen</h5>
-                <p class="card-test">Hier können sie ein neues Konto erstellen.</p>
                 <a href="{% url 'edit:editBankAccount'%}" class="btn btn-light">+</a>
               </div>
             </div>
