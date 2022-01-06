@@ -80,11 +80,6 @@ def contacts(request):
     return render(request, 'home/contacts.html',context)
 
 @login_required()
-def bills(request):
-    context = {"title": "Rechnungen"}
-    return render(request, 'home/bills.html',context)
-
-@login_required()
 def todos(request):
     all_todos = todo.objects.all()
     all_todos_dict = {
@@ -95,6 +90,7 @@ def todos(request):
 
 @login_required()
 def accountDetails(request):
+    context = {"title": "Konten"}
     
     all_einnahmen = receipt.objects.filter(konto_name='Personalausgaben',art='Einnahme')
     all_einnahmen_dict = {
