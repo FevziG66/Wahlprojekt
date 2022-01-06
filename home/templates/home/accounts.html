@@ -27,34 +27,16 @@
             </div>
           </div>
         </div>
-        <div class="row mb-3">
-          <div class="col-sm-4">
-            <div class="card text-white bg-primary">
-              <div class="card-body">
-                <h5 class="card-title">Personal</h5>
-                <p class="card-text">Kontostand: 32500 €</p>
-                <a href="{% url 'home:accountDetails' %}" class="btn btn-light">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="card text-white bg-primary">
-              <div class="card-body">
-                <h5 class="card-title">Büromaterial</h5>
-                <p class="card-text">Kontostand: 17351 €</p>
-                <a href="{% url 'home:accountDetails' %}" class="btn btn-light">Details</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="card text-white bg-primary">
-              <div class="card-body">
-                <h5 class="card-title">Fuhrpark</h5>
-                <p class="card-text">Kontostand: 15239 €</p>
-                <a href="{% url 'home:accountDetails' %}" class="btn btn-light">Details</a>
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+  <!--  <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ausgaben</h5>
+          <p class="card-text">17351 €</p>
+          <a href="{% url 'home:accountDetails'%}" class="btn btn-primary">Details</a>
         </div>
         <div class="row">
           {% if all_kontos_dict %}
@@ -80,10 +62,15 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-4"></div>
-          
-          <div class="col-sm-4"></div>
+      </div>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Konto erstellen</h5>
+          <a href="{% url 'edit:editBankAccount'%}" class="btn btn-primary">+</a>
         </div>
       </div>
     </div>

@@ -81,7 +81,11 @@ def contacts(request):
 
 @login_required()
 def todos(request):
-    context = {"title": "To-Do's"}
+    all_todos = todo.objects.all()
+    all_todos_dict = {
+        'todo': all_todos
+    }
+    context = {"title": "To-Dos","all_todos_dict": all_todos}
     return render(request, 'home/todos.html',context)
 
 @login_required()
