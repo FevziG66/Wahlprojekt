@@ -26,8 +26,12 @@ class contact(models.Model):
     email = models.EmailField(max_length=254)
 
 class todo(models.Model):
-    aufgabe = models.CharField(max_length=50)
+    nummer = models.IntegerField()
+    aufgabe = models.CharField(max_length=30)
     erledigt = models.IntegerField()
+    datum = models.DateField()
+    faelligkeit = models.DateField()
+    beschreibung = models.CharField(max_length=50)
 
 class konto(models.Model):
     name = models.CharField(max_length=30,primary_key=True)

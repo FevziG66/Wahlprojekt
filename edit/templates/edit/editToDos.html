@@ -24,31 +24,27 @@
             <form class="form-inline">
                 <div class="row">
                     <div class="col-sm-4">
-                        <label class="form-control" for="inputEmail4">  Nr. {{form.belegnummer}} </label>
+                        <label class="form-control" for="inputEmail4">  Nr. {{form.nummer}} </label>
                     </div>
 
                     <div class="col-sm-4">
-                        <label class="form-control" for="inputPassword4"> Titel {{form.belegdatum}}</label>
-                        <!-- <input type="date" class="form-control" id="inputPassword4" placeholder="Belegdatum"> -->
+                        <label class="form-control" for="inputPassword4"> Titel {{form.aufgabe}}</label>
                     </div>
                 </div>
                 <p></p>
 
                 <div class="row">
                     <div class="col-sm-4">
-                        <label class="form-control" for="inputAddress"> Datum {{form.zahlart}}</label>
-                        <!-- <input type="text" class="form-control" id="inputAddress" placeholder="Zahlart"> -->
+                        <label class="form-control" for="inputAddress"> Datum {{form.datum}}</label>
                     </div>
                     <div class="col-sm-4">
                         <label class="form-control" for="inputAddress2"> Fälligkeit {{form.faelligkeit}}</label>
-                        <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="Fälligkeit"> -->
                     </div>
                 </div>
                 <p></p>
                 <div class="row">
                     <div class="col-sm-4">
-                        <label class="form-control" for="inputCity"> Beschreibung {{form.betrag}}</label>
-                        <!-- <input type="number" class="form-control" id="inputCity" placeholder="Betrag"> -->
+                        <label class="form-control" for="inputCity"> Beschreibung {{form.beschreibung}}</label>
                     </div>
                 </div>
                 <p></p>
@@ -56,16 +52,6 @@
                 <a href="{% url 'home:todos'%}" class="btn btn-primary">Zurück zur Übersicht</a>
             </form>
             <br />
-
-            <!--
-            <div class="col py-3">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <a href="{% url 'home:dashboard'%}" class="btn btn-primary">Zurück zum Dashboard</a>
-                    </div>
-                </div>
-            </div> 
-            -->
     </div>
 </div>
 {% endblock hauptinhalt %}

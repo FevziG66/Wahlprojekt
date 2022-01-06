@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from edit.forms import ReceiptForm
-from edit.forms import EditContactForm, EditAccountForm
-from home.models import contact, konto, receipt
+from edit.forms import EditContactForm, EditAccountForm, EditTodoForm
+from home.models import contact, konto, receipt, todo
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
@@ -33,7 +33,14 @@ def editReceipts(request):
             if receipt.objects.filter(belegnummer=form.cleaned_data['belegnummer']).exists():
                 messages.error(request,'Beleg unter dieser Nummer existiert bereits.')
                 return redirect('edit:editReceipts')
-            form.save()
+            try:
+                form.save()
+            except:
+                messages.error(request,'Beleg konnte nicht gesichert werden!')
+                return redirect('edit:editReceipts')
+            messages.success(request,'Beleg erfolgreich gesichert!')
+            return redirect('edit:editReceipts')
+
     else:
         form = ReceiptForm()
     context = {"title": "Beleg hinzufügen","form": form}
@@ -49,6 +56,8 @@ def editContacts(request):
                 messages.error(request,'Kontakt unter dieser Nummer existiert bereits.')
                 return redirect('edit:editContacts')
             form.save()
+            messages.success(request,'Kontakt erfolgreich hinzugefügt!')
+            return redirect('edit:editContacts')
     else: 
         form = EditContactForm()
     context = {"title": "Kontakte bearbeiten","form":form}
@@ -63,7 +72,13 @@ def editBankAccount(request):
                 form = EditAccountForm()
                 messages.error(request,'Konto mit diesem Namen existiert bereits.')
                 return redirect('edit:editBankAccount')
-            form.save()
+            try:
+                form.save()
+            except:
+                messages.error(request,'Konto konnte nicht gesichert werden!')
+                return redirect('edit:editBankAccount')
+            messages.success(request,'Konto erfolgreich gesichert!')
+            return redirect('edit:editBankAccount')
     else: 
         form = EditAccountForm()
     context = {"title": "Konto erstellen","form":form}
@@ -71,7 +86,28 @@ def editBankAccount(request):
     
 @login_required()
 def editToDos(request):
-    context = {"title": "Aufgabe erstellen"}
+    if request.method == 'POST':
+        postdata = request.POST
+        postdata._mutable = True
+        postdata['erledigt'] = '0'
+        postdata._mutable = False
+        form = EditTodoForm(postdata)
+        if form.is_valid():
+            print('valide')
+            if todo.objects.filter(nummer=form.cleaned_data['nummer']).exists():
+                form = EditTodoForm()
+                messages.error(request,'To-Do mit dieser Nummer existiert bereits.')
+                return redirect('edit:editToDos')
+            try:
+                form.save()
+            except:
+                messages.error(request,'To-Do konnte nicht gesichert werden!')
+                return redirect('edit:editToDos')
+            messages.success(request,'To-Do erfolgreich gesichert!')
+            return redirect('edit:editToDos')
+    else: 
+        form = EditTodoForm()
+    context = {"title": "Aufgabe erstellen","form":form}
     return render(request, 'edit/editToDos.html',context)
 
 

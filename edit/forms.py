@@ -1,11 +1,6 @@
 from django.forms import ModelForm, widgets
-<<<<<<< HEAD
 from django.forms.models import ModelChoiceField
-from home.models import contact, receipt, konto
-=======
-from home.models import contact, receipt
-from django import forms
->>>>>>> c4103381d4a2c998f742d5869d601ca9c45f520e
+from home.models import contact, receipt, konto, todo
 
 class ReceiptForm(ModelForm):
     class Meta: 
@@ -20,13 +15,18 @@ class EditContactForm(ModelForm):
     class Meta: 
         model = contact
         fields = '__all__'
-<<<<<<< HEAD
         
 class EditAccountForm(ModelForm):
     class Meta:
         model = konto
         fields = '__all__'
-    
-=======
 
->>>>>>> c4103381d4a2c998f742d5869d601ca9c45f520e
+class EditTodoForm(ModelForm):
+    class Meta: 
+        model = todo
+        fields = '__all__'
+        widgets = {
+            'datum' : widgets.DateInput(attrs={'type': 'date'}),
+            'faelligkeit' : widgets.DateInput(attrs={'type': 'date'})
+        }
+    

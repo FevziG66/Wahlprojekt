@@ -54,56 +54,38 @@
             </div>
         </div>
     </div>
+    {% if all_todos_dict %}
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
                     <th>Nr.</th>
-                    <th>Datum</th>
+                    <th>Aufgabe</th>
                     <th>Beschreibung</th>
                     <th>Status</th>
+                    <th>Datum</th>
+                    <th>Faellig bis</th>
                     <th>Bearbeiten</th>
                 </tr>
             </thead>
             <tbody>
-                {% if all_receipts_dict %}
-
-
-                {% for receipt in all_receipts_dict %}
+                {% for todo in all_todos_dict %}
                 <tr>
-                    <td>{{receipt.belegnummer}}</td>
-                    <td>{{receipt.belegdatum }}</td>
-                    <td>{{receipt.zahlart}}</td>
-                    <td>{{receipt.faelligkeit}}</td>
-                    <td>{{receipt.betrag}}</td>
-                    <form action="" method="get"></form>
+                    <td>{{todo.nummer}}</td>
+                    <td>{{todo.aufgabe}}</td>
+                    <td>{{todo.beschreibung}}</td>
+                    <td>{{todo.erledigt}}</td>
+                    <td>{{todo.datum}}</td>
+                    <td>{{todo.faelligkeit}}</td>
+                    
                     <td><button name="edit" value={{receipt.belegnummer}} type="submit" class="btn btn-success editbtn"
                             data-toogle="editmodal" data-target="editmodal">Bearbeiten</button></td>
                 </tr>
                 {% endfor %}
             </tbody>
-
-
-            {% else %}
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            </tbody>
-            {% endif %}
         </table>
     </div>
+    {% endif %}
 
     <a href="{% url 'edit:editToDos'%}" class="btn btn-primary">Aufgabe hinzufügen</a>
 </div>
