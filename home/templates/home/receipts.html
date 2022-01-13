@@ -44,8 +44,8 @@
                         <div class="form-group">
                             <label> Einnahme / Ausgabe </label>
                             <select name="art" id="art" class="form-control">
-                                <option value="Einnahme">Einnahme</option>
-                                <option value="Ausgabe">Ausgabe</option>
+                                <option name="Einnahme" value="Einnahme">Einnahme</option>
+                                <option name="Ausgabe" value="Ausgabe">Ausgabe</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -56,7 +56,7 @@
 
                                 {% for konto in all_kontos_dict %}
                                 
-                                <option value={{konto.name}}>{{konto.name}}</option>
+                                <option name={{konto.name}} value={{konto.name}}>{{konto.name}}</option>
                                 
                                 {% endfor %}
 
