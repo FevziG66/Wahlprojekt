@@ -23,7 +23,7 @@ class receiptTest(LiveServerTestCase):
         submit = driver.find_element_by_name('login')
 
         user_name.send_keys('Test')
-        user_password.send_keys('Test1234')
+        user_password.send_keys('Test123456')
 
         submit.send_keys(Keys.RETURN)
 
@@ -81,7 +81,7 @@ class contactTest(LiveServerTestCase):
         submit = driver.find_element_by_name('login')
 
         user_name.send_keys('Test')
-        user_password.send_keys('Test1234')
+        user_password.send_keys('Test123456')
 
         submit.send_keys(Keys.RETURN)
 
@@ -116,5 +116,118 @@ class contactTest(LiveServerTestCase):
         submit.send_keys(Keys.RETURN)
 
         time.sleep(1)
+
+        assert 'erfolgreich' in driver.page_source
+
+class toDoTest(LiveServerTestCase):
+
+    def testToDo(self):
+        driver = webdriver.Chrome()
+
+        driver.get('http://127.0.0.1:8000/login/')
+
+        time.sleep(2)
+
+        user_name = driver.find_element_by_name('username')
+        user_password = driver.find_element_by_name('password')
+
+        time.sleep(2)
+
+        submit = driver.find_element_by_name('login')
+
+        user_name.send_keys('Test')
+        user_password.send_keys('Test123456')
+
+        submit.send_keys(Keys.RETURN)
+
+        time.sleep(2)
+
+        assert 'Dashboard' in driver.page_source
+
+        driver.get('http://127.0.0.1:8000/todos/')
+        
+        submit = driver.find_element_by_name('newTodo')
+        submit.send_keys(Keys.RETURN)
+
+        time.sleep(2)
+
+        nummer = driver.find_element_by_name('nummer')
+        aufgabe = driver.find_element_by_name('aufgabe')
+        datum = driver.find_element_by_name('datum')
+        faelligkeit = driver.find_element_by_name('faelligkeit')
+        beschreibung = driver.find_element_by_name('beschreibung')
+
+        time.sleep(2)
+
+        nummer.send_keys('2')
+        aufgabe.send_keys('Rechnung Nummer 5 bezahlen')
+        datum.send_keys('10.01.2022')
+        faelligkeit.send_keys('13.01.2022')
+        beschreibung.send_keys('Die Rechnung wurde noch nicht überwiesen')
+
+        submitt = driver.find_element_by_name('save')
+
+        submitt.send_keys(Keys.RETURN)
+
+        time.sleep(2)
+
+        assert 'erfolgreich' in driver.page_source
+
+class changePasswordTest(LiveServerTestCase):
+
+    def testChangePassword(self):
+        driver = webdriver.Chrome()
+
+        driver.get('http://127.0.0.1:8000/login/')
+
+        time.sleep(2)
+
+        user_name = driver.find_element_by_name('username')
+        user_password = driver.find_element_by_name('password')
+
+        time.sleep(2)
+
+        submit = driver.find_element_by_name('login')
+
+        user_name.send_keys('Test')
+        user_password.send_keys('Test123456')
+
+        submit.send_keys(Keys.RETURN)
+
+        time.sleep(2)
+
+        assert 'Dashboard' in driver.page_source
+
+        user = driver.find_element_by_id('dropdownUser1')
+        settings = driver.find_element_by_id('settings')
+
+        user.send_keys(Keys.RETURN)
+
+        time.sleep(2)
+
+        settings.send_keys(Keys.RETURN)
+
+        time.sleep(2)
+
+        pwAendern = driver.find_element_by_name('pwAendern')
+        pwAendern.send_keys(Keys.RETURN)
+
+        time.sleep(2)
+
+        old_password = driver.find_element_by_name('old_password')
+        new_password1 = driver.find_element_by_name('new_password1')
+        new_password2 = driver.find_element_by_name('new_password2')
+
+        old_password.send_keys('Test1234')
+        new_password1.send_keys('Test123456')
+        new_password2.send_keys('Test123456')
+
+        time.sleep(2)
+
+        speichern = driver.find_element_by_name('speichern')
+
+        speichern.send_keys(Keys.RETURN)
+
+        time.sleep(2)
 
         assert 'erfolgreich' in driver.page_source
