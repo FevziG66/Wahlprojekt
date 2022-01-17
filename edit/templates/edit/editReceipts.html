@@ -53,6 +53,15 @@
                         </div>
                     </div>
                     <p></p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{form.konto_name|as_crispy_field}}
+                        </div>
+                        <div class="col-sm-6">
+                            {{form.art|as_crispy_field}}
+                        </div>
+                    </div>
+                    <p></p>
                     <center>
                     <button type="submit" class="btn btn-primary mt-2 me-2">Speichern</button>
                     <!-- Submit-Button statt Link, um Speichern auszulösen-->

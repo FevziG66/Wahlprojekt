@@ -15,40 +15,48 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" name="editInWindow" method="POST">
+                    {% csrf_token %}
                     <div class="modal-body">
                         <input type="hidden" name="update_id" id="update_id">
                         <br />
                         <div class="form-group">
                             <label> Nr. </label>
-                            <input type="text" name="belegnummer" id="belegnummer" class="form-control">
+                            <input type="text" name="nummer" id="nummer" class="form-control">
                         </div>
                         <br />
                         <div class="form-group">
-                            <label> Datum </label>
-                            <input type="text" name="belegdatum" id="belegdatum" class="form-control">
+                            <label> Aufgabe </label>
+                            <input type="text" name="aufgabe" id="aufgabe" class="form-control">
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Beschreibung </label>
-                            <input type="text" name="zahlart" id="zahlart" class="form-control">
+                            <input type="text" name="beschreibung" id="beschreibung" class="form-control">
                         </div>
                         <br />
                         <div class="form-group">
                             <label> Status </label>
-                            <input type="text" name="faelligkeit" id="faelligkeit" class="form-control">
+                            <select name="status" id="status" class="form-control">
+                                <option value="Erledigt">Erledigt</option>
+                                <option value="Offen">Offen</option>
+                            </select>
                         </div>
-                        <br />>
                         <br />
                         <div class="form-group">
-                            <label> Bearbeiten </label>
-                            <input type="text" name="beschreibung" id="beschreibung" class="form-control">
+                            <label> Datum </label>
+                            <input type="date" name="datum" id="datum" class="form-control">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label> Fällig bis </label>
+                            <input type="date" name="faelligbis" id="faelligbis" class="form-control">
                         </div>
                         <br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Zurück</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Aufgabe löschen</button>
-                        <button type="submit" name="updatedata" class="btn btn-success">Aktualisieren</button>
+                        <button type="button" name="deleteTodo" class="btn btn-danger" data-bs-dismiss="modal">Aufgabe löschen</button>
+                        <button type="submit" name="updateTodo" class="btn btn-success">Aktualisieren</button>
                     </div>
                 </form>
             </div>
@@ -74,7 +82,11 @@
                     <td>{{todo.nummer}}</td>
                     <td>{{todo.aufgabe}}</td>
                     <td>{{todo.beschreibung}}</td>
-                    <td>{{todo.erledigt}}</td>
+                    <td>{% if todo.erledigt == 1 %}
+                        <p>Erledigt</p> 
+                        {% elif todo.erledigt == 0 %}
+                        <p>Offen</p>
+                        {% endif %}</td>
                     <td>{{todo.datum}}</td>
                     <td>{{todo.faelligkeit}}</td>
                     
@@ -115,14 +127,86 @@
         var data = $tr.children("td").map(function () {
             return $(this).text();
         }).get();
+        
+        function convertStringToEnglishDate(stringToConvert){
+            var arrayOfStrings = stringToConvert.split(' ');
+            var tag = arrayOfStrings[0].replace('.','');
+            if(tag.length<2){
+                tag = '0'.concat(tag);
+            }
+            var monat; 
+            var jahr;
+                    
+                switch (arrayOfStrings[1]){
+                        case "Januar":
+                            monat = '-01-'; 
+                            break;
+                        
+                        case "Februar":
+                            monat = '-02-';
+                            break;
+                        
+                        case "März":
+                            monat = '-03-'; 
+                            break;
+                        
+                        case "April":
+                            monat = '-04-'; 
+                            break;
+                        
+                        case "Mai":
+                            monat = '-05-'; 
+                            break;
+                        
+                        case "Juni":
+                            monat = '06-';
+                            break;
+                        
+                        case "Juli":
+                            monat = '-07-'; 
+                            break;
+                        
+                        case "August":
+                            monat = '-08-'; 
+                            break;
+                        
+                        case "September":
+                            monat = '-09-';
+                            break;
+                        
+                        case "Oktober":
+                            monat = '-10-';
+                            break;
+
+                        case "November":
+                            monat = '-11-';
+                            break;
+                        
+                        case "Dezember":
+                            monat = '-12-';
+                            break; 
+                    }
+                    return arrayOfStrings[2].concat(monat,tag);
+            }
+
+                
+        var datum_converted = convertStringToEnglishDate(data[4]);
+        var faelligbis_converted = convertStringToEnglishDate(data[5]);
+        var status_temp;
+        console.log(data[3]);
+        if(data[3].includes('Erledigt')){
+            status_temp = 'Erledigt';
+        }else{
+            status_temp = 'Offen';
+        }
 
         console.log(data);
-        $('#belegnummer').val(data[0]);
-        $('#belegdatum').val(data[1]);
-        $('#zahlart').val(data[2]);
-        $('#faelligkeit').val(data[3]);
-        $('#betrag').val(data[4]);
-        $('#beschreibung').val(data[5]);
+        $('#nummer').val(data[0]);
+        $('#aufgabe').val(data[1]);
+        $('#beschreibung').val(data[2]);
+        $('#status').val(status_temp);
+        $('#datum').val(datum_converted);
+        $('#faelligbis').val(faelligbis_converted);
     });
 </script>
 {% endblock hauptinhalt %}

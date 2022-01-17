@@ -250,11 +250,18 @@
                                        <div class="widget-heading">{{todo.aufgabe}}</div>
                                        <div class="widget-subheading"><i></i></div>
                                     </div>
-                                    <div class="widget-content-right"> <button
-                                          class="border-0 btn-transition btn btn-outline-success"> <i
-                                             class="fa fa-check"></i></button> <button
-                                          class="border-0 btn-transition btn btn-outline-danger"> <i
-                                             class="fa fa-trash"></i> </button> </div>
+                                    <div class="widget-content-right"> 
+                                    <form action="" method="post">
+                                       {% csrf_token %}
+                                       <button type="submit" name="todo_done" value={{todo.aufgabe}} class="border-0 btn-transition btn btn-outline-success"> 
+                                          <i class="fa fa-check"></i>
+                                       </button> 
+                                       
+                                       <button type="submit" name="delete_todo" value={{todo.aufgabe}} class="border-0 btn-transition btn btn-outline-danger"> 
+                                          <i class="fa fa-trash"></i> 
+                                       </button> 
+                                    </form>
+                                    </div>
                                  </div>
                               </div>
                            </li>

@@ -1,19 +1,22 @@
+from time import timezone
 from django.db import models
+import datetime
 
 # Create your models here.
 class receipt(models.Model):
     belegnummer = models.IntegerField()
-    belegdatum = models.DateField()
+    belegdatum = models.DateField(default=datetime.date.today)
     zahlart_choices = [('Bar','Bar'),
                 ('Karte','Karte'),]
     zahlart = models.CharField(max_length=10,choices=zahlart_choices,default="Karte")            
-    faelligkeit = models.DateField()
+    faelligkeit = models.DateField(default=datetime.date.today)
     betrag = models.DecimalField(max_digits=10,decimal_places=2)
     beschreibung = models.CharField(max_length=150)
     konto_name = models.ForeignKey('konto',on_delete=models.CASCADE,to_field='name')
     art_choices = [('Einnahme','Einnahme'),
-                ('Ausgabe','Ausgabe'),]
-    art = models.CharField(max_length=10,choices=art_choices,default="Einnahme")
+                ('Ausgabe','Ausgabe'),
+                ]
+    art = models.CharField(max_length=20,choices=art_choices,default="Einnahme")
 
     
 

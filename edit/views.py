@@ -4,7 +4,6 @@ from edit.forms import ReceiptForm
 from edit.forms import EditContactForm, EditAccountForm, EditTodoForm
 from home.models import contact, konto, receipt, todo
 from django.contrib import messages
-
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -41,8 +40,10 @@ def editReceipts(request):
             messages.success(request,'Beleg erfolgreich gesichert!')
             return redirect('edit:editReceipts')
 
-    else:
-        form = ReceiptForm()
+    else:   
+        letzter_beleg = receipt.objects.last()
+        letzte_belegnummer = letzter_beleg.belegnummer + 1
+        form = ReceiptForm(initial={'belegnummer': letzte_belegnummer})
     context = {"title": "Beleg hinzufügen","form": form}
     return render(request, 'edit/editReceipts.html',context)
 

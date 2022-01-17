@@ -5,10 +5,6 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('home', '0006_konto_bank'),
-    ]
-
     operations = [
         migrations.AddField(
             model_name='todo',

@@ -15,6 +15,14 @@ from django.contrib.auth.decorators import login_required
 
 @login_required()
 def dashboard(request):
+    if request.method == "POST":
+        if 'todo_done' in request.POST:
+            todo.objects.filter(aufgabe=request.POST['todo_done']).update(
+                erledigt = '1'
+            )
+        if 'delete_todo' in request.POST: 
+            todo.objects.filter(aufgabe=request.POST['delete_todo']).delete()
+
     all_todos = todo.objects.all()
     all_todos_dict = {
         'todo': all_todos
@@ -81,6 +89,21 @@ def contacts(request):
 
 @login_required()
 def todos(request):
+    if request.method == "POST":
+        if 'deleteTodo' in request.POST:
+            todo.objects.filter(nummer=request.POST['nummer']).delete()
+        elif 'updateTodo' in request.POST: 
+            statusneu = 0
+            if request.POST['status'] == 'Erledigt':
+                statusneu = 1
+            todo.objects.filter(nummer=request.POST['nummer']).update(
+                nummer = request.POST['nummer'],
+                aufgabe = request.POST['aufgabe'],
+                beschreibung = request.POST['beschreibung'],                    
+                erledigt = statusneu,
+                datum = request.POST['datum'],
+                faelligkeit = request.POST['faelligbis'])
+
     all_todos = todo.objects.all()
     all_todos_dict = {
         'todo': all_todos
