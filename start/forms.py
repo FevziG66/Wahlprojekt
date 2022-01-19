@@ -1,5 +1,6 @@
 from django import forms
 
+#Form, mit den Daten, die der User zum Anmelden braucht.
 class RegisterForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     vorname = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
