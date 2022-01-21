@@ -1,6 +1,6 @@
 {% extends "home/base.html"%}
 {%load static%}
-
+<!--Für den Aufbau der Dashboard Seite wurde wieder Bootstrap verwendet. -->
 {% block hauptinhalt %}
 <div class="col py-3">
    <h1>Dashboard</h1>
@@ -65,13 +65,13 @@
    </div>
    <div class="row">
       <div class="col-6">
-         
+
          <div class="card">
             <h4>Kleinunternehmergrenze</h4>
             <div class="row">
                <div class="col-sm-6">
-               <div class="col-sm-6" id="piechart" style="width: 300px; height: 300px;">
-               </div>
+                  <div class="col-sm-6" id="piechart" style="width: 300px; height: 300px;">
+                  </div>
                </div>
                <div class="col-sm-6">
                   <div class="col-sm-6" id="piechartt" style="width: 300px; height: 300px;"></div>
@@ -114,7 +114,7 @@
                   </div>
                </perfect-scrollbar>
             </div>
-          
+
          </div>
       </div>
    </div>
@@ -137,6 +137,7 @@
    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
+   //Um die Diagramme darzustellen haben wir Google Charts verwendet. Es sind jedoch Beispiel Diagramme, die nicht mit unserer Datenbank verknüpft sind. 
    google.charts.load('current', { 'packages': ['bar'] });
    google.charts.setOnLoadCallback(drawStufff);
 
@@ -220,8 +221,8 @@
             0: { targetAxisIndex: 0 },
             1: { targetAxisIndex: 1 }
          },
-      
-      
+
+
       };
 
       function drawMaterialChart() {
