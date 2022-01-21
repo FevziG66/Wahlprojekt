@@ -4,7 +4,6 @@ from edit.forms import ReceiptForm
 from edit.forms import EditContactForm, EditAccountForm, EditTodoForm
 from home.models import contact, konto, receipt, todo
 from django.contrib import messages
-
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -27,22 +26,24 @@ def deleteAccount(request):
 
 @login_required()
 def editReceipts(request):
-    if request.method == 'POST':
+    if request.method == 'POST': 
         form = ReceiptForm(request.POST)
         if form.is_valid():
             if receipt.objects.filter(belegnummer=form.cleaned_data['belegnummer']).exists():
                 messages.error(request,'Beleg unter dieser Nummer existiert bereits.')
-                return redirect('edit:editReceipts')
+                return redirect('edit:editReceipts') #Wenn Belegnummer bereits existiert, Fehlermeldung anzeigen
             try:
                 form.save()
             except:
                 messages.error(request,'Beleg konnte nicht gesichert werden!')
-                return redirect('edit:editReceipts')
+                return redirect('edit:editReceipts') #Wenn Beleg anderweitig nicht gesichert werden konnte, Fehlermeldung anzeigen
             messages.success(request,'Beleg erfolgreich gesichert!')
             return redirect('edit:editReceipts')
 
-    else:
-        form = ReceiptForm()
+    else:   
+        letzter_beleg = receipt.objects.last() #letzten Beleg holen 
+        letzte_belegnummer = letzter_beleg.belegnummer + 1 #Auf Nummer des Belegs 1 addieren, für 'automatische' Vergabe der Belegnummer 
+        form = ReceiptForm(initial={'belegnummer': letzte_belegnummer}) #neue Belegnummer zuweisen 
     context = {"title": "Beleg hinzufügen","form": form}
     return render(request, 'edit/editReceipts.html',context)
 
@@ -54,9 +55,9 @@ def editContacts(request):
             if contact.objects.filter(kontaktnummer=form.cleaned_data['kontaktnummer']).exists():
                 form = EditContactForm()
                 messages.error(request,'Kontakt unter dieser Nummer existiert bereits.')
-                return redirect('edit:editContacts')
+                return redirect('edit:editContacts') #Fehler, wenn Kontakt bereits existiert 
             form.save()
-            messages.success(request,'Kontakt erfolgreich hinzugefügt!')
+            messages.success(request,'Kontakt erfolgreich hinzugefügt!') #Erfolgsnachricht, wenn Kontakt gespeichert 
             return redirect('edit:editContacts')
     else: 
         form = EditContactForm()
@@ -71,11 +72,11 @@ def editBankAccount(request):
             if konto.objects.filter(name=form.cleaned_data['name']).exists():
                 form = EditAccountForm()
                 messages.error(request,'Konto mit diesem Namen existiert bereits.')
-                return redirect('edit:editBankAccount')
+                return redirect('edit:editBankAccount') #Fehlermeldung, Konto existiert bereits 
             try:
                 form.save()
             except:
-                messages.error(request,'Konto konnte nicht gesichert werden!')
+                messages.error(request,'Konto konnte nicht gesichert werden!') #Fehlermeldung, Konto konnte aus anderem Grund nicht gesichert werden
                 return redirect('edit:editBankAccount')
             messages.success(request,'Konto erfolgreich gesichert!')
             return redirect('edit:editBankAccount')
@@ -87,17 +88,16 @@ def editBankAccount(request):
 @login_required()
 def editToDos(request):
     if request.method == 'POST':
-        postdata = request.POST
-        postdata._mutable = True
-        postdata['erledigt'] = '0'
-        postdata._mutable = False
-        form = EditTodoForm(postdata)
+        postdata = request.POST #postdata entspricht jetzt Daten aus request.POST
+        postdata._mutable = True #mutable -> Daten könnnen verändert werden
+        postdata['erledigt'] = '0' #erledigt auf 0 setzen, da kein Status erledigt im Frontend vorhanden 
+        postdata._mutable = False 
+        form = EditTodoForm(postdata) #EditTodoForm mit 'geänderten' Daten aus postdata instanziieren 
         if form.is_valid():
-            print('valide')
             if todo.objects.filter(nummer=form.cleaned_data['nummer']).exists():
                 form = EditTodoForm()
                 messages.error(request,'To-Do mit dieser Nummer existiert bereits.')
-                return redirect('edit:editToDos')
+                return redirect('edit:editToDos') #Fehlermeldung, To-Do existiert bereits 
             try:
                 form.save()
             except:

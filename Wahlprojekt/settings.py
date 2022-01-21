@@ -138,4 +138,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'easy.accmanager@gmail.com'
+<<<<<<< HEAD
 EMAIL_HOST_PASSWORD = 'EasyAccount99!'
+=======
+EMAIL_HOST_PASSWORD = 'EasyAcc99!'
+>>>>>>> 2619a5dea53aab16df9f34b109928379b746e1e8
