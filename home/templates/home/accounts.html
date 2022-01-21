@@ -9,26 +9,17 @@
       <div class="card bg-light p-3 text-center">
         <h1 class="text-center mb-5">Konten</h1>
         <div class="row mb-3">
-          {% if all_kontos_dict %}
-          {% for konto in all_kontos_dict %}
           <div class="col-sm-6">
             <div class="card text-white bg-success">
               <div class="card-body">
-<<<<<<< HEAD
-                <h5 class="card-title">{{konto.name}}</h5>
-                <!-- <p class="card-text">273</p> -->
-=======
                 <h5 class="card-title">Einnahmen</h5>
                 <p class="card-text">27351 €</p>
                 <!--Bei den A-Tags wird jeweils die Account-Details Seite als Link angegeben.. -->
->>>>>>> f0cf04561b0eb1ee2d1ed6974264066b8d840fa9
                 <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
               </div>
             </div>
           </div>
-          {% endfor %}
-          {% endif %}
-          <!-- <div class="col-sm-6">
+          <div class="col-sm-6">
             <div class="card text-white bg-danger ">
               <div class="card-body">
                 <h5 class="card-title">Ausgaben</h5>
@@ -36,17 +27,47 @@
                 <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
-      </div>
-    </div>
-
-  <!--  <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Ausgaben</h5>
-          <p class="card-text">17351 €</p>
-          <a href="{% url 'home:accountDetails'%}" class="btn btn-primary">Details</a>
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <div class="card text-white bg-secondary">
+              <div class="card-body">
+                <h5 class="card-title">Portokasse</h5>
+                <p class="card-text">2425 €</p>
+                <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card text-white bg-secondary ">
+              <div class="card-body">
+                <h5 class="card-title">Personal</h5>
+                <p class="card-text">125850 €</p>
+                <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-6">
+            <div class="card text-white bg-secondary">
+              <div class="card-body">
+                <h5 class="card-title">Büromaterial</h5>
+                <p class="card-text">3351 €</p>
+                <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card text-white bg-secondary ">
+              <div class="card-body">
+                <h5 class="card-title">Fuhrpark</h5>
+                <p class="card-text">11351 €</p>
+                <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row">
           {% if all_kontos_dict %}

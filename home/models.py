@@ -18,7 +18,7 @@ class receipt(models.Model):
     art_choices = [('Einnahme','Einnahme'),
                 ('Ausgabe','Ausgabe'),
                 ]
-    user = models.ForeignKey(User,on_delete=models.CASCADE)#Beleg User zuweisen
+    #user = models.ForeignKey(User,on_delete=models.CASCADE)#Beleg User zuweisen
     art = models.CharField(max_length=20,choices=art_choices,default="Einnahme")#Einnahme oder Ausgabe, 
                                                                                 #wichtig für spätere Auswertungen
                                                                                 #user = models.ForeignKey(User,on_delete=models.CASCADE)#Beleg User zuweisen
@@ -34,7 +34,7 @@ class contact(models.Model):
     adresse = models.CharField(max_length=50)
     telefonnummer = models.CharField(max_length=15)
     email = models.EmailField(max_length=254)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)#Beleg User zuweisen
+    #user = models.ForeignKey(User,on_delete=models.CASCADE)#Beleg User zuweisen
     #user = models.ForeignKey(User,on_delete=models.CASCADE)#Beleg User zuweisen
     #ungetestet, Daten zum User zuordnen
 

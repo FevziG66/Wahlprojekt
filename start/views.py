@@ -1,9 +1,5 @@
 # Create your views here.
-<<<<<<< HEAD
-from home import accounts
-=======
 from django.shortcuts import redirect, render
->>>>>>> f0cf04561b0eb1ee2d1ed6974264066b8d840fa9
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 from django.contrib.auth import authenticate, login
