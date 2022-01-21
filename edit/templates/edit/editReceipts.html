@@ -4,9 +4,11 @@
 {% block hauptinhalt %}
 <div class="col py-5 mt-5">
     <div class="row">
+        <!--Die beiden leeren Col Elemente sorgen dafür, dass das Rechteck mit den Textfeldern im Inhalt in der Mitte des Bildschirms angezeigt wird -->
         <div class="col">
         </div>
         <div class="col-6">
+            <!--Die Seite wird innerhalb eines Cards angezeigt -->
             <div class="card p-5">
                 <center>
                     <h2>Belege Hochladen</h1>
@@ -27,7 +29,8 @@
                 <form class="form-inline" action="" method="post">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-sm-6">               
+                        <div class="col-sm-6">      
+                            <!--Crispy Field sorgt dafür, dass die Textfelder im Bootstrap Stil angezeigt werden. -->
                             {{form.belegnummer|as_crispy_field}}
                         </div>
                         <div class="col-sm-6">

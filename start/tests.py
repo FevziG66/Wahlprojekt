@@ -4,6 +4,7 @@ from django.test import LiveServerTestCase, TestCase
 
 # Create your tests here.
 
+#Selenium Tests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 class LoginTest(LiveServerTestCase):
@@ -11,17 +12,21 @@ class LoginTest(LiveServerTestCase):
     def testlogin(self):
         driver = webdriver.Chrome()
 
+        #Login Seite wird aufgreufen
         driver.get('http://127.0.0.1:8000/login/')
 
         time.sleep(2)
 
+        #Die Felder username und password werden durch findElementByName gefunden
         user_name = driver.find_element_by_name('username')
         user_password = driver.find_element_by_name('password')
 
         time.sleep(2)
 
+        #Submit Button wird gefunden
         submit = driver.find_element_by_name('login')
 
+        #Folgende Daten werden für Username und Passwort verwendet
         user_name.send_keys('Test')
         user_password.send_keys('Test123456')
 
@@ -29,8 +34,10 @@ class LoginTest(LiveServerTestCase):
 
         time.sleep(2)
 
+        #Test erfolgreich, wenn das Wort "Dashboard" nach der Anmeldung zu sehen ist.
         assert 'Dashboard' in driver.page_source
 
+#Funktionsweise wie im Beispiel oben
 class RegisterTest(LiveServerTestCase):
   def testform(self):
     driver = webdriver.Chrome()

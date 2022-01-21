@@ -5,16 +5,19 @@
 <div class="col py-3">
     <h1>Kontakte</h1>
     <p></p>
+    <!--Damit sich das Popup Fenster öffnet, wenn man auf den Button klickt. Hierfür wird "Modals" von Bootstrap verwendet. -->
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+                <!-- Bei dem Modal-header wird die Überschrift angezeigt-->
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Bearbeiten</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" method="POST">
                     {% csrf_token %}
+                    <!-- Beim Modal-body werden die einzelnen Textfelder angezeigt, wo sich die Daten von der jeweiligen Zeile befindet. -->
                     <div class="modal-body">
                         <input type="hidden" name="update_id" id="update_id">
                         <br />
@@ -53,6 +56,7 @@
                             <input type="text" name="email" id="email" class="form-control">
                         </div>
                     </div>
+                    <!-- Beim Modal-footer werden die Buttons platziert -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
                         <button type="submit" name="deleteContact" class="btn btn-danger"
@@ -79,6 +83,8 @@
             </thead>
 
             <tbody>
+                <!-- Anhand einer For-Schleife wird nachgeschaut, ob sich in "all_contacts_dict" Daten befinden. Falls ja, wird jeder dieser Daten, in diesem Fall
+                Kontakte, in jeder einzelnen Zeile angezeigt. -->
                 {% if all_contacts_dict %}
 
 
@@ -145,15 +151,19 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
     <script>
+        //Dieser Code sorgt dafür, dass das Popup Fenster sich öffnet, wenn man auf den Button klickt. editbtn ist dabei hier die ID des Buttons.
+        //Nach diesem Prinzip wird das Popup bei Belege und To-Do mit den Werten aus den Zeilen gefüllt.
         $('.editbtn').on('click', function () {
+            //Mit der "on click" Funktion wird das Popup mit dem Namen "editmodal" durch die "modal(show)" Methode angezeigt.
             $('#editmodal').modal('show');
             $tr = $(this).closest('tr');
-
+            //Die einzelnen Kinderknoten von der Tabelle werden in einem Array in der "data"-Variable gespeichert. 
             var data = $tr.children("td").map(function () {
                 return $(this).text();
             }).get();
-
+            //Das Data Array wird in der Konsole angezeigt.
             console.log(data);
+            //Damit die Werte aus den Zeilen in den Textfeldern angezeigt werden, nimmt man den Namen des Textfeldes und setzt den Wert aus dem Array mit der val-Methode 
             $('#kontaktnummer').val(data[0]);
             $('#firma').val(data[1]);
             $('#ansprechpartner').val(data[2]);
