@@ -2,7 +2,7 @@
 {%load static%}
 
 {% block hauptinhalt %}
-
+<!--Die Einstellungen werden innerhalb einer Bootstrap-Card angezeigt -->
 <div class="col py-5">
    <div class="row">
       <div class="col">
@@ -10,6 +10,7 @@
       <div class="col-6">
          <div class="card p-5">
             <h1 class="mb-4">Einstellungen</h1>
+            <!--Die Einzelnen Einstellungsmerkmale werden ebenfalls innerhalb eines Cards platziert, damit sie ordentlich und sauber aussehen -->
             <div class="card mb-4">
                <div class="card-body">
                   <h5 class="card-title"> <i class="bi bi-people-fill"></i> Kontakte <a href="{% url 'home:contacts'%}"
@@ -27,7 +28,7 @@
             <div class="card mb-4">
                <div class="card-body">
                   <h5 class="card-title"> <i class="bi bi-lock-fill"></i> Passwort <a
-                        href="{% url 'edit:change_password_form'%}" class="btn btn-primary" id="a">Ändern</a></h5>
+                        href="{% url 'edit:change_password_form'%}" class="btn btn-primary" name="pwAendern" id="a">Ändern</a></h5>
                </div>
             </div>
             <p></p>
