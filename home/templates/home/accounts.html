@@ -1,6 +1,7 @@
 {% extends "home/base.html"%}
 {%load static%}
 
+<!--Die Konten werden als Bootstrap-Cards, also als Rechtecke angezeigt. Wieder wird eine For-Schleife verwendet, um aus der Konten-Liste die Konten anzuzeigen. -->
 {% block hauptinhalt %}
 <div class="col mt-3 mb-3">
   <div class="row">
@@ -13,6 +14,7 @@
               <div class="card-body">
                 <h5 class="card-title">Einnahmen</h5>
                 <p class="card-text">27351 €</p>
+                <!--Bei den A-Tags wird jeweils die Account-Details Seite als Link angegeben.. -->
                 <a href="{% url 'home:accountDetails'%}" class="btn btn-light">Details</a>
               </div>
             </div>

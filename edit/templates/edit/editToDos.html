@@ -4,11 +4,14 @@
 {% block hauptinhalt %}
 <div class="col py-5 mt-5">
     <div class="row mt-5">
+        <!--Die beiden leeren Col Elemente sorgen dafür, dass das Rechteck mit den Textfeldern im Inhalt in der Mitte des Bildschirms angezeigt wird -->
         <div class="col">
         </div>
         <div class="col-6">
+            <!--Die Seite wird innerhalb eines Cards angezeigt -->
             <div class="card p-5">
                 <h1 class="mb-4">Aufgabe erstellen</h1>
+                
                 {% for message in messages %}
                 <div class="alert alert-success">
                     <a class="close" href="#" data-dismiss="alert">×</a>
@@ -19,6 +22,7 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-sm-6">
+                            <!--Crispy Field sorgt dafür, dass die Textfelder im Bootstrap Stil angezeigt werden. -->
                             {{form.nummer|as_crispy_field}}
                         </div>
 
