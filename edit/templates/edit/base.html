@@ -1,5 +1,4 @@
 {%load static%}
-
 <!DOCTYPE html>
 <html lang="de">
 
@@ -40,7 +39,6 @@
     .nav-link:hover .fa {
       transform: rotate(360deg);
     }
-
     /*Icon Effekte*/
 
     /*Sidebar Begin*/
@@ -49,6 +47,7 @@
       background-color: #5e5b5b !important
     }
 
+    /*Abstände, Höhe, Weite, Position, Farbe der Sidebar*/
     .sidebar {
       padding: 10px 0 20px 0;
       position: fixed;
@@ -85,6 +84,7 @@
 </head>
 {%include "home/navbar.html"%}
 {% block hauptinhalt %}
+
 {% endblock hauptinhalt %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
