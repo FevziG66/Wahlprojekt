@@ -74,17 +74,23 @@ def receipts(request):
 
 @login_required()
 def contacts(request):
-    if 'edit' in request.GET:
-        knummer = request.GET.get('edit')
-        receipt_to_edit = receipt.objects.get(kontaktnummer=knummer)
-        form = EditContactForm(instance=receipt_to_edit)
-    else:
-        form = EditContactForm()
+    if request.method == "POST":
+        if 'deleteContact' in request.POST:
+            contact.objects.filter(kontaktnummer=request.POST['kontaktnummer']).delete()
+        elif 'updateContact' in request.POST: 
+                contact.objects.filter(kontaktnummer=request.POST['kontaktnummer']).update(
+                    kontaktnummer = request.POST['kontaktnummer'],
+                    firma = request.POST['firma'],
+                    ansprechpartner = request.POST['ansprechpartner'],
+                    adresse = request.POST['adresse'],
+                    telefonnummer = request.POST['telefonnummer'],
+                    email = request.POST['email'])
+
     all_contacts = contact.objects.all()
     all_contacts_dict = {
         'contact': all_contacts
     }
-    context = {"title": "Kontakte","all_contacts_dict": all_contacts,"form": form}
+    context = {"title": "Kontakte","all_contacts_dict": all_contacts,"all_contacts_dict": all_contacts}
     return render(request, 'home/contacts.html',context)
 
 @login_required()

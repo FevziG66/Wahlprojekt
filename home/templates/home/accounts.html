@@ -44,8 +44,8 @@
         <div class="row">
           {% if all_kontos_dict %}
           {% for konto in all_kontos_dict %}
-          <div class="col-sm-4 mb-3">
-            <div class="card text-white bg-primary">
+          <div class="col-sm-6 mb-3">
+            <div class="card text-white bg-secondary">
               <div class="card-body">
                 <h5 class="card-title">{{konto.name}}</h5>
                 <p class="card-text">Kontostand: {{konto.kontostand}} €</p>
@@ -55,25 +55,14 @@
           </div>
           {%endfor%}
           {%endif%}
-          <div class="col-sm-4">
+          <div class="col-sm-2">
             <div class="card text-white bg-dark">
               <div class="card-body">
                 <h5 class="card-title">Neues Konto erstellen</h5>
-                <p class="card-test">Hier können sie ein neues Konto erstellen.</p>
                 <a href="{% url 'edit:editBankAccount'%}" class="btn btn-light">+</a>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Konto erstellen</h5>
-          <a href="{% url 'edit:editBankAccount'%}" class="btn btn-primary">+</a>
         </div>
       </div>
     </div>

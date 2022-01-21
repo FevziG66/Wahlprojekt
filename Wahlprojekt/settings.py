@@ -135,8 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Zum Zurücksetzen des Passworts
 EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'fevzigencer1998@gmail.com'
-EMAIL_HOST_PASSWORD = 'Besiktask'
-EMAIL_POST = 587
-ACCOUNT_EMAIL_VERIFICATION = 'None'
+EMAIL_HOST_USER = 'easy.accmanager@gmail.com'
+EMAIL_HOST_PASSWORD = 'EasyAcc99!'
