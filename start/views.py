@@ -2,6 +2,7 @@ from django.contrib import auth
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 # Create your views here.
+from home import accounts
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -76,10 +77,15 @@ def register(request):
                     form.cleaned_data['email'],
                     form.cleaned_data['passwort']
                 )
+                
                 user.first_name = form.cleaned_data['vorname']
                 user.last_name = form.cleaned_data['nachname']
                 user.save()
-               
+                
+                #ungetestet, nicht umgesetzt
+                #Standardkonten für User anlegen, z.B. 
+                #Büromaterial, Fuhrpark, Miete, Personal, Portokasse, Einnahmen, Dienstleistungen, Lizenzen, Spenden, Gewinn
+
                 # User einloggen
                 login(request, user)
                

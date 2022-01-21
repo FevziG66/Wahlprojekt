@@ -54,9 +54,9 @@
                             <select name="konto" id="konto" class="form-control">
                                 
 
-                                {% for konto in all_kontos_dict %}
+                                {% for konto in all_kontos_dict %} <!--Select um bei Detailbearbeitung eines Belegs, das Konto bearbeiten zu können-->
                                 
-                                <option name={{konto.name}} value={{konto.name}}>{{konto.name}}</option>
+                                <option name={{konto.name}} value={{konto.name}}>{{konto.name}}</option><!--jeweils eine Option für jedes Konto-->
                                 
                                 {% endfor %}
 
@@ -100,12 +100,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% if all_receipts_dict %}
+                {% if all_receipts_dict %} <!--wenn all_receipts_dict übergeben wird -->
 
 
-                {% for receipt in all_receipts_dict %}
+                {% for receipt in all_receipts_dict %}<!--receipt zuweisen und durchiterieren-->
                 <tr>
-                    <td>{{receipt.belegnummer}}</td>
+                    <td>{{receipt.belegnummer}}</td> <!--einzelne Zellen der Tabelle mit Werten -->
                     <td>{{receipt.belegdatum}}</td>
                     <td>{{receipt.zahlart}}</td>
                     <td>{{receipt.faelligkeit}}</td>
@@ -115,7 +115,7 @@
                     <td>{{receipt.art}}</td>
                     <td><button name="edit" type="submit" class="btn btn-success editbtn" data-toogle="editmodal" data-target="editmodal">Bearbeiten</button></td>
                 </tr>
-                {% endfor %}
+                {% endfor %} <!--solange bis alle Receipts abgearbeitet sind-->
             </tbody>
 
 
@@ -162,8 +162,9 @@
                   return $(this).text();	
                 }).get();
 
-                function convertStringToEnglishDate(stringToConvert){
-                    var arrayOfStrings = stringToConvert.split(' ');
+                function convertStringToEnglishDate(stringToConvert){  //Funktion um Datum im deutschen Format
+                                                                    // für Date-Inputs in englisches Format umzuwandeln 
+                    var arrayOfStrings = stringToConvert.split(' '); //wahrscheinlich mit richtigem Dateinput aber auf die schnelle nicht gefunden 
                     var tag = arrayOfStrings[0].replace('.','');
                     if(tag.length<2){
                         tag = '0'.concat(tag);
@@ -171,7 +172,7 @@
                     var monat; 
                     var jahr;
                     
-                    switch (arrayOfStrings[1]){
+                    switch (arrayOfStrings[1]){ //'Case'-Anweisung um nach dem Monat zu filtern und dann entsprechenden Monat zuzweisen 
                         case "Januar":
                             monat = '-01-'; 
                             break;
@@ -223,7 +224,7 @@
                     return arrayOfStrings[2].concat(monat,tag);
                 }
                 
-                var belegdatum = convertStringToEnglishDate(data[1]);
+                var belegdatum = convertStringToEnglishDate(data[1]); //Konvertierungsfunktion aufrufen 
                 var faelligkeit = convertStringToEnglishDate(data[3]);
                 
                 $('#belegnummer').val(data[0]);
